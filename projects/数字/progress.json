@@ -1,12 +1,12 @@
 {
-  "status": "writing",
-  "currentPhase": "第5卷 - 第4章「第四章：剑意中的禁术」",
+  "status": "completed",
+  "currentPhase": "全部完成",
   "totalChapters": 60,
-  "completedChapters": 44,
-  "totalWords": 165319,
-  "lastWrittenChapter": 43,
-  "totalTokensUsed": 355818,
+  "completedChapters": 60,
+  "totalWords": 218773,
+  "lastWrittenChapter": 59,
+  "totalTokensUsed": 489705,
   "errors": [],
   "startedAt": "2026-05-24T11:21:13.515Z",
-  "updatedAt": "2026-05-24T12:22:28.344Z"
+  "updatedAt": "2026-05-24T12:42:16.830Z"
 }
