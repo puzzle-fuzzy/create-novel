@@ -1,0 +1,24 @@
+{
+  "name": "novel-generator",
+  "version": "1.0.0",
+  "description": "AI 驱动的长篇小说生成器，目标 20 万字",
+  "scripts": {
+    "init": "bun run src/index.ts init",
+    "plan": "bun run src/index.ts plan",
+    "write": "bun run src/index.ts write",
+    "compile": "bun run src/index.ts compile",
+    "status": "bun run src/index.ts status",
+    "start": "bun run src/index.ts start",
+    "dashboard": "bun run src/index.ts dashboard"
+  },
+  "dependencies": {
+    "openai": "^4.95.0",
+    "yaml": "^2.7.0",
+    "chalk": "^5.4.0",
+    "ora": "^8.2.0",
+    "inquirer": "^12.6.0"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.2.0"
+  }
+}

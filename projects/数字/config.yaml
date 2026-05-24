@@ -1,0 +1,67 @@
+version: "1.0"
+worldSetting:
+  name: 数字
+  genre: 仙
+  worldBackground: 一个灵气充沛的修仙世界，万族林立，人族在夹缝中求存
+  era: 架空世界
+  powerSystem: 炼气、筑基、金丹、元婴、化神、渡劫、大乘、飞升
+  socialStructure: 但是每个人都可以修炼，因为世界上还是有很多基础的武学等等，只不过人的资质还是很有限的，凡人不是和现在一样什么都不会，大家都会一点，会有很多的想法
+  geography: 东荒大陆、中州、北冥海、南疆、西漠
+  rules:
+    - 待世界设定书生成后确定
+  tone: 热血成长
+  themes:
+    - 成长
+    - 不屈
+    - 守护
+characters:
+  - name: 叶尘
+    role: 主角
+    description: 一个被家族驱逐的少年，体内封印着神秘力量
+    personality: 待定
+    background: 待定
+    arc: 从平凡到非凡的成长之旅
+  - name: 苏瑶儿
+    role: 主要配角
+    description: 重要角色
+    personality: 待定
+    background: 待定
+    arc: 待定
+  - name: 青梅竹马；墨无涯
+    role: 主要配角
+    description: 重要角色
+    personality: 待定
+    background: 待定
+    arc: 待定
+  - name: 亦敌亦友的天才；云长老
+    role: 主要配角
+    description: 重要角色
+    personality: 待定
+    background: 待定
+    arc: 待定
+  - name: 神秘的引路人
+    role: 主要配角
+    description: 重要角色
+    personality: 待定
+    background: 待定
+    arc: 待定
+writingStyle:
+  perspective: 第三人称有限视角
+  tense: 过去时
+  proseStyle: 简洁明快，节奏紧凑，善用短句营造紧迫感
+  chapterLength: 2500
+  dialogueRatio: 30%-40%
+plotFramework:
+  mainConflict: "\e[D\e[D"
+  incitingIncident: 主角在一次意外中觉醒了体内封印的力量
+  climax: 远古封印破碎，主角率领众人对抗远古魔神
+  resolution: 主角牺牲自我封印魔神，随后重生，开辟新的修炼纪元
+  subplots:
+    - 主角的身世之谜
+    - 宗门内的权力斗争
+    - 远古文明的遗藏
+targetLength: 200000
+generation:
+  volumeCount: 8
+  chaptersPerVolume: 10
+  wordsPerChapter: 2500

@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📚 小说生成器 Dashboard</title>
+<style>
+:root {
+  --bg: #0f1117;
+  --surface: #1a1d27;
+  --surface2: #242836;
+  --border: #2e3348;
+  --text: #e4e6f0;
+  --text2: #8b8fa8;
+  --primary: #6c5ce7;
+  --primary-light: #a29bfe;
+  --green: #00b894;
+  --green-dim: #00b89433;
+  --yellow: #fdcb6e;
+  --red: #e17055;
+  --blue: #74b9ff;
+  --orange: #fab1a0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* Header */
+.header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header h1 {
+  font-size: 20px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary-light), var(--green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.header .subtitle {
+  color: var(--text2);
+  font-size: 13px;
+}
+.header .refresh-btn {
+  margin-left: auto;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 6px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.2s;
+}
+.header .refresh-btn:hover { background: var(--primary); }
+
+/* Layout */
+.main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 24px 32px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+.full-width { grid-column: 1 / -1; }
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.card-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  font-weight: 600;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.card-body { padding: 20px; }
+
+/* Stats Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.stat-item {
+  background: var(--surface2);
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+.stat-value {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.stat-label {
+  font-size: 12px;
+  color: var(--text2);
+  margin-top: 4px;
+}
+.stat-value.green { color: var(--green); }
+.stat-value.blue { color: var(--blue); }
+.stat-value.primary { color: var(--primary-light); }
+.stat-value.yellow { color: var(--yellow); }
+.stat-value.red { color: var(--red); }
+
+/* Progress Bar */
+.progress-bar-container {
+  margin-top: 12px;
+}
+.progress-bar-bg {
+  height: 20px;
+  background: var(--surface2);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 10px;
+  background: linear-gradient(90deg, var(--primary), var(--green));
+  transition: width 0.6s ease;
+  position: relative;
+}
+.progress-bar-fill::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  animation: shimmer 2s infinite;
+}
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--text2);
+}
+
+/* Volume Progress */
+.volume-item {
+  margin-bottom: 16px;
+  padding: 14px 16px;
+  background: var(--surface2);
+  border-radius: 8px;
+}
+.volume-item:last-child { margin-bottom: 0; }
+.volume-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.volume-title {
+  font-weight: 600;
+  font-size: 14px;
+}
+.volume-meta {
+  font-size: 12px;
+  color: var(--text2);
+}
+.volume-bar-bg {
+  height: 8px;
+  background: var(--bg);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.volume-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: var(--primary);
+  transition: width 0.4s ease;
+}
+
+/* Chapter Grid */
+.chapter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(44px, 1fr));
+  gap: 4px;
+  margin-top: 12px;
+}
+.chapter-cell {
+  aspect-ratio: 1;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+.chapter-cell.completed {
+  background: var(--green-dim);
+  color: var(--green);
+  border: 1px solid var(--green);
+}
+.chapter-cell.pending {
+  background: var(--surface2);
+  color: var(--text2);
+  border: 1px solid var(--border);
+}
+.chapter-cell.current {
+  background: var(--primary);
+  color: white;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+.chapter-cell:hover {
+  transform: scale(1.15);
+  z-index: 10;
+}
+
+/* Chapter Tooltip */
+.chapter-cell .tooltip {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  text-align: left;
+  color: var(--text);
+  font-weight: 400;
+}
+.chapter-cell .tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--border);
+}
+.chapter-cell:hover .tooltip { display: block; }
+
+/* Chapter Detail Modal */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+}
+.modal-overlay.active { display: flex; }
+.modal {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  width: 90%;
+  max-width: 800px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+}
+.modal-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.modal-header h2 { font-size: 18px; }
+.modal-close {
+  background: none;
+  border: none;
+  color: var(--text2);
+  font-size: 24px;
+  cursor: pointer;
+}
+.modal-body {
+  padding: 24px;
+  overflow-y: auto;
+  flex: 1;
+  line-height: 1.8;
+  font-size: 15px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+.modal-body .placeholder {
+  color: var(--text2);
+  text-align: center;
+  padding: 40px;
+}
+
+/* Status Badge */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.status-badge.writing { background: #00b89433; color: var(--green); }
+.status-badge.paused { background: #fdcb6e33; color: var(--yellow); }
+.status-badge.completed { background: #6c5ce733; color: var(--primary-light); }
+.status-badge.idle { background: var(--surface2); color: var(--text2); }
+.status-badge.error { background: #e1705533; color: var(--red); }
+.status-badge.planning { background: #74b9ff33; color: var(--blue); }
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.status-badge.writing .status-dot { animation: blink 1.5s infinite; }
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+/* Errors */
+.error-list {
+  max-height: 200px;
+  overflow-y: auto;
+}
+.error-item {
+  padding: 8px 12px;
+  background: #e1705520;
+  border-radius: 6px;
+  font-size: 12px;
+  color: var(--orange);
+  margin-bottom: 6px;
+}
+
+/* Empty State */
+.empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text2);
+}
+.empty .icon { font-size: 48px; margin-bottom: 16px; }
+.empty p { font-size: 14px; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .main { grid-template-columns: 1fr; padding: 16px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Auto-refresh indicator */
+.auto-refresh {
+  font-size: 12px;
+  color: var(--text2);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.auto-refresh .spinner {
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <h1>📚 小说生成器 Dashboard</h1>
+    <div class="subtitle" id="updateTime">加载中...</div>
+  </div>
+  <div class="auto-refresh">
+    <div class="spinner"></div>
+    <span>自动刷新 10s</span>
+  </div>
+  <button class="refresh-btn" onclick="refresh()">🔄 刷新</button>
+</div>
+
+<div class="main" id="main">
+  <div class="empty full-width">
+    <div class="icon">📭</div>
+    <p>暂无项目，请先运行 <code>bun run init</code> 创建项目</p>
+  </div>
+</div>
+
+<!-- Chapter Detail Modal -->
+<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="modalTitle">章节详情</h2>
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+    </div>
+    <div class="modal-body" id="modalBody">
+      <div class="placeholder">加载中...</div>
+    </div>
+  </div>
+</div>
+
+<script>
+let data = null;
+let projectName = null;
+
+async function refresh() {
+  try {
+    const res = await fetch('/api/projects');
+    data = await res.json();
+    render();
+  } catch (e) {
+    document.getElementById('updateTime').textContent = '连接失败，请确认服务已启动';
+  }
+}
+
+function render() {
+  if (!data || data.length === 0) {
+    document.getElementById('main').innerHTML = `
+      <div class="empty full-width">
+        <div class="icon">📭</div>
+        <p>暂无项目，请先运行 <code>bun run init</code> 创建项目</p>
+      </div>`;
+    return;
+  }
+
+  projectName = data[0].name;
+  const { config, outline, progress } = data[0];
+
+  if (!config) {
+    document.getElementById('main').innerHTML = `
+      <div class="empty full-width">
+        <div class="icon">⚠️</div>
+        <p>项目配置缺失</p>
+      </div>`;
+    return;
+  }
+
+  const completedChapters = progress?.completedFiles || 0;
+  const totalChapters = outline?.totalChapters || config.volumeCount * config.chaptersPerVolume;
+  const pct = totalChapters > 0 ? (completedChapters / totalChapters * 100).toFixed(1) : 0;
+  const actualWords = progress?.actualWordCount || 0;
+  const wordsPct = config.targetLength > 0 ? (actualWords / config.targetLength * 100).toFixed(1) : 0;
+  const tokens = progress?.totalTokensUsed || 0;
+  const status = progress?.status || 'idle';
+  const statusLabel = { idle: '未开始', planning: '生成大纲中', writing: '写作中', paused: '已暂停', completed: '已完成', error: '出错' };
+
+  document.getElementById('updateTime').textContent =
+    `${config.title} · ${config.genre} · 更新于 ${new Date().toLocaleTimeString()}`;
+
+  let html = '';
+
+  // Row 1: Stats
+  html += `<div class="card full-width">
+    <div class="card-header">
+      📊 总体进度
+      <span class="status-badge ${status}"><span class="status-dot"></span>${statusLabel[status] || status}</span>
+    </div>
+    <div class="card-body">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-value green">${completedChapters}<span style="font-size:14px;color:var(--text2)">/${totalChapters}</span></div>
+          <div class="stat-label">已完成章节</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value blue">${(actualWords / 10000).toFixed(1)}<span style="font-size:14px;color:var(--text2)">万字</span></div>
+          <div class="stat-label">实际字数（目标 ${(config.targetLength/10000).toFixed(0)} 万）</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value primary">${tokens > 0 ? (tokens / 1000).toFixed(0) + 'k' : '-'}</div>
+          <div class="stat-label">Token 消耗</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value ${pct >= 100 ? 'green' : 'yellow'}">${pct}%</div>
+          <div class="stat-label">章节完成率</div>
+        </div>
+      </div>
+      <div class="progress-bar-container">
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" style="width: ${Math.min(pct, 100)}%"></div>
+        </div>
+        <div class="progress-label">
+          <span>章节数 ${completedChapters}/${totalChapters}</span>
+          <span>字数 ${(actualWords/10000).toFixed(1)}/${(config.targetLength/10000).toFixed(0)} 万（${wordsPct}%）</span>
+        </div>
+      </div>
+    </div>
+  </div>`;
+
+  // Row 2: Volume progress + Chapter grid
+  if (outline && outline.volumes) {
+    html += `<div class="card">
+      <div class="card-header">📖 各卷进度</div>
+      <div class="card-body">`;
+
+    for (const vol of outline.volumes) {
+      const volCompleted = vol.chapters.filter(ch => {
+        const fileName = `v${String(vol.volumeIndex + 1).padStart(2, '0')}_c${String(ch.chapterIndex + 1).padStart(3, '0')}.txt`;
+        return progress?.chapterWordCounts?.[fileName] !== undefined;
+      }).length;
+      const volTotal = vol.chapters.length;
+      const volPct = volTotal > 0 ? (volCompleted / volTotal * 100) : 0;
+      const volWords = vol.chapters.reduce((sum, ch) => {
+        const fn = `v${String(vol.volumeIndex + 1).padStart(2, '0')}_c${String(ch.chapterIndex + 1).padStart(3, '0')}.txt`;
+        return sum + (progress?.chapterWordCounts?.[fn] || 0);
+      }, 0);
+
+      html += `<div class="volume-item">
+        <div class="volume-header">
+          <span class="volume-title">第${vol.volumeIndex + 1}卷：${vol.title}</span>
+          <span class="volume-meta">${volCompleted}/${volTotal} 章 · ${(volWords/10000).toFixed(1)} 万字</span>
+        </div>
+        <div class="volume-bar-bg">
+          <div class="volume-bar-fill" style="width: ${volPct}%; background: ${volPct >= 100 ? 'var(--green)' : 'var(--primary)'}"></div>
+        </div>
+        <div class="chapter-grid">`;
+
+      for (const ch of vol.chapters) {
+        const fn = `v${String(vol.volumeIndex + 1).padStart(2, '0')}_c${String(ch.chapterIndex + 1).padStart(3, '0')}.txt`;
+        const isCompleted = progress?.chapterWordCounts?.[fn] !== undefined;
+        const wordCount = progress?.chapterWordCounts?.[fn] || 0;
+        const isCurrent = progress?.lastWrittenChapter === ch.globalIndex;
+        const cls = isCurrent ? 'current' : (isCompleted ? 'completed' : 'pending');
+
+        html += `<div class="chapter-cell ${cls}"
+          onclick="openChapter(${vol.volumeIndex}, ${ch.chapterIndex}, '${ch.title.replace(/'/g, "\\'")}')">
+          ${ch.chapterIndex + 1}
+          <div class="tooltip">
+            <strong>第${ch.globalIndex + 1}章：${ch.title}</strong><br>
+            ${isCompleted ? `✅ ${wordCount} 字` : '⏳ 未完成'}<br>
+            <span style="color:var(--text2)">${ch.mood || ''}</span>
+          </div>
+        </div>`;
+      }
+
+      html += `</div></div>`;
+    }
+
+    html += `</div></div>`;
+
+    // Errors panel
+    html += `<div class="card">
+      <div class="card-header">📋 详细信息</div>
+      <div class="card-body">`;
+
+    if (progress?.currentPhase) {
+      html += `<div style="margin-bottom:16px">
+        <div style="font-size:12px;color:var(--text2);margin-bottom:4px">当前阶段</div>
+        <div style="font-size:14px">${progress.currentPhase}</div>
+      </div>`;
+    }
+
+    if (progress?.startedAt) {
+      html += `<div style="margin-bottom:16px">
+        <div style="font-size:12px;color:var(--text2);margin-bottom:4px">开始时间</div>
+        <div style="font-size:14px">${new Date(progress.startedAt).toLocaleString()}</div>
+      </div>`;
+    }
+
+    if (progress?.updatedAt) {
+      html += `<div style="margin-bottom:16px">
+        <div style="font-size:12px;color:var(--text2);margin-bottom:4px">最后更新</div>
+        <div style="font-size:14px">${new Date(progress.updatedAt).toLocaleString()}</div>
+      </div>`;
+    }
+
+    // Word count bar chart
+    if (outline.volumes.length > 0) {
+      html += `<div style="margin-bottom:16px">
+        <div style="font-size:12px;color:var(--text2);margin-bottom:8px">各章节字数分布</div>
+        <div style="display:flex;align-items:flex-end;gap:2px;height:80px">`;
+      
+      let maxWords = 0;
+      for (const vol of outline.volumes) {
+        for (const ch of vol.chapters) {
+          const fn = `v${String(vol.volumeIndex + 1).padStart(2, '0')}_c${String(ch.chapterIndex + 1).padStart(3, '0')}.txt`;
+          const w = progress?.chapterWordCounts?.[fn] || 0;
+          if (w > maxWords) maxWords = w;
+        }
+      }
+      maxWords = Math.max(maxWords, 1);
+
+      for (const vol of outline.volumes) {
+        for (const ch of vol.chapters) {
+          const fn = `v${String(vol.volumeIndex + 1).padStart(2, '0')}_c${String(ch.chapterIndex + 1).padStart(3, '0')}.txt`;
+          const w = progress?.chapterWordCounts?.[fn] || 0;
+          const h = (w / maxWords * 100);
+          const color = w > 0 ? 'var(--green)' : 'var(--border)';
+          html += `<div style="flex:1;min-width:4px;height:${h}%;background:${color};border-radius:2px 2px 0 0" title="${ch.title}: ${w}字"></div>`;
+        }
+      }
+      html += `</div></div>`;
+    }
+
+    // Errors
+    if (progress?.errors && progress.errors.length > 0) {
+      html += `<div>
+        <div style="font-size:12px;color:var(--text2);margin-bottom:8px">⚠️ 错误记录（${progress.errors.length}）</div>
+        <div class="error-list">`;
+      for (const err of progress.errors) {
+        html += `<div class="error-item">${err}</div>`;
+      }
+      html += `</div></div>`;
+    }
+
+    html += `</div></div>`;
+  }
+
+  document.getElementById('main').innerHTML = html;
+}
+
+async function openChapter(vIdx, cIdx, title) {
+  const modal = document.getElementById('modal');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalBody = document.getElementById('modalBody');
+
+  modal.classList.add('active');
+  modalTitle.textContent = `第${cIdx + 1}章：${title}`;
+  modalBody.innerHTML = '<div class="placeholder">加载中...</div>';
+
+  try {
+    const res = await fetch(`/api/projects/${encodeURIComponent(projectName)}/chapter?v=${vIdx}&c=${cIdx}`);
+    const data = await res.json();
+    if (data.content) {
+      modalBody.textContent = data.content;
+    } else {
+      modalBody.innerHTML = '<div class="placeholder">该章节尚未生成</div>';
+    }
+  } catch (e) {
+    modalBody.innerHTML = '<div class="placeholder">加载失败</div>';
+  }
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('active');
+}
+
+// ESC 关闭弹窗
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal();
+});
+
+// 初始加载 + 自动刷新
+refresh();
+setInterval(refresh, 10000);
+</script>
+</body>
+</html>
