@@ -49,7 +49,7 @@ writingStyle:
   perspective: 第三人称有限视角
   tense: 过去时
   proseStyle: 简洁明快，节奏紧凑，善用短句营造紧迫感
-  chapterLength: 2500
+  chapterLength: 4000
   dialogueRatio: 30%-40%
 plotFramework:
   mainConflict: "\e[D\e[D"
@@ -64,4 +64,4 @@ targetLength: 200000
 generation:
   volumeCount: 8
   chaptersPerVolume: 10
-  wordsPerChapter: 2500
+  wordsPerChapter: 4000

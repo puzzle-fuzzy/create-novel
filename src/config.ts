@@ -3,43 +3,68 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync, readdirSync, statSy
 import { join } from 'path';
 import YAML from 'yaml';
 
+// ============================================================
+// 基础类型
+// ============================================================
+
 export interface Character {
   name: string;
   role: '主角' | '主要配角' | '次要配角' | '反派';
   description: string;
   personality: string;
   background: string;
-  arc: string; // 角色弧线
+  arc: string;
 }
 
 export interface WorldSetting {
-  name: string; // 小说名称
-  genre: string; // 题材类型
-  worldBackground: string; // 世界观背景
-  era: string; // 时代背景
-  powerSystem?: string; // 力量体系（奇幻/科幻）
-  socialStructure: string; // 社会结构
-  geography?: string; // 地理环境
-  rules: string[]; // 世界规则/禁忌
-  tone: string; // 基调风格
-  themes: string[]; // 核心主题
+  name: string;
+  genre: string;
+  worldBackground: string;
+  era: string;
+  powerSystem?: string;
+  socialStructure: string;
+  geography?: string;
+  rules: string[];
+  tone: string;
+  themes: string[];
 }
 
 export interface WritingStyle {
-  perspective: string; // 叙事视角
-  tense: string; // 时态
-  proseStyle: string; // 文笔风格
-  chapterLength: number; // 每章目标字数
-  dialogueRatio: string; // 对话占比
+  perspective: string;
+  tense: string;
+  proseStyle: string;
+  chapterLength: number;
+  dialogueRatio: string;
+}
+
+// ============================================================
+// 篇（Arc）定义 — 多篇结构支撑 200 万字
+// ============================================================
+
+export interface ArcDefinition {
+  arcIndex: number;
+  title: string;
+  volumeRange: { start: number; end: number };
+  summary: string;
+  subConflict: string;
+  keyCharacters: string[];
+  climax: string;
+  resolution: string;
+  connectsTo: string;
 }
 
 export interface PlotFramework {
-  mainConflict: string; // 主线冲突
-  incitingIncident: string; // 触发事件
-  climax: string; // 高潮
-  resolution: string; // 结局走向
-  subplots: string[]; // 支线剧情
+  mainConflict: string;
+  incitingIncident: string;
+  climax: string;
+  resolution: string;
+  subplots: string[];
+  arcs?: ArcDefinition[];
 }
+
+// ============================================================
+// 配置
+// ============================================================
 
 export interface NovelConfig {
   version: string;
@@ -47,16 +72,25 @@ export interface NovelConfig {
   characters: Character[];
   writingStyle: WritingStyle;
   plotFramework: PlotFramework;
-  targetLength: number; // 目标总字数
+  targetLength: number;
   generation: {
     volumeCount: number;
     chaptersPerVolume: number;
     wordsPerChapter: number;
+    perVolumeOverrides?: Record<number, {
+      chaptersPerVolume?: number;
+      wordsPerChapter?: number;
+    }>;
   };
 }
 
+// ============================================================
+// 大纲类型
+// ============================================================
+
 export interface VolumeOutline {
   volumeIndex: number;
+  arcIndex?: number;
   title: string;
   summary: string;
   keyEvents: string[];
@@ -85,6 +119,10 @@ export interface FullOutline {
   volumes: VolumeOutline[];
 }
 
+// ============================================================
+// 进度
+// ============================================================
+
 export interface Progress {
   status: 'idle' | 'planning' | 'writing' | 'paused' | 'completed' | 'error';
   currentPhase: string;
@@ -96,7 +134,71 @@ export interface Progress {
   errors: string[];
   startedAt: string;
   updatedAt: string;
+  completedVolumes?: number;
+  completedArcs?: number;
+  currentArcIndex?: number;
+  currentVolumeIndex?: number;
+  volumeWordCounts?: Record<number, number>;
 }
+
+// ============================================================
+// 层级记忆类型
+// ============================================================
+
+export interface VolumeSummary {
+  volumeIndex: number;
+  arcIndex: number;
+  title: string;
+  summary: string;
+  characterDevelopments: string[];
+  keyEvents: string[];
+  unresolvedForeshadows: string[];
+  toneAndPacing: string;
+}
+
+export interface ArcSummary {
+  arcIndex: number;
+  volumeRange: { start: number; end: number };
+  summary: string;
+  characterStatusSnapshots: Record<string, {
+    location: string;
+    status: string;
+    keyChanges: string[];
+  }>;
+  resolvedForeshadows: string[];
+  unresolvedForeshadows: string[];
+  plotAdvancement: string;
+}
+
+// ============================================================
+// Agent 类型
+// ============================================================
+
+export interface AgentDecision {
+  chapterGlobalIndex: number;
+  timestamp: string;
+  featuredCharacters: string[];
+  pacing: 'fast' | 'medium' | 'slow';
+  plotFocus: 'main' | 'subplot' | 'character' | 'worldbuilding';
+  foreshadowsToPlant: string[];
+  foreshadowsToResolve: string[];
+  tone: string;
+  mood: string;
+  emphasis: string[];
+  storyHealth?: StoryHealth;
+}
+
+export interface StoryHealth {
+  foreshadowBacklog: number;
+  characterNeglect: string[];
+  pacingAssessment: 'too_fast' | 'too_slow' | 'good';
+  consistencyWarnings: string[];
+  recommendations: string[];
+}
+
+// ============================================================
+// 项目管理器
+// ============================================================
 
 export class ProjectManager {
   public readonly projectDir: string;
@@ -105,12 +207,18 @@ export class ProjectManager {
     this.projectDir = join(process.cwd(), 'projects', projectName);
   }
 
-  // Config
+  // 基础路径
   get configPath() { return join(this.projectDir, 'config.yaml'); }
   get outlinePath() { return join(this.projectDir, 'outline.json'); }
   get progressPath() { return join(this.projectDir, 'progress.json'); }
   get chaptersDir() { return join(this.projectDir, 'chapters'); }
   get outputPath() { return join(this.projectDir, 'output'); }
+
+  // 层级记忆路径
+  get volumeSummariesDir() { return join(this.projectDir, 'summaries', 'volumes'); }
+  get arcSummariesDir() { return join(this.projectDir, 'summaries', 'arcs'); }
+  get stateSnapshotsDir() { return join(this.projectDir, 'state_snapshots'); }
+  get agentDecisionsPath() { return join(this.projectDir, 'agent_decisions.json'); }
 
   static listProjects(): string[] {
     const projectsDir = join(process.cwd(), 'projects');
@@ -128,6 +236,9 @@ export class ProjectManager {
     if (!existsSync(this.projectDir)) mkdirSync(this.projectDir, { recursive: true });
     if (!existsSync(this.chaptersDir)) mkdirSync(this.chaptersDir, { recursive: true });
     if (!existsSync(this.outputPath)) mkdirSync(this.outputPath, { recursive: true });
+    if (!existsSync(this.volumeSummariesDir)) mkdirSync(this.volumeSummariesDir, { recursive: true });
+    if (!existsSync(this.arcSummariesDir)) mkdirSync(this.arcSummariesDir, { recursive: true });
+    if (!existsSync(this.stateSnapshotsDir)) mkdirSync(this.stateSnapshotsDir, { recursive: true });
   }
 
   saveConfig(config: NovelConfig): void {
@@ -187,6 +298,21 @@ export class ProjectManager {
     return readdirSync(this.chaptersDir)
       .filter((f: string) => f.endsWith('.txt'))
       .sort();
+  }
+
+  // Agent 决策持久化
+  saveAgentDecision(decision: AgentDecision): void {
+    let decisions: AgentDecision[] = [];
+    if (existsSync(this.agentDecisionsPath)) {
+      try { decisions = JSON.parse(readFileSync(this.agentDecisionsPath, 'utf-8')); } catch {}
+    }
+    decisions.push(decision);
+    writeFileSync(this.agentDecisionsPath, JSON.stringify(decisions, null, 2), 'utf-8');
+  }
+
+  loadAgentDecisions(): AgentDecision[] {
+    if (!existsSync(this.agentDecisionsPath)) return [];
+    try { return JSON.parse(readFileSync(this.agentDecisionsPath, 'utf-8')); } catch { return []; }
   }
 
   compileNovel(): string {

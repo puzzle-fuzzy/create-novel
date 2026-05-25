@@ -12,11 +12,12 @@
     "dashboard": "bun run src/index.ts dashboard"
   },
   "dependencies": {
-    "openai": "^4.95.0",
-    "yaml": "^2.7.0",
     "chalk": "^5.4.0",
+    "inquirer": "^12.6.0",
+    "openai": "^4.95.0",
     "ora": "^8.2.0",
-    "inquirer": "^12.6.0"
+    "ws": "^8.21.0",
+    "yaml": "^2.7.0"
   },
   "devDependencies": {
     "@types/bun": "^1.2.0"

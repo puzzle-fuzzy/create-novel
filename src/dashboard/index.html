@@ -3,673 +3,476 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>📚 小说生成器 Dashboard</title>
+<title>小说生成器 - 实时监控面板</title>
 <style>
-:root {
-  --bg: #0f1117;
-  --surface: #1a1d27;
-  --surface2: #242836;
-  --border: #2e3348;
-  --text: #e4e6f0;
-  --text2: #8b8fa8;
-  --primary: #6c5ce7;
-  --primary-light: #a29bfe;
-  --green: #00b894;
-  --green-dim: #00b89433;
-  --yellow: #fdcb6e;
-  --red: #e17055;
-  --blue: #74b9ff;
-  --orange: #fab1a0;
-}
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0b0f;--s1:#12141c;--s2:#1a1d27;--s3:#222633;--bd:#2a2f3d;--t:#e4e4e8;--td:#6b7084;--acc:#7b8cff;--grn:#4caf50;--orn:#ff9800;--red:#ef5350;--blu:#42a5f5;--pur:#b388ff;--font:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;--mono:'SF Mono','Menlo','Consolas',monospace}
+body{font-family:var(--font);background:var(--bg);color:var(--t);height:100vh;overflow:hidden;display:flex;flex-direction:column}
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* 顶栏 */
+.topbar{background:var(--s1);border-bottom:1px solid var(--bd);padding:0 20px;height:48px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.topbar-left{display:flex;align-items:center;gap:16px}
+.topbar h1{font-size:15px;font-weight:600}
+.ws-dot{width:7px;height:7px;border-radius:50%;display:inline-block}
+.ws-on{background:var(--grn);box-shadow:0 0 6px var(--grn)}
+.ws-off{background:var(--red)}
+.badge{padding:3px 10px;border-radius:10px;font-size:11px;font-weight:600}
+.b-idle{background:#1a1a2e;color:#555}.b-planning{background:#0d1b3e;color:#6ea8fe}.b-writing{background:#0d2818;color:#69f0ae}
+.b-completed{background:#1b3a1b;color:#81c784}.b-error{background:#3e0d0d;color:#ef9a9a}.b-paused{background:#3e2a0d;color:#ffcc80}
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  min-height: 100vh;
-}
+/* 主体布局 */
+.main{display:flex;flex:1;overflow:hidden}
+.sidebar{width:220px;background:var(--s1);border-right:1px solid var(--bd);display:flex;flex-direction:column;flex-shrink:0}
+.sidebar-title{padding:10px 14px;font-size:11px;color:var(--td);text-transform:uppercase;letter-spacing:1px;border-bottom:1px solid var(--bd)}
+.tab-list{flex:1;overflow-y:auto;padding:4px}
+.tab{padding:8px 14px;font-size:13px;cursor:pointer;border-radius:4px;margin:2px 4px;display:flex;align-items:center;gap:8px;color:var(--td);transition:all .15s}
+.tab:hover{background:var(--s2);color:var(--t)}
+.tab.active{background:var(--s3);color:var(--acc)}
+.tab-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
 
-/* Header */
-.header {
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
-  padding: 16px 32px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-.header h1 {
-  font-size: 20px;
-  font-weight: 700;
-  background: linear-gradient(135deg, var(--primary-light), var(--green));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.header .subtitle {
-  color: var(--text2);
-  font-size: 13px;
-}
-.header .refresh-btn {
-  margin-left: auto;
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  color: var(--text);
-  padding: 6px 16px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 13px;
-  transition: all 0.2s;
-}
-.header .refresh-btn:hover { background: var(--primary); }
+.content{flex:1;overflow-y:auto;padding:20px 24px}
 
-/* Layout */
-.main {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  padding: 24px 32px;
-  max-width: 1600px;
-  margin: 0 auto;
-}
-.full-width { grid-column: 1 / -1; }
+/* 卡片 */
+.card{background:var(--s2);border:1px solid var(--bd);border-radius:8px;margin-bottom:16px}
+.card-head{padding:12px 16px;border-bottom:1px solid var(--bd);display:flex;justify-content:space-between;align-items:center}
+.card-head h3{font-size:13px;font-weight:600}
+.card-body{padding:16px}
 
-/* Card */
-.card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  overflow: hidden;
-}
-.card-header {
-  padding: 16px 20px;
-  border-bottom: 1px solid var(--border);
-  font-weight: 600;
-  font-size: 15px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.card-body { padding: 20px; }
+/* 统计格子 */
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}
+.stat-card{background:var(--s2);border:1px solid var(--bd);border-radius:8px;padding:16px;text-align:center}
+.stat-card .val{font-size:26px;font-weight:700;color:var(--acc);font-variant-numeric:tabular-nums}
+.stat-card .lbl{font-size:11px;color:var(--td);margin-top:4px}
 
-/* Stats Grid */
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-}
-.stat-item {
-  background: var(--surface2);
-  border-radius: 10px;
-  padding: 16px;
-  text-align: center;
-}
-.stat-value {
-  font-size: 28px;
-  font-weight: 700;
-  line-height: 1.2;
-}
-.stat-label {
-  font-size: 12px;
-  color: var(--text2);
-  margin-top: 4px;
-}
-.stat-value.green { color: var(--green); }
-.stat-value.blue { color: var(--blue); }
-.stat-value.primary { color: var(--primary-light); }
-.stat-value.yellow { color: var(--yellow); }
-.stat-value.red { color: var(--red); }
+/* 进度条 */
+.pbar{height:10px;background:var(--s3);border-radius:5px;overflow:hidden;margin:8px 0}
+.pbar-fill{height:100%;background:linear-gradient(90deg,var(--acc),var(--pur));border-radius:5px;transition:width .6s ease}
+.pbar-text{display:flex;justify-content:space-between;font-size:12px;color:var(--td)}
 
-/* Progress Bar */
-.progress-bar-container {
-  margin-top: 12px;
-}
-.progress-bar-bg {
-  height: 20px;
-  background: var(--surface2);
-  border-radius: 10px;
-  overflow: hidden;
-  position: relative;
-}
-.progress-bar-fill {
-  height: 100%;
-  border-radius: 10px;
-  background: linear-gradient(90deg, var(--primary), var(--green));
-  transition: width 0.6s ease;
-  position: relative;
-}
-.progress-bar-fill::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-  animation: shimmer 2s infinite;
-}
-@keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
-.progress-label {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 8px;
-  font-size: 13px;
-  color: var(--text2);
-}
+/* 架构流程 */
+.arch{display:flex;gap:2px;flex-wrap:nowrap;overflow-x:auto;padding:4px 0}
+.arch-step{flex:1;min-width:100px;padding:10px 8px;border-radius:6px;text-align:center;font-size:11px;background:var(--s3);border:1px solid var(--bd);position:relative;transition:all .3s}
+.arch-step.done{border-color:var(--grn);background:rgba(76,175,80,.08)}
+.arch-step.active{border-color:var(--acc);background:rgba(123,140,255,.1);animation:glow 2s infinite}
+.arch-step .icon{font-size:18px;margin-bottom:4px}
+.arch-step .label{font-weight:600;color:var(--t)}
+.arch-step .sub{font-size:10px;color:var(--td);margin-top:2px}
+.arch-step.done .label{color:var(--grn)}
+.arch-step.active .label{color:var(--acc)}
+@keyframes glow{0%,100%{box-shadow:0 0 0 rgba(123,140,255,0)}50%{box-shadow:0 0 12px rgba(123,140,255,.3)}}
 
-/* Volume Progress */
-.volume-item {
-  margin-bottom: 16px;
-  padding: 14px 16px;
-  background: var(--surface2);
-  border-radius: 8px;
-}
-.volume-item:last-child { margin-bottom: 0; }
-.volume-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 8px;
-}
-.volume-title {
-  font-weight: 600;
-  font-size: 14px;
-}
-.volume-meta {
-  font-size: 12px;
-  color: var(--text2);
-}
-.volume-bar-bg {
-  height: 8px;
-  background: var(--bg);
-  border-radius: 4px;
-  overflow: hidden;
-}
-.volume-bar-fill {
-  height: 100%;
-  border-radius: 4px;
-  background: var(--primary);
-  transition: width 0.4s ease;
-}
+/* 卷格 */
+.vol-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(48px,1fr));gap:6px}
+.vol{height:56px;border-radius:6px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:10px;font-weight:600;cursor:pointer;transition:all .15s;border:1px solid transparent}
+.vol:hover{transform:scale(1.08);z-index:1}
+.vol.empty{background:var(--s3);color:var(--td)}
+.vol.writing{background:rgba(123,140,255,.12);color:var(--acc);border-color:var(--acc);animation:glow 2s infinite}
+.vol.partial{background:rgba(255,152,0,.1);color:var(--orn);border-color:rgba(255,152,0,.3)}
+.vol.done{background:rgba(76,175,80,.1);color:var(--grn);border-color:rgba(76,175,80,.3)}
+.vol .num{font-size:14px;font-weight:700}
+.vol .cnt{font-size:9px;opacity:.7}
 
-/* Chapter Grid */
-.chapter-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(44px, 1fr));
-  gap: 4px;
-  margin-top: 12px;
-}
-.chapter-cell {
-  aspect-ratio: 1;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 11px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s;
-  position: relative;
-}
-.chapter-cell.completed {
-  background: var(--green-dim);
-  color: var(--green);
-  border: 1px solid var(--green);
-}
-.chapter-cell.pending {
-  background: var(--surface2);
-  color: var(--text2);
-  border: 1px solid var(--border);
-}
-.chapter-cell.current {
-  background: var(--primary);
-  color: white;
-  animation: pulse 2s infinite;
-}
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
-}
-.chapter-cell:hover {
-  transform: scale(1.15);
-  z-index: 10;
-}
+/* 项目选择器 */
+.proj-sel{background:var(--s2);color:var(--t);border:1px solid var(--bd);border-radius:4px;padding:4px 8px;font-size:12px;font-family:var(--font);cursor:pointer;outline:none}
+.proj-sel:focus{border-color:var(--acc)}
+.proj-sel option{background:var(--s2);color:var(--t)}
 
-/* Chapter Tooltip */
-.chapter-cell .tooltip {
-  display: none;
-  position: absolute;
-  bottom: calc(100% + 8px);
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 10px 14px;
-  font-size: 12px;
-  white-space: nowrap;
-  z-index: 100;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  text-align: left;
-  color: var(--text);
-  font-weight: 400;
-}
-.chapter-cell .tooltip::after {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  border: 6px solid transparent;
-  border-top-color: var(--border);
-}
-.chapter-cell:hover .tooltip { display: block; }
+/* 章节表格 */
+.ch-table{width:100%;border-collapse:collapse;font-size:12px}
+.ch-table th{text-align:left;padding:8px 10px;color:var(--td);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--bd)}
+.ch-table td{padding:6px 10px;border-bottom:1px solid rgba(42,47,61,.5);vertical-align:top}
+.ch-table tr:hover td{background:var(--s3)}
+.ch-table .ch-title{color:var(--t);cursor:pointer;font-weight:500}
+.ch-table .ch-title:hover{color:var(--acc)}
+.ch-table .ch-mood{font-size:10px;padding:2px 6px;border-radius:3px;background:var(--s3)}
+.ch-table .ch-words{font-variant-numeric:tabular-nums;color:var(--td)}
+.ch-table .ch-status{font-size:10px;padding:2px 8px;border-radius:8px}
+.ch-s-done{background:rgba(76,175,80,.15);color:var(--grn)}
+.ch-s-writing{background:rgba(123,140,255,.15);color:var(--acc)}
+.ch-s-pending{background:var(--s3);color:var(--td)}
 
-/* Chapter Detail Modal */
-.modal-overlay {
-  display: none;
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.6);
-  z-index: 200;
-  align-items: center;
-  justify-content: center;
-}
-.modal-overlay.active { display: flex; }
-.modal {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  width: 90%;
-  max-width: 800px;
-  max-height: 85vh;
-  display: flex;
-  flex-direction: column;
-}
-.modal-header {
-  padding: 20px 24px;
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.modal-header h2 { font-size: 18px; }
-.modal-close {
-  background: none;
-  border: none;
-  color: var(--text2);
-  font-size: 24px;
-  cursor: pointer;
-}
-.modal-body {
-  padding: 24px;
-  overflow-y: auto;
-  flex: 1;
-  line-height: 1.8;
-  font-size: 15px;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-}
-.modal-body .placeholder {
-  color: var(--text2);
-  text-align: center;
-  padding: 40px;
-}
+/* 章节阅读器 */
+.reader-overlay{position:fixed;top:0;right:0;width:60%;height:100%;background:var(--s1);border-left:1px solid var(--bd);z-index:100;transform:translateX(100%);transition:transform .3s ease;display:flex;flex-direction:column}
+.reader-overlay.open{transform:translateX(0)}
+.reader-header{padding:14px 20px;border-bottom:1px solid var(--bd);display:flex;justify-content:space-between;align-items:center}
+.reader-header h3{font-size:14px}
+.reader-close{background:none;border:none;color:var(--td);font-size:20px;cursor:pointer;padding:4px 8px}
+.reader-close:hover{color:var(--t)}
+.reader-body{flex:1;overflow-y:auto;padding:24px 32px;font-size:15px;line-height:1.9;white-space:pre-wrap;word-break:break-all}
+.reader-meta{padding:10px 20px;background:var(--s2);font-size:11px;color:var(--td);display:flex;gap:16px}
 
-/* Status Badge */
-.status-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 600;
-}
-.status-badge.writing { background: #00b89433; color: var(--green); }
-.status-badge.paused { background: #fdcb6e33; color: var(--yellow); }
-.status-badge.completed { background: #6c5ce733; color: var(--primary-light); }
-.status-badge.idle { background: var(--surface2); color: var(--text2); }
-.status-badge.error { background: #e1705533; color: var(--red); }
-.status-badge.planning { background: #74b9ff33; color: var(--blue); }
-.status-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: currentColor;
-}
-.status-badge.writing .status-dot { animation: blink 1.5s infinite; }
-@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+/* 事件流 */
+.ev-list{max-height:500px;overflow-y:auto;font-size:12px;font-family:var(--mono)}
+.ev{padding:5px 10px;border-bottom:1px solid rgba(42,47,61,.3);display:flex;gap:8px;align-items:flex-start}
+.ev-time{color:var(--td);white-space:nowrap;font-size:11px;min-width:70px}
+.ev-tag{font-size:9px;padding:1px 5px;border-radius:3px;font-weight:600;white-space:nowrap}
+.ev-msg{color:var(--t);flex:1;word-break:break-all}
+.t-phase{background:#0d1b3e;color:#6ea8fe}.t-chapter_start{background:#0d2818;color:#69f0ae}
+.t-chapter_complete{background:#1b3a1b;color:#81c784}.t-quality_check{background:#2a0d3e;color:#ce93d8}
+.t-agent_decision{background:#0d293e;color:#90caf9}.t-volume_complete{background:#3e2a0d;color:#ffcc80}
+.t-arc_complete{background:#3e0d2a;color:#f48fb1}.t-error{background:#3e0d0d;color:#ef9a9a}
+.t-planning_progress{background:#0d3e3e;color:#80deea}.t-complete{background:#1b3a1b;color:#69f0ae}
 
-/* Errors */
-.error-list {
-  max-height: 200px;
-  overflow-y: auto;
-}
-.error-item {
-  padding: 8px 12px;
-  background: #e1705520;
-  border-radius: 6px;
-  font-size: 12px;
-  color: var(--orange);
-  margin-bottom: 6px;
-}
+/* Agent 日志 */
+.agent-card{background:var(--s3);border-radius:6px;padding:12px;margin-bottom:8px}
+.agent-card .head{display:flex;justify-content:space-between;margin-bottom:6px;font-size:11px;color:var(--td)}
+.agent-card .strategy{font-size:13px;margin-bottom:6px}
+.agent-card .tags{display:flex;gap:4px;flex-wrap:wrap}
+.agent-card .tag{font-size:10px;padding:2px 8px;border-radius:4px;background:var(--s2)}
 
-/* Empty State */
-.empty {
-  text-align: center;
-  padding: 60px 20px;
-  color: var(--text2);
-}
-.empty .icon { font-size: 48px; margin-bottom: 16px; }
-.empty p { font-size: 14px; }
+/* 大纲树 */
+.outline-tree{font-size:13px}
+.outline-arc{margin-bottom:12px}
+.outline-arc-head{padding:8px 12px;background:var(--s3);border-radius:6px 6px 0 0;font-weight:600;font-size:14px;display:flex;justify-content:space-between;cursor:pointer}
+.outline-arc-head:hover{background:rgba(123,140,255,.1)}
+.outline-vols{border:1px solid var(--bd);border-top:none;border-radius:0 0 6px 6px}
+.outline-vol{border-bottom:1px solid var(--bd)}
+.outline-vol:last-child{border-bottom:none}
+.outline-vol-head{padding:8px 12px 8px 20px;display:flex;justify-content:space-between;cursor:pointer;font-weight:500}
+.outline-vol-head:hover{background:var(--s3)}
+.outline-chapters{padding:4px 12px 8px 32px;font-size:12px;color:var(--td)}
+.outline-ch{padding:4px 0;display:flex;justify-content:space-between;border-bottom:1px solid rgba(42,47,61,.2)}
+.outline-ch:last-child{border-bottom:none}
+.outline-ch .ch-n{color:var(--t);font-weight:500}
+.outline-ch .ch-s{font-size:10px;padding:1px 6px;border-radius:3px}
 
-/* Responsive */
-@media (max-width: 900px) {
-  .main { grid-template-columns: 1fr; padding: 16px; }
-  .stats-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-/* Auto-refresh indicator */
-.auto-refresh {
-  font-size: 12px;
-  color: var(--text2);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-.auto-refresh .spinner {
-  width: 12px;
-  height: 12px;
-  border: 2px solid var(--border);
-  border-top-color: var(--primary);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-@keyframes spin { to { transform: rotate(360deg); } }
+/* 滚动条 */
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--bd);border-radius:3px}
 </style>
 </head>
 <body>
-
-<div class="header">
-  <div>
-    <h1>📚 小说生成器 Dashboard</h1>
-    <div class="subtitle" id="updateTime">加载中...</div>
+<div class="topbar">
+  <div class="topbar-left">
+    <h1>小说生成器</h1>
+    <select class="proj-sel" id="projSel" onchange="switchProject(this.value)"></select>
   </div>
-  <div class="auto-refresh">
-    <div class="spinner"></div>
-    <span>自动刷新 10s</span>
-  </div>
-  <button class="refresh-btn" onclick="refresh()">🔄 刷新</button>
-</div>
-
-<div class="main" id="main">
-  <div class="empty full-width">
-    <div class="icon">📭</div>
-    <p>暂无项目，请先运行 <code>bun run init</code> 创建项目</p>
+  <div style="display:flex;align-items:center;gap:12px">
+    <span style="font-size:12px"><span class="ws-dot ws-off" id="wsDot"></span><span id="wsText" style="color:var(--td)">未连接</span></span>
+    <span class="badge b-idle" id="statusBadge">空闲</span>
   </div>
 </div>
 
-<!-- Chapter Detail Modal -->
-<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
-  <div class="modal">
-    <div class="modal-header">
-      <h2 id="modalTitle">章节详情</h2>
-      <button class="modal-close" onclick="closeModal()">&times;</button>
-    </div>
-    <div class="modal-body" id="modalBody">
-      <div class="placeholder">加载中...</div>
+<div class="main">
+  <div class="sidebar">
+    <div class="sidebar-title">导航</div>
+    <div class="tab-list">
+      <div class="tab active" data-page="overview"><span class="tab-dot" style="background:var(--acc)"></span>总览</div>
+      <div class="tab" data-page="chapters"><span class="tab-dot" style="background:var(--grn)"></span>章节浏览</div>
+      <div class="tab" data-page="outline"><span class="tab-dot" style="background:var(--blu)"></span>大纲结构</div>
+      <div class="tab" data-page="agent"><span class="tab-dot" style="background:var(--pur)"></span>Agent 日志</div>
+      <div class="tab" data-page="events"><span class="tab-dot" style="background:var(--orn)"></span>实时事件</div>
     </div>
   </div>
+
+  <div class="content" id="pageContent"></div>
+</div>
+
+<!-- 章节阅读器侧边栏 -->
+<div class="reader-overlay" id="reader">
+  <div class="reader-header">
+    <h3 id="readerTitle">章节</h3>
+    <button class="reader-close" onclick="closeReader()">&times;</button>
+  </div>
+  <div class="reader-meta" id="readerMeta"></div>
+  <div class="reader-body" id="readerBody"></div>
 </div>
 
 <script>
-let data = null;
-let projectName = null;
+const WS_PORT = location.port ? parseInt(location.port)+1 : 3001;
+let ws=null, projectData=null, currentPage='overview', readerOpen=false, currentProject=null;
 
-async function refresh() {
-  try {
-    const res = await fetch('/api/projects');
-    data = await res.json();
+// =========== 数据加载 ===========
+async function load(){
+  try{
+    const r=await fetch('/api/projects');
+    projectData=await r.json();
+    // 更新项目选择器
+    const sel=document.getElementById('projSel');
+    if(sel){
+      const prev=sel.value;
+      sel.innerHTML=projectData.map(p=>`<option value="${p.name}">${p.config?.title||p.name}</option>`).join('');
+      if(currentProject&&projectData.find(p=>p.name===currentProject)){sel.value=currentProject}
+      else if(projectData.length){currentProject=projectData[0].name;sel.value=currentProject}
+    }
     render();
-  } catch (e) {
-    document.getElementById('updateTime').textContent = '连接失败，请确认服务已启动';
+  }catch{}
+}
+
+function switchProject(name){currentProject=name;load()}
+
+// =========== WebSocket ===========
+function connectWS(){
+  ws=new WebSocket(`ws://localhost:${WS_PORT}`);
+  ws.onopen=()=>{document.getElementById('wsDot').className='ws-dot ws-on';document.getElementById('wsText').textContent='已连接'};
+  ws.onclose=()=>{document.getElementById('wsDot').className='ws-dot ws-off';document.getElementById('wsText').textContent='重连中...';setTimeout(connectWS,3000)};
+  ws.onmessage=e=>{try{handleEvent(JSON.parse(e.data))}catch{}};
+}
+
+function handleEvent(ev){
+  addEventItem(ev);
+  if(['chapter_complete','volume_complete','arc_complete','complete'].includes(ev.type)) load();
+  if(ev.type==='phase_change') updateStatus(ev.data);
+  if(ev.type==='chapter_start' && currentPage==='overview'){
+    document.getElementById('curChapter').textContent=`第${ev.data.globalIndex+1}章「${ev.data.title}」`;
+    document.getElementById('curVolume').textContent=`卷${ev.data.volumeIndex+1}「${ev.data.volumeTitle}」`;
+  }
+  if(ev.type==='agent_decision' && currentPage==='overview'){
+    document.getElementById('curAgent').textContent=`${ev.data.pacing} · ${ev.data.plotFocus} · ${(ev.data.featuredCharacters||[]).join('、')||'按大纲'}`;
   }
 }
 
-function render() {
-  if (!data || data.length === 0) {
-    document.getElementById('main').innerHTML = `
-      <div class="empty full-width">
-        <div class="icon">📭</div>
-        <p>暂无项目，请先运行 <code>bun run init</code> 创建项目</p>
-      </div>`;
-    return;
+function updateStatus(d){
+  const names={generating_world_bible:'生成世界设定书',planning_arcs:'规划篇结构',generating_premise:'生成故事概要',generating_volume_outline:'生成卷大纲',writing:'写作中',outline_complete:'大纲完成',complete:'全部完成'};
+  const phases=['generating_world_bible','planning_arcs','generating_premise','generating_volume_outline','writing','complete'];
+  const el=document.getElementById('curPhase');
+  if(el) el.textContent=names[d.phase]||d.phase;
+  // update arch steps
+  document.querySelectorAll('.arch-step').forEach(s=>{s.classList.remove('active');if(s.dataset.phase&&phases.indexOf(s.dataset.phase)<phases.indexOf(d.phase))s.classList.add('done')});
+  const active=document.querySelector(`.arch-step[data-phase="${d.phase}"]`);
+  if(active){active.classList.add('done');active.classList.remove('done');active.classList.add('active')}
+}
+
+// =========== 页面路由 ===========
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');currentPage=t.dataset.page;render();
+});
+
+function getProject(){return projectData?.find(p=>p.name===currentProject)||projectData?.[0]}
+function render(){
+  const p=getProject();
+  if(!p)return;
+  switch(currentPage){
+    case'overview':renderOverview(p);break;
+    case'chapters':renderChapters(p);break;
+    case'outline':renderOutline(p);break;
+    case'agent':renderAgent(p);break;
+    case'events':renderEvents(p);break;
   }
+}
 
-  projectName = data[0].name;
-  const { config, outline, progress } = data[0];
+// =========== 总览页 ===========
+function renderOverview(p){
+  const pr=p.progress||{},co=pr.completedChapters||0,tt=pr.totalChapters||(p.config?.volumeCount*p.config?.chaptersPerVolume)||0;
+  const pct=tt>0?(co/tt*100).toFixed(1):0;
+  const wc=pr.actualWordCount||0;
+  document.getElementById('pageContent').innerHTML=`
+  <div class="stats-grid">
+    <div class="stat-card"><div class="val">${co}</div><div class="lbl">已完成章节</div></div>
+    <div class="stat-card"><div class="val">${(wc/10000).toFixed(1)}<span style="font-size:14px">万</span></div><div class="lbl">总字数</div></div>
+    <div class="stat-card"><div class="val">${((pr.totalTokensUsed||0)/10000).toFixed(1)}<span style="font-size:14px">万</span></div><div class="lbl">Token 消耗</div></div>
+    <div class="stat-card"><div class="val">${p.config?.volumeCount||0}卷${p.config?.arcs?.length>1?'/'+p.config.arcs.length+'篇':''}</div><div class="lbl">规模</div></div>
+  </div>
 
-  if (!config) {
-    document.getElementById('main').innerHTML = `
-      <div class="empty full-width">
-        <div class="icon">⚠️</div>
-        <p>项目配置缺失</p>
-      </div>`;
-    return;
-  }
+  <div class="pbar-text"><span>进度 ${co}/${tt} 章</span><span>${pct}%</span></div>
+  <div class="pbar"><div class="pbar-fill" style="width:${pct}%"></div></div>
 
-  const completedChapters = progress?.completedFiles || 0;
-  const totalChapters = outline?.totalChapters || config.volumeCount * config.chaptersPerVolume;
-  const pct = totalChapters > 0 ? (completedChapters / totalChapters * 100).toFixed(1) : 0;
-  const actualWords = progress?.actualWordCount || 0;
-  const wordsPct = config.targetLength > 0 ? (actualWords / config.targetLength * 100).toFixed(1) : 0;
-  const tokens = progress?.totalTokensUsed || 0;
-  const status = progress?.status || 'idle';
-  const statusLabel = { idle: '未开始', planning: '生成大纲中', writing: '写作中', paused: '已暂停', completed: '已完成', error: '出错' };
-
-  document.getElementById('updateTime').textContent =
-    `${config.title} · ${config.genre} · 更新于 ${new Date().toLocaleTimeString()}`;
-
-  let html = '';
-
-  // Row 1: Stats
-  html += `<div class="card full-width">
-    <div class="card-header">
-      📊 总体进度
-      <span class="status-badge ${status}"><span class="status-dot"></span>${statusLabel[status] || status}</span>
-    </div>
+  <div class="card" style="margin-top:16px">
+    <div class="card-head"><h3>生成流程</h3><span id="curPhase" style="font-size:12px;color:var(--td)">-</span></div>
     <div class="card-body">
-      <div class="stats-grid">
-        <div class="stat-item">
-          <div class="stat-value green">${completedChapters}<span style="font-size:14px;color:var(--text2)">/${totalChapters}</span></div>
-          <div class="stat-label">已完成章节</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-value blue">${(actualWords / 10000).toFixed(1)}<span style="font-size:14px;color:var(--text2)">万字</span></div>
-          <div class="stat-label">实际字数（目标 ${(config.targetLength/10000).toFixed(0)} 万）</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-value primary">${tokens > 0 ? (tokens / 1000).toFixed(0) + 'k' : '-'}</div>
-          <div class="stat-label">Token 消耗</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-value ${pct >= 100 ? 'green' : 'yellow'}">${pct}%</div>
-          <div class="stat-label">章节完成率</div>
-        </div>
+      <div class="arch">
+        <div class="arch-step" data-phase="init"><div class="icon">📋</div><div class="label">初始化</div><div class="sub">项目配置</div></div>
+        <div class="arch-step" data-phase="generating_world_bible"><div class="icon">🌍</div><div class="label">世界设定</div><div class="sub">World Bible</div></div>
+        <div class="arch-step" data-phase="planning_arcs"><div class="icon">📖</div><div class="label">篇结构</div><div class="sub">Arc 规划</div></div>
+        <div class="arch-step" data-phase="generating_volume_outline"><div class="icon">📚</div><div class="label">卷大纲</div><div class="sub">逐卷生成</div></div>
+        <div class="arch-step" data-phase="writing"><div class="icon">✍️</div><div class="label">章节写作</div><div class="sub">Agent+质检</div></div>
+        <div class="arch-step" data-phase="complete"><div class="icon">📦</div><div class="label">编译</div><div class="sub">输出TXT</div></div>
       </div>
-      <div class="progress-bar-container">
-        <div class="progress-bar-bg">
-          <div class="progress-bar-fill" style="width: ${Math.min(pct, 100)}%"></div>
-        </div>
-        <div class="progress-label">
-          <span>章节数 ${completedChapters}/${totalChapters}</span>
-          <span>字数 ${(actualWords/10000).toFixed(1)}/${(config.targetLength/10000).toFixed(0)} 万（${wordsPct}%）</span>
-        </div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+    <div class="card">
+      <div class="card-head"><h3>当前工作</h3></div>
+      <div class="card-body" style="font-size:13px">
+        <div style="display:flex;justify-content:space-between;padding:4px 0"><span style="color:var(--td)">当前卷</span><span id="curVolume">-</span></div>
+        <div style="display:flex;justify-content:space-between;padding:4px 0"><span style="color:var(--td)">当前章</span><span id="curChapter">-</span></div>
+        <div style="display:flex;justify-content:space-between;padding:4px 0"><span style="color:var(--td)">Agent 策略</span><span id="curAgent" style="font-size:12px;text-align:right;max-width:60%">-</span></div>
       </div>
+    </div>
+    <div class="card">
+      <div class="card-head"><h3>卷进度</h3></div>
+      <div class="card-body"><div class="vol-grid">${volGridHTML(p)}</div></div>
     </div>
   </div>`;
 
-  // Row 2: Volume progress + Chapter grid
-  if (outline && outline.volumes) {
-    html += `<div class="card">
-      <div class="card-header">📖 各卷进度</div>
-      <div class="card-body">`;
+  // 状态徽章
+  const s=pr.status||'idle';
+  document.getElementById('statusBadge').className=`badge b-${s}`;
+  document.getElementById('statusBadge').textContent={idle:'空闲',planning:'规划中',writing:'写作中',paused:'已暂停',completed:'已完成',error:'错误'}[s]||s;
+}
 
-    for (const vol of outline.volumes) {
-      const volCompleted = vol.chapters.filter(ch => {
-        const fileName = `v${String(vol.volumeIndex + 1).padStart(2, '0')}_c${String(ch.chapterIndex + 1).padStart(3, '0')}.txt`;
-        return progress?.chapterWordCounts?.[fileName] !== undefined;
-      }).length;
-      const volTotal = vol.chapters.length;
-      const volPct = volTotal > 0 ? (volCompleted / volTotal * 100) : 0;
-      const volWords = vol.chapters.reduce((sum, ch) => {
-        const fn = `v${String(vol.volumeIndex + 1).padStart(2, '0')}_c${String(ch.chapterIndex + 1).padStart(3, '0')}.txt`;
-        return sum + (progress?.chapterWordCounts?.[fn] || 0);
-      }, 0);
-
-      html += `<div class="volume-item">
-        <div class="volume-header">
-          <span class="volume-title">第${vol.volumeIndex + 1}卷：${vol.title}</span>
-          <span class="volume-meta">${volCompleted}/${volTotal} 章 · ${(volWords/10000).toFixed(1)} 万字</span>
-        </div>
-        <div class="volume-bar-bg">
-          <div class="volume-bar-fill" style="width: ${volPct}%; background: ${volPct >= 100 ? 'var(--green)' : 'var(--primary)'}"></div>
-        </div>
-        <div class="chapter-grid">`;
-
-      for (const ch of vol.chapters) {
-        const fn = `v${String(vol.volumeIndex + 1).padStart(2, '0')}_c${String(ch.chapterIndex + 1).padStart(3, '0')}.txt`;
-        const isCompleted = progress?.chapterWordCounts?.[fn] !== undefined;
-        const wordCount = progress?.chapterWordCounts?.[fn] || 0;
-        const isCurrent = progress?.lastWrittenChapter === ch.globalIndex;
-        const cls = isCurrent ? 'current' : (isCompleted ? 'completed' : 'pending');
-
-        html += `<div class="chapter-cell ${cls}"
-          onclick="openChapter(${vol.volumeIndex}, ${ch.chapterIndex}, '${ch.title.replace(/'/g, "\\'")}')">
-          ${ch.chapterIndex + 1}
-          <div class="tooltip">
-            <strong>第${ch.globalIndex + 1}章：${ch.title}</strong><br>
-            ${isCompleted ? `✅ ${wordCount} 字` : '⏳ 未完成'}<br>
-            <span style="color:var(--text2)">${ch.mood || ''}</span>
-          </div>
-        </div>`;
-      }
-
-      html += `</div></div>`;
-    }
-
-    html += `</div></div>`;
-
-    // Errors panel
-    html += `<div class="card">
-      <div class="card-header">📋 详细信息</div>
-      <div class="card-body">`;
-
-    if (progress?.currentPhase) {
-      html += `<div style="margin-bottom:16px">
-        <div style="font-size:12px;color:var(--text2);margin-bottom:4px">当前阶段</div>
-        <div style="font-size:14px">${progress.currentPhase}</div>
-      </div>`;
-    }
-
-    if (progress?.startedAt) {
-      html += `<div style="margin-bottom:16px">
-        <div style="font-size:12px;color:var(--text2);margin-bottom:4px">开始时间</div>
-        <div style="font-size:14px">${new Date(progress.startedAt).toLocaleString()}</div>
-      </div>`;
-    }
-
-    if (progress?.updatedAt) {
-      html += `<div style="margin-bottom:16px">
-        <div style="font-size:12px;color:var(--text2);margin-bottom:4px">最后更新</div>
-        <div style="font-size:14px">${new Date(progress.updatedAt).toLocaleString()}</div>
-      </div>`;
-    }
-
-    // Word count bar chart
-    if (outline.volumes.length > 0) {
-      html += `<div style="margin-bottom:16px">
-        <div style="font-size:12px;color:var(--text2);margin-bottom:8px">各章节字数分布</div>
-        <div style="display:flex;align-items:flex-end;gap:2px;height:80px">`;
-      
-      let maxWords = 0;
-      for (const vol of outline.volumes) {
-        for (const ch of vol.chapters) {
-          const fn = `v${String(vol.volumeIndex + 1).padStart(2, '0')}_c${String(ch.chapterIndex + 1).padStart(3, '0')}.txt`;
-          const w = progress?.chapterWordCounts?.[fn] || 0;
-          if (w > maxWords) maxWords = w;
-        }
-      }
-      maxWords = Math.max(maxWords, 1);
-
-      for (const vol of outline.volumes) {
-        for (const ch of vol.chapters) {
-          const fn = `v${String(vol.volumeIndex + 1).padStart(2, '0')}_c${String(ch.chapterIndex + 1).padStart(3, '0')}.txt`;
-          const w = progress?.chapterWordCounts?.[fn] || 0;
-          const h = (w / maxWords * 100);
-          const color = w > 0 ? 'var(--green)' : 'var(--border)';
-          html += `<div style="flex:1;min-width:4px;height:${h}%;background:${color};border-radius:2px 2px 0 0" title="${ch.title}: ${w}字"></div>`;
-        }
-      }
-      html += `</div></div>`;
-    }
-
-    // Errors
-    if (progress?.errors && progress.errors.length > 0) {
-      html += `<div>
-        <div style="font-size:12px;color:var(--text2);margin-bottom:8px">⚠️ 错误记录（${progress.errors.length}）</div>
-        <div class="error-list">`;
-      for (const err of progress.errors) {
-        html += `<div class="error-item">${err}</div>`;
-      }
-      html += `</div></div>`;
-    }
-
-    html += `</div></div>`;
+function volGridHTML(p){
+  if(!p.config||!p.outline)return'';
+  let h='';
+  for(let v=0;v<p.config.volumeCount;v++){
+    const vol=p.outline.volumes?.[v];
+    const chs=vol?.chapters||[];
+    const done=chs.filter(c=>{const f=`v${String(v+1).padStart(2,'0')}_c${String(c.chapterIndex+1).padStart(3,'0')}.txt`;return p.progress?.chapterWordCounts?.[f]>0}).length;
+    const total=chs.length;
+    let cls='empty';
+    if(done>=total&&total>0)cls='done';
+    else if(done>0)cls='partial';
+    else if(p.progress?.currentVolumeIndex===v)cls='writing';
+    const title=vol?.title||`卷${v+1}`;
+    h+=`<div class="vol ${cls}" title="${title}" onclick="switchPage('chapters')"><div class="num">${v+1}</div><div class="cnt">${done}/${total||'-'}</div></div>`;
   }
-
-  document.getElementById('main').innerHTML = html;
+  return h;
 }
 
-async function openChapter(vIdx, cIdx, title) {
-  const modal = document.getElementById('modal');
-  const modalTitle = document.getElementById('modalTitle');
-  const modalBody = document.getElementById('modalBody');
-
-  modal.classList.add('active');
-  modalTitle.textContent = `第${cIdx + 1}章：${title}`;
-  modalBody.innerHTML = '<div class="placeholder">加载中...</div>';
-
-  try {
-    const res = await fetch(`/api/projects/${encodeURIComponent(projectName)}/chapter?v=${vIdx}&c=${cIdx}`);
-    const data = await res.json();
-    if (data.content) {
-      modalBody.textContent = data.content;
-    } else {
-      modalBody.innerHTML = '<div class="placeholder">该章节尚未生成</div>';
+// =========== 章节浏览页 ===========
+function renderChapters(p){
+  if(!p.outline){document.getElementById('pageContent').innerHTML='<div style="color:var(--td)">大纲尚未生成</div>';return}
+  let rows='';
+  for(const vol of p.outline.volumes){
+    const arc=p.config?.arcs?.find(a=>vol.volumeIndex>=a.volumeRange.start&&vol.volumeIndex<=a.volumeRange.end);
+    rows+=`<tr style="background:var(--s3)"><td colspan="6" style="font-weight:700;padding:10px;font-size:13px">
+      第${vol.volumeIndex+1}卷：${vol.title}${arc?` <span style="font-size:11px;color:var(--td)">（篇${arc.arcIndex+1}「${arc.title}」）</span>`:''}
+    </td></tr>`;
+    for(const ch of vol.chapters){
+      const fname=`v${String(vol.volumeIndex+1).padStart(2,'0')}_c${String(ch.chapterIndex+1).padStart(3,'0')}.txt`;
+      const wc=p.progress?.chapterWordCounts?.[fname];
+      const done=wc>0;
+      const writing=p.progress?.lastWrittenChapter===ch.globalIndex&&p.progress?.status==='writing';
+      let stCls='ch-s-pending',stText='待写';
+      if(done){stCls='ch-s-done';stText='已完成'}else if(writing){stCls='ch-s-writing';stText='写作中'}
+      rows+=`<tr>
+        <td style="color:var(--td)">${ch.globalIndex+1}</td>
+        <td class="ch-title" onclick="openChapter('${p.name}',${vol.volumeIndex},${ch.chapterIndex})">${ch.title}</td>
+        <td style="color:var(--td);font-size:11px;max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${ch.summary||''}</td>
+        <td><span class="ch-mood">${ch.mood}</span></td>
+        <td class="ch-words">${done?wc+'字':'—'}</td>
+        <td><span class="ch-status ${stCls}">${stText}</span></td>
+      </tr>`;
     }
-  } catch (e) {
-    modalBody.innerHTML = '<div class="placeholder">加载失败</div>';
   }
+  document.getElementById('pageContent').innerHTML=`
+  <div class="card">
+    <div class="card-head"><h3>全部章节（${p.outline.totalChapters}章）</h3><span style="font-size:12px;color:var(--td)">点击标题查看正文</span></div>
+    <div class="card-body" style="padding:0;overflow-x:auto">
+      <table class="ch-table">
+        <thead><tr><th>#</th><th>标题</th><th>概要</th><th>基调</th><th>字数</th><th>状态</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>
+  </div>`;
 }
 
-function closeModal() {
-  document.getElementById('modal').classList.remove('active');
+async function openChapter(proj,v,c){
+  const reader=document.getElementById('reader');
+  document.getElementById('readerTitle').textContent='加载中...';
+  document.getElementById('readerBody').textContent='';
+  document.getElementById('readerMeta').textContent='';
+  reader.classList.add('open');
+  try{
+    const r=await fetch(`/api/projects/${encodeURIComponent(proj)}/chapter?v=${v}&c=${c}`);
+    const d=await r.json();
+    if(d.content){
+      // 找到对应章节大纲
+      const outline=projectData[0]?.outline;
+      const vol=outline?.volumes?.[v];
+      const ch=vol?.chapters?.[c];
+      document.getElementById('readerTitle').textContent=`第${ch?.globalIndex!==undefined?ch.globalIndex+1:'?'}章：${ch?.title||''}`;
+      document.getElementById('readerMeta').innerHTML=`
+        <span>卷${v+1}「${vol?.title||''}」</span>
+        <span>${d.wordCount}字</span>
+        <span>${ch?.mood||''}</span>
+        ${ch?.cliffhanger?`<span>悬念：${ch.cliffhanger}</span>`:''}
+      `;
+      document.getElementById('readerBody').textContent=d.content;
+    }else{
+      document.getElementById('readerBody').textContent='章节内容为空';
+    }
+  }catch(e){document.getElementById('readerBody').textContent='加载失败: '+e.message}
+}
+function closeReader(){document.getElementById('reader').classList.remove('open')}
+
+// =========== 大纲页 ===========
+function renderOutline(p){
+  if(!p.outline){document.getElementById('pageContent').innerHTML='<div style="color:var(--td)">大纲尚未生成</div>';return}
+  const arcs=p.config?.arcs||[{arcIndex:0,title:'全篇',volumeRange:{start:0,end:p.config.volumeCount-1},summary:''}];
+  let html='';
+  for(const arc of arcs){
+    const vols=p.outline.volumes.filter(v=>v.volumeIndex>=arc.volumeRange.start&&v.volumeIndex<=arc.volumeRange.end);
+    let volsHTML='';
+    for(const vol of vols){
+      let chsHTML='';
+      for(const ch of vol.chapters){
+        const fname=`v${String(vol.volumeIndex+1).padStart(2,'0')}_c${String(ch.chapterIndex+1).padStart(3,'0')}.txt`;
+        const done=p.progress?.chapterWordCounts?.[fname]>0;
+        chsHTML+=`<div class="outline-ch"><span class="ch-n" onclick="openChapter('${p.name}',${vol.volumeIndex},${ch.chapterIndex})">${ch.globalIndex+1}. ${ch.title}</span><span class="ch-s ${done?'ch-s-done':'ch-s-pending'}">${done?'已完成':ch.mood}</span></div>`;
+      }
+      volsHTML+=`<div class="outline-vol"><div class="outline-vol-head"><span>第${vol.volumeIndex+1}卷：${vol.title}</span><span style="color:var(--td);font-size:11px">${vol.chapters.length}章</span></div><div class="outline-chapters">${chsHTML}</div></div>`;
+    }
+    html+=`<div class="outline-arc"><div class="outline-arc-head"><span>篇${arc.arcIndex+1}：${arc.title}</span><span style="font-size:11px;color:var(--td)">${arc.subConflict}</span></div><div class="outline-vols">${volsHTML}</div></div>`;
+  }
+  // 概要
+  let premiseHTML='';
+  if(p.outline.premise){
+    premiseHTML=`<div class="card"><div class="card-head"><h3>故事概要（Premise）</h3></div><div class="card-body" style="font-size:13px;line-height:1.8;white-space:pre-wrap">${p.outline.premise}</div></div>`;
+  }
+  document.getElementById('pageContent').innerHTML=`
+  <div class="stats-grid" style="grid-template-columns:repeat(3,1fr)">
+    <div class="stat-card"><div class="val">${p.outline.totalVolumes}</div><div class="lbl">卷数</div></div>
+    <div class="stat-card"><div class="val">${p.outline.totalChapters}</div><div class="lbl">章数</div></div>
+    <div class="stat-card"><div class="val">${((p.outline.estimatedWords||0)/10000).toFixed(0)}<span style="font-size:14px">万</span></div><div class="lbl">预计字数</div></div>
+  </div>
+  ${premiseHTML}
+  <div class="card"><div class="card-head"><h3>大纲树</h3></div><div class="card-body" style="padding:8px"><div class="outline-tree">${html}</div></div></div>`;
 }
 
-// ESC 关闭弹窗
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeModal();
-});
+// =========== Agent 日志页 ===========
+function renderAgent(p){
+  const decisions=p.progress?.agentDecisions||[];
+  document.getElementById('pageContent').innerHTML=`<div style="color:var(--td);font-size:13px;margin-bottom:12px">Agent 决策记录（展示最近50条）</div><div id="agentList"></div>`;
+  fetch(`/api/projects/${encodeURIComponent(p.name)}/agent-log`).then(r=>r.json()).then(list=>{
+    const el=document.getElementById('agentList');
+    if(!list.length){el.innerHTML='<div style="color:var(--td)">暂无 Agent 决策记录</div>';return}
+    el.innerHTML=list.reverse().map(d=>`<div class="agent-card">
+      <div class="head"><span>第${d.chapterGlobalIndex+1}章</span><span>${new Date(d.timestamp).toLocaleString()}</span></div>
+      <div class="strategy">${d.emphasis?.join('；')||'默认策略'}</div>
+      <div class="tags">
+        <span class="tag" style="background:rgba(123,140,255,.15);color:var(--acc)">${d.pacing}节奏</span>
+        <span class="tag" style="background:rgba(66,165,245,.15);color:var(--blu)">${d.plotFocus}</span>
+        <span class="tag" style="background:rgba(76,175,80,.12);color:var(--grn)">重点：${(d.featuredCharacters||[]).join('、')||'按大纲'}</span>
+        ${d.foreshadowsToResolve?.length?`<span class="tag" style="background:rgba(255,152,0,.12);color:var(--orn)">回收伏笔 ${d.foreshadowsToResolve.length}个</span>`:''}
+        ${d.foreshadowsToPlant?.length?`<span class="tag" style="background:rgba(179,136,255,.12);color:var(--pur)">埋伏笔 ${d.foreshadowsToPlant.length}个</span>`:''}
+      </div>
+    </div>`).join('');
+  });
+}
 
-// 初始加载 + 自动刷新
-refresh();
-setInterval(refresh, 10000);
+// =========== 事件页 ===========
+let eventItems=[];
+function renderEvents(){
+  document.getElementById('pageContent').innerHTML=`<div style="color:var(--td);font-size:13px;margin-bottom:12px">实时事件流（WebSocket 推送）</div><div class="card"><div class="card-body" style="padding:0"><div class="ev-list" id="evList"></div></div></div>`;
+  const el=document.getElementById('evList');
+  for(const ev of eventItems) appendEventItem(el,ev);
+}
+function addEventItem(ev){eventItems.push(ev);eventItems=eventItems.slice(-500);const el=document.getElementById('evList');if(el)appendEventItem(el,ev)}
+function appendEventItem(el,ev){
+  const names={phase_change:'阶段',chapter_start:'章节开始',chapter_complete:'章节完成',volume_complete:'卷完成',arc_complete:'篇完成',quality_check:'质检',agent_decision:'Agent',error:'错误',planning_progress:'大纲',chapter_progress:'进度',complete:'完成'};
+  const cls='t-'+ev.type;let msg='';
+  if(ev.data.title)msg+=ev.data.title;
+  if(ev.data.score)msg+=' '+ev.data.score+'分';
+  if(ev.data.error)msg=ev.data.error;
+  if(ev.data.volumeIndex!==undefined&&ev.type==='planning_progress')msg='卷'+(ev.data.volumeIndex+1)+'/'+ev.data.totalVolumes;
+  if(ev.data.charCount)msg+=' '+ev.data.charCount+'字';
+  const item=document.createElement('div');item.className='ev';
+  const time=new Date(ev.timestamp).toLocaleTimeString();
+  const label=names[ev.type]||ev.type;
+  item.innerHTML='<span class="ev-time">'+time+'</span><span class="ev-tag '+cls+'">'+label+'</span><span class="ev-msg">'+msg+'</span>';
+  el.prepend(item);
+  if(el.children.length>300)el.removeChild(el.lastChild);
+}
+
+function switchPage(name){
+  document.querySelectorAll('.tab').forEach(t=>{t.classList.toggle('active',t.dataset.page===name)});
+  currentPage=name;render();
+}
+
+// =========== 启动 ===========
+connectWS();load();setInterval(load,8000);
 </script>
 </body>
 </html>

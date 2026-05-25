@@ -73,8 +73,8 @@ async function initProject(): Promise<void> {
   ];
 
   for (const q of questions) {
-    process.stdout.write(q.prompt + (q.default ? ` [${q.default}] ` : ' '));
-    const input = await readLineAsync();
+    const prompt = q.prompt + (q.default ? ` [${q.default}] ` : ' ');
+    const input = await readLineAsync(prompt);
     answers[q.key] = input.trim() || q.default;
     console.log('');
   }
@@ -84,8 +84,20 @@ async function initProject(): Promise<void> {
 }
 
 async function buildAndSaveProject(answers: Record<string, string>): Promise<void> {
-  const projectName = answers.name.replace(/[^\w\u4e00-\u9fff]/g, '_');
+  // \u4ec5\u4fdd\u7559 ASCII \u5b57\u6bcd\u3001\u6570\u5b57\u3001\u4e0b\u5212\u7ebf\u548c\u8fde\u5b57\u7b26\uff0c\u907f\u514d\u4e2d\u6587\u8def\u5f84\u7f16\u7801\u95ee\u9898
+  let projectName = answers.name
+    .replace(/[^\w\u4e00-\u9fff]/g, '_')
+    .replace(/_+/g, '_')
+    .replace(/^_|_$/g, '')
+    .slice(0, 50);
+  if (!projectName) projectName = 'novel_project';
+
+  // \u68c0\u67e5\u9879\u76ee\u662f\u5426\u5df2\u5b58\u5728
   const pm = new ProjectManager(projectName);
+  if (pm.exists()) {
+    console.error(`\u274c \u9879\u76ee\u300c${projectName}\u300d\u5df2\u5b58\u5728\uff0c\u8bf7\u9009\u62e9\u5176\u4ed6\u540d\u79f0`);
+    process.exit(1);
+  }
   pm.ensureDirs();
 
   const mainCharParts = answers.mainCharacter.split(/[,，]/).map(s => s.trim()).filter(Boolean);
@@ -129,10 +141,10 @@ async function buildAndSaveProject(answers: Record<string, string>): Promise<voi
     });
   }
 
-  // 计算生成参数（目标 20 万字）
-  const targetLength = 200000;
-  const volumeCount = 8;
-  const chaptersPerVolume = 10;
+  // 计算生成参数（目标 200 万字）
+  const targetLength = 2000000;
+  const volumeCount = 27;
+  const chaptersPerVolume = 20;
   const wordsPerChapter = Math.round(targetLength / (volumeCount * chaptersPerVolume));
 
   const config: NovelConfig = {
@@ -176,7 +188,7 @@ async function buildAndSaveProject(answers: Record<string, string>): Promise<voi
   console.log(`✅ 项目「${answers.name}」创建成功！`);
   console.log(`  📁 项目目录：${pm.projectDir}`);
   console.log(`  📋 配置文件：${pm.configPath}`);
-  console.log(`  🎯 目标：${volumeCount} 卷 × ${chaptersPerVolume} 章 × ${wordsPerChapter} 字 ≈ ${targetLength} 字`);
+  console.log(`  🎯 目标：${volumeCount} 卷 × ${chaptersPerVolume} 章 × ${wordsPerChapter} 字 ≈ ${(targetLength/10000).toFixed(0)} 万字`);
   console.log('');
   console.log('下一步：');
   console.log('  1. 编辑 config.yaml 微调设定（可选）');
@@ -239,6 +251,10 @@ async function planCommand() {
 
 async function writeCommand() {
   const pm = getProject();
+  if (!existsSync(pm.outlinePath)) {
+    console.error('❌ 大纲文件不存在。请先运行 bun run plan 生成大纲。');
+    process.exit(1);
+  }
   await writeAllChapters(pm);
 }
 
@@ -300,19 +316,19 @@ async function startCommand() {
 function showHelp() {
   console.log('');
   console.log('═'.repeat(60));
-  console.log('  📚 小说生成智能体 v1.0');
+  console.log('  📚 小说生成智能体 v2.0');
   console.log('═'.repeat(60));
   console.log('');
-  console.log('用法：bun run src/index.ts <命令>');
+  console.log('用法：bun run src/index.ts <命令> [项目名]');
   console.log('');
   console.log('命令：');
-  console.log('  init      初始化新项目（交互式设定世界观）');
-  console.log('  plan      生成详细大纲（世界设定 + 卷章大纲）');
-  console.log('  write     开始逐章写作（支持断点续写）');
-  console.log('  compile   编译最终小说 TXT 文件');
-  console.log('  status    查看所有项目状态');
-  console.log('  start     一键全流程（plan → write → compile）');
-  console.log('  dashboard 启动可视化面板（默认端口 3000）');
+  console.log('  init              初始化新项目（交互式设定世界观）');
+  console.log('  plan [项目名]     生成详细大纲（世界设定 + 篇结构 + 卷章大纲）');
+  console.log('  write [项目名]    开始逐章写作（支持断点续写）');
+  console.log('  compile [项目名]  编译最终小说 TXT 文件');
+  console.log('  status            查看所有项目状态');
+  console.log('  start [项目名]    一键全流程（plan → write → compile）');
+  console.log('  dashboard [端口]  启动实时监控面板（默认端口 3000）');
   console.log('');
   console.log('快捷脚本：');
   console.log('  bun run init      初始化');
@@ -341,17 +357,17 @@ function getProject(): ProjectManager {
     return new ProjectManager(projects[0]);
   }
 
-  // 如果有多个项目，可以指定项目名
-  const specified = process.argv[3];
+  // 多项目时，从 argv[3] 或 argv[4] 查找项目名
+  const specified = process.argv[3] || process.argv[4];
   if (specified && projects.includes(specified)) {
     return new ProjectManager(specified);
   }
 
-  console.log('发现多个项目，请通过参数指定项目名称：');
+  console.error('发现多个项目，请通过参数指定项目名称：');
   for (const name of projects) {
-    console.log(`  - ${name}`);
+    console.error(`  - ${name}`);
   }
-  console.log(`\n用法：bun run src/index.ts write <项目名>`);
+  console.error(`\n用法：bun run src/index.ts <命令> <项目名>`);
   process.exit(1);
 }
 
@@ -386,13 +402,16 @@ function statusEmoji(status: string): string {
   }
 }
 
-function readLineAsync(): Promise<string> {
+function readLineAsync(prompt: string): Promise<string> {
+  const readline = require('readline');
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
   return new Promise((resolve) => {
-    process.stdin.resume();
-    process.stdin.setEncoding('utf-8');
-    process.stdin.once('data', (data: string) => {
-      process.stdin.pause();
-      resolve(data.replace(/\r?\n$/, ''));
+    rl.question(prompt, (answer: string) => {
+      rl.close();
+      resolve(answer);
     });
   });
 }
