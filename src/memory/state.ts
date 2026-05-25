@@ -1,6 +1,6 @@
 // 全局状态管理 — 追踪写作过程中的"活"信息
 
-import { existsSync, readFileSync, writeFileSync } from 'fs';
+import { existsSync, readFileSync, writeFileSync, renameSync, unlinkSync } from 'fs';
 import { join } from 'path';
 import type { ProjectManager } from '../config';
 
@@ -62,7 +62,15 @@ export function loadState(pm: ProjectManager): WorldState {
 
 export function saveState(pm: ProjectManager, state: WorldState): void {
   const path = join(pm.projectDir, 'state.json');
-  writeFileSync(path, JSON.stringify(state, null, 2), 'utf-8');
+  const tmpPath = path + '.tmp';
+  writeFileSync(tmpPath, JSON.stringify(state, null, 2), 'utf-8');
+  try {
+    renameSync(tmpPath, path);
+  } catch {
+    // renameSync 可能跨设备失败，回退到直接写入
+    try { unlinkSync(tmpPath); } catch {}
+    writeFileSync(path, JSON.stringify(state, null, 2), 'utf-8');
+  }
 }
 
 /**
@@ -133,12 +141,19 @@ export function applyStateUpdate(
   if (update.resolvedForeshadows) {
     for (const desc of update.resolvedForeshadows) {
       const unresolved = state.foreshadows.filter(f => !f.resolved);
-      const match = unresolved.find(f =>
-        f.description.includes(desc) || desc.includes(f.description)
-      );
-      if (match) {
-        match.resolved = true;
-        match.resolvedInChapter = chapterIndex;
+      // 用关键词交集比例匹配，避免模糊子串误匹配
+      const scored = unresolved.map(f => {
+        const keywords = extractKeywords(desc);
+        const foreshadowKeywords = extractKeywords(f.description);
+        const overlap = keywords.filter(k => foreshadowKeywords.includes(k)).length;
+        const score = foreshadowKeywords.length > 0 ? overlap / foreshadowKeywords.length : 0;
+        return { foreshadow: f, score };
+      }).sort((a, b) => b.score - a.score);
+
+      // 需要至少 40% 的关键词重叠才算匹配
+      if (scored.length > 0 && scored[0].score >= 0.4) {
+        scored[0].foreshadow.resolved = true;
+        scored[0].foreshadow.resolvedInChapter = chapterIndex;
       }
     }
   }
@@ -251,6 +266,31 @@ export function buildStateContext(state: WorldState, currentChapterIndex: number
   }
 
   return parts.join('\n');
+}
+
+/**
+ * 从描述文本中提取关键词（用于伏笔匹配）
+ * 去除停用词后，以 2-4 字的词组为基本单位
+ */
+function extractKeywords(text: string): string[] {
+  const stopWords = new Set(['的', '了', '在', '是', '和', '与', '也', '都', '被', '把', '一个', '一', '这', '那', '他', '她', '它', '有', '会', '将', '要', '到', '中', '上', '下']);
+  // 按标点和空格分词，再切成 2-4 字的片段
+  const segments = text.split(/[，。！？、；：""''（）\[\]{}【】\s,\.!?;:'"()\-\n]+/).filter(Boolean);
+  const keywords: string[] = [];
+  for (const seg of segments) {
+    if (seg.length <= 4 && !stopWords.has(seg)) {
+      keywords.push(seg);
+    } else if (seg.length > 4) {
+      // 长片段切成 2-4 字的滑动窗口
+      for (let i = 0; i <= seg.length - 2; i += 2) {
+        const chunk = seg.slice(i, Math.min(i + 4, seg.length));
+        if (chunk.length >= 2 && !stopWords.has(chunk)) {
+          keywords.push(chunk);
+        }
+      }
+    }
+  }
+  return keywords;
 }
 
 // LLM 返回的状态更新格式

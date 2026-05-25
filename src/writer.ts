@@ -3,6 +3,7 @@
 import { ProjectManager, type Progress, type ChapterOutline, type ArcDefinition } from './config';
 import { emitStatusEvent } from './events';
 import { generateWithRetry } from './llm';
+import { extractJSON, countChineseChars } from './utils';
 import { buildChapterSystemPrompt, buildChapterUserPrompt, extractTail } from './prompts/chapter';
 import { buildStateExtractionPrompt } from './prompts/state';
 import { buildReviewPrompt, parseReviewResult, type ReviewResult } from './prompts/review';
@@ -115,7 +116,7 @@ export async function writeAllChapters(pm: ProjectManager): Promise<void> {
       // ── 层级上下文组装 ──
       const stateContext = buildStateContext(state, chapter.globalIndex);
       const context = assembleChapterContext(
-        pm, chapter.globalIndex, currentArc, state, stateContext, agentDecision,
+        pm, chapter.globalIndex, currentArc, state, stateContext, agentDecision, summaries,
       );
 
       const prevSummary = summaries[chapter.globalIndex - 1]?.narrativeSummary;
@@ -130,8 +131,10 @@ export async function writeAllChapters(pm: ProjectManager): Promise<void> {
 
       // ── 核心：生成 → 检查 → 审查 → 循环 ──
       let finalContent = '';
-      let bestContent = '';
-      let bestScore = -1;
+      let bestCodeCheckContent = '';
+      let bestCodeCheckScore = -1;
+      let bestReviewContent = '';
+      let bestReviewScore = -1;
       let qualityReport: QualityReport | undefined;
       let reviewResult: ReviewResult | undefined;
       let chapterTokens = 0;
@@ -175,9 +178,9 @@ export async function writeAllChapters(pm: ProjectManager): Promise<void> {
             for (const issue of qualityReport.issues) {
               console.log(`     ${issue.severity === 'error' ? '❌' : '⚠️'} ${issue.message}`);
             }
-            if (qualityReport.score > bestScore) {
-              bestScore = qualityReport.score;
-              bestContent = content;
+            if (qualityReport.score > bestCodeCheckScore) {
+              bestCodeCheckScore = qualityReport.score;
+              bestCodeCheckContent = content;
             }
             if (attempt < MAX_WRITE_ATTEMPTS - 1) {
               console.log(`     → 重写中...`);
@@ -217,9 +220,9 @@ export async function writeAllChapters(pm: ProjectManager): Promise<void> {
               }
             }
 
-            if (reviewResult.overallScore > bestScore / 10) {
-              bestScore = Math.round(reviewResult.overallScore * 10);
-              bestContent = content;
+            if (reviewResult.overallScore > bestReviewScore) {
+              bestReviewScore = reviewResult.overallScore;
+              bestReviewContent = content;
             }
 
             if (reviewResult.overallScore >= REVIEW_PASS_THRESHOLD) {
@@ -231,8 +234,9 @@ export async function writeAllChapters(pm: ProjectManager): Promise<void> {
               if (attempt < MAX_WRITE_ATTEMPTS - 1) {
                 continue;
               } else {
-                console.log(`  ⚠️ 已达重试上限，使用最佳版本（评分 ${bestScore}）`);
-                finalContent = bestContent || content;
+                // 优先使用 LLM 审查过的最佳版本，其次用代码检查通过的最佳版本
+                finalContent = bestReviewContent || bestCodeCheckContent || content;
+                console.log(`  ⚠️ 已达重试上限，使用最佳版本（审查评分 ${bestReviewScore}/10）`);
               }
             }
           } catch (reviewErr: any) {
@@ -244,9 +248,10 @@ export async function writeAllChapters(pm: ProjectManager): Promise<void> {
         } catch (error: any) {
           console.error(`  ❌ 写作失败：${error.message}`);
           if (attempt === MAX_WRITE_ATTEMPTS - 1) {
-            if (bestContent) {
+            const fallback = bestReviewContent || bestCodeCheckContent;
+            if (fallback) {
               console.log(`  ⚠️ 使用已有的最佳版本`);
-              finalContent = bestContent;
+              finalContent = fallback;
             } else {
               emitStatusEvent('error', { globalIndex: chapter.globalIndex, title: chapter.title, error: error.message });
               progress.errors.push(`第${chapter.globalIndex + 1}章「${chapter.title}」: ${error.message}`);
@@ -260,7 +265,11 @@ export async function writeAllChapters(pm: ProjectManager): Promise<void> {
       }
 
       if (!finalContent) {
-        console.error(`  ❌ 第${chapter.globalIndex + 1}章生成失败，跳过`);
+        const errorMsg = `第${chapter.globalIndex + 1}章「${chapter.title}」: ${MAX_WRITE_ATTEMPTS}次尝试全部失败`;
+        console.error(`  ❌ ${errorMsg}`);
+        progress.errors.push(errorMsg);
+        pm.saveProgress(progress);
+        emitStatusEvent('error', { globalIndex: chapter.globalIndex, title: chapter.title, error: errorMsg });
         continue;
       }
 
@@ -345,9 +354,9 @@ export async function writeAllChapters(pm: ProjectManager): Promise<void> {
         // 静默跳过健康检查失败
       }
 
-      emitStatusEvent('chapter_complete', { globalIndex: chapter.globalIndex, title: chapter.title, charCount: finalContent.replace(/[^\u4e00-\u9fff]/g, '').length, tokens: chapterTokens });
+      const charCount = countChineseChars(finalContent);
+      emitStatusEvent('chapter_complete', { globalIndex: chapter.globalIndex, title: chapter.title, charCount, tokens: chapterTokens });
       // ── 更新进度 ──
-      const charCount = finalContent.replace(/[^一-鿿]/g, '').length;
       progress.completedChapters++;
       progress.totalWords += charCount;
       progress.totalTokensUsed += chapterTokens;
@@ -508,14 +517,3 @@ function extractSummaryFromLLM(raw: string, chapterIndex: number, title: string)
   }
 }
 
-function extractJSON(text: string): string {
-  const codeBlockMatch = text.match(/```(?:json)?\s*\n?([\s\S]*?)\n?```/);
-  let raw = codeBlockMatch ? codeBlockMatch[1].trim() : text;
-  const start = raw.indexOf('{');
-  const end = raw.lastIndexOf('}');
-  if (start !== -1 && end !== -1 && end > start) {
-    raw = raw.slice(start, end + 1);
-  }
-  raw = raw.replace(/,\s*([\]}])/g, '$1');
-  return raw.trim();
-}

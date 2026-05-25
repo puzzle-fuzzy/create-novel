@@ -2,6 +2,7 @@
 
 import type { ArcDefinition, ChapterOutline, VolumeOutline, AgentDecision, StoryHealth } from '../config';
 import type { WorldState } from '../memory/state';
+import { extractJSON } from '../utils';
 
 export function buildAgentDecisionPrompt(
   state: WorldState,
@@ -152,15 +153,4 @@ export function parseStoryHealth(raw: string): StoryHealth {
       recommendations: [],
     };
   }
-}
-
-function extractJSON(text: string): string {
-  const codeBlockMatch = text.match(/```(?:json)?\s*\n?([\s\S]*?)\n?```/);
-  let raw = codeBlockMatch ? codeBlockMatch[1].trim() : text;
-  const start = raw.indexOf('{');
-  const end = raw.lastIndexOf('}');
-  if (start !== -1 && end !== -1 && end > start) {
-    raw = raw.slice(start, end + 1);
-  }
-  return raw.replace(/,\s*([\]}])/g, '$1').trim();
 }

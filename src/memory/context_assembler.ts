@@ -2,11 +2,15 @@
 
 import type { ProjectManager, ArcDefinition, AgentDecision, VolumeSummary, ArcSummary } from '../config';
 import type { WorldState } from './state';
-import { loadSummaries, getRecentSummariesText } from './summaries';
+import { getRecentSummariesText, loadSummaries, type ChapterSummary } from './summaries';
 import { loadVolumeSummaries } from './volume_summary';
 import { loadArcSummaries } from './arc_summary';
 
-const MAX_CONTEXT_CHARS = 20000;
+// 动态上下文预算：基础 20K + 按进度增长，上限 40K
+const BASE_CONTEXT_CHARS = 20000;
+const MAX_CONTEXT_CHARS = 40000;
+// 每完成 100 章，预算增加 5K
+const CONTEXT_GROWTH_PER_HUNDRED_CHAPTERS = 5000;
 
 export interface ChapterContext {
   arcSummariesText: string;
@@ -14,6 +18,11 @@ export interface ChapterContext {
   recentSummariesText: string;
   stateContextText: string;
   agentStrategyText: string;
+}
+
+function computeContextBudget(chapterGlobalIndex: number): number {
+  const growth = Math.floor(chapterGlobalIndex / 100) * CONTEXT_GROWTH_PER_HUNDRED_CHAPTERS;
+  return Math.min(BASE_CONTEXT_CHARS + growth, MAX_CONTEXT_CHARS);
 }
 
 /**
@@ -26,6 +35,7 @@ export function assembleChapterContext(
   state: WorldState,
   stateContextText: string,
   agentDecision: AgentDecision | undefined,
+  summaries?: Record<number, ChapterSummary>,
 ): ChapterContext {
   const arcSummaries = loadArcSummaries(pm);
   const volumeSummaries = loadVolumeSummaries(pm);
@@ -50,7 +60,6 @@ export function assembleChapterContext(
     for (let v = currentArc.volumeRange.start; v <= currentArc.volumeRange.end; v++) {
       const vs = volumeSummaries[v] as VolumeSummary | undefined;
       if (vs) {
-        // 只包含当前章之前的卷
         const volLastChapter = findVolumeLastChapterGlobalIndex(pm, v);
         if (volLastChapter !== undefined && volLastChapter < chapterGlobalIndex) {
           volParts.push(`### 第${v + 1}卷「${vs.title}」\n${vs.summary}`);
@@ -62,37 +71,40 @@ export function assembleChapterContext(
     ? `## 当前篇已完成卷摘要\n${volParts.join('\n\n')}`
     : '';
 
-  // 最近章节摘要（10章）
-  const summaries = loadSummaries(pm);
-  const recentSummariesText = getRecentSummariesText(summaries, chapterGlobalIndex, 10);
+  // 最近章节摘要（动态数量：基础 10 章，随进度增加到 20 章）
+  const recentCount = Math.min(10 + Math.floor(chapterGlobalIndex / 200) * 5, 20);
+  const summariesMap = summaries || loadSummaries(pm);
+  const recentSummariesText = getRecentSummariesText(summariesMap, chapterGlobalIndex, recentCount);
 
   // Agent 策略
   const agentStrategyText = agentDecision
     ? formatAgentStrategy(agentDecision)
     : '';
 
-  // 估算大小，必要时裁剪
-  const totalSize = estimateContextSize(arcSummariesText, volumeSummariesText, recentSummariesText, stateContextText, agentStrategyText);
+  // 动态预算裁剪
+  const budget = computeContextBudget(chapterGlobalIndex);
   let trimmedArc = arcSummariesText;
   let trimmedVol = volumeSummariesText;
   let trimmedRecent = recentSummariesText;
 
-  if (totalSize > MAX_CONTEXT_CHARS) {
-    // 优先裁剪：篇摘要 → 卷摘要 → 章节摘要（从最早的开始删）
+  const totalSize = estimateContextSize(trimmedArc, trimmedVol, trimmedRecent, stateContextText, agentStrategyText);
+
+  if (totalSize > budget) {
+    // 优先裁剪：篇摘要 → 卷摘要（从最早的开始删）
     if (trimmedArc.length > 0) {
-      const budget = MAX_CONTEXT_CHARS - (trimmedVol.length + trimmedRecent.length + stateContextText.length + agentStrategyText.length);
-      if (budget > 500) {
-        trimmedArc = trimmedArc.slice(0, budget) + '\n\n……（更早的篇摘要省略）';
+      const remaining = budget - (trimmedVol.length + trimmedRecent.length + stateContextText.length + agentStrategyText.length);
+      if (remaining > 500) {
+        trimmedArc = trimmedArc.slice(0, remaining) + '\n\n……（更早的篇摘要省略）';
       } else {
         trimmedArc = '';
       }
     }
 
     const size2 = trimmedArc.length + trimmedVol.length + trimmedRecent.length + stateContextText.length + agentStrategyText.length;
-    if (size2 > MAX_CONTEXT_CHARS && trimmedVol.length > 0) {
-      const budget = MAX_CONTEXT_CHARS - (trimmedArc.length + trimmedRecent.length + stateContextText.length + agentStrategyText.length);
-      if (budget > 500) {
-        trimmedVol = trimmedVol.slice(0, budget) + '\n\n……（省略）';
+    if (size2 > budget && trimmedVol.length > 0) {
+      const remaining = budget - (trimmedArc.length + trimmedRecent.length + stateContextText.length + agentStrategyText.length);
+      if (remaining > 500) {
+        trimmedVol = trimmedVol.slice(0, remaining) + '\n\n……（省略）';
       } else {
         trimmedVol = '';
       }

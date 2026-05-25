@@ -46,7 +46,7 @@ export interface GenerateResult {
 
 export async function generateText(options: GenerateOptions): Promise<GenerateResult> {
   const client = getLLMClient();
-  const model = options.model || process.env.LLM_MODEL || 'glm-4-flash';
+  const model = options.model || process.env.LLM_MODEL || inferModelFromBaseURL();
 
   if (options.stream) {
     return generateStream(client, model, options);
@@ -144,4 +144,17 @@ export async function generateWithRetry(
   }
 
   throw lastError!;
+}
+
+/**
+ * 根据 baseURL 推断默认模型名，避免向错误的 API 发送不存在的模型 ID
+ */
+function inferModelFromBaseURL(): string {
+  const baseURL = process.env.LLM_BASE_URL || '';
+  if (baseURL.includes('deepseek')) return 'deepseek-chat';
+  if (baseURL.includes('dashscope') || baseURL.includes('qwen')) return 'qwen-plus';
+  if (baseURL.includes('moonshot')) return 'moonshot-v1-8k';
+  if (baseURL.includes('openai.com')) return 'gpt-4o-mini';
+  // GLM 或未设置 baseURL
+  return 'glm-4-flash';
 }

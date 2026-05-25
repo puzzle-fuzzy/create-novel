@@ -1,6 +1,7 @@
 // LLM 深度审查 — 评估章节质量，给出具体改进建议
 
 import type { ChapterOutline } from '../config';
+import { extractJSON } from '../utils';
 
 export interface ReviewResult {
   overallScore: number; // 1-10
@@ -71,17 +72,7 @@ ${reviewContent}
 
 export function parseReviewResult(raw: string): ReviewResult {
   try {
-    // 提取 JSON
-    const codeBlockMatch = raw.match(/```(?:json)?\s*\n?([\s\S]*?)\n?```/);
-    let jsonStr = codeBlockMatch ? codeBlockMatch[1].trim() : raw;
-
-    const start = jsonStr.indexOf('{');
-    const end = jsonStr.lastIndexOf('}');
-    if (start !== -1 && end !== -1) {
-      jsonStr = jsonStr.slice(start, end + 1);
-    }
-    jsonStr = jsonStr.replace(/,\s*([\]}])/g, '$1');
-
+    const jsonStr = extractJSON(raw);
     const data = JSON.parse(jsonStr);
 
     return {

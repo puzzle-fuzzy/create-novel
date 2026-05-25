@@ -3,6 +3,7 @@
 import { existsSync, readFileSync, writeFileSync } from 'fs';
 import { join } from 'path';
 import { ProjectManager, type NovelConfig, type FullOutline, type VolumeOutline, type ArcDefinition } from './config';
+import { extractJSON } from './utils';
 import { generateWithRetry } from './llm';
 import { emitStatusEvent } from './events';
 import { buildWorldBiblePrompt, buildVolumeOutlinePrompt, buildPremiseOutlinePrompt, buildArcOutlinePrompt } from './prompts/world';
@@ -75,6 +76,43 @@ async function generateArcOutlines(pm: ProjectManager, config: NovelConfig): Pro
       resolution: arc.resolution || '',
       connectsTo: arc.connectsTo || '',
     }));
+
+    // 验证 arc 覆盖范围完整性
+    const coveredVolumes = new Set<number>();
+    for (const arc of arcs) {
+      for (let v = arc.volumeRange.start; v <= arc.volumeRange.end; v++) {
+        coveredVolumes.add(v);
+      }
+    }
+    const missingVolumes: number[] = [];
+    for (let v = 0; v < config.generation.volumeCount; v++) {
+      if (!coveredVolumes.has(v)) missingVolumes.push(v);
+    }
+    if (missingVolumes.length > 0) {
+      console.warn(`  ⚠️ 篇结构未覆盖卷 ${missingVolumes.map(v => v + 1).join(',')}，将自动补全`);
+      // 将未覆盖的卷附加到最后一个篇或创建新篇
+      const lastArc = arcs[arcs.length - 1];
+      for (const v of missingVolumes) {
+        if (lastArc && v === lastArc.volumeRange.end + 1) {
+          lastArc.volumeRange.end = v;
+        } else {
+          arcs.push({
+            arcIndex: arcs.length,
+            title: `补余篇${arcs.length + 1}`,
+            volumeRange: { start: v, end: v },
+            summary: `覆盖第${v + 1}卷`,
+            subConflict: config.plotFramework.mainConflict,
+            keyCharacters: [],
+            climax: '',
+            resolution: '',
+            connectsTo: '',
+          });
+        }
+      }
+      // 重新编号
+      arcs.forEach((a, i) => a.arcIndex = i);
+      console.log(`  ✅ 补全后共 ${arcs.length} 个篇`);
+    }
 
     // 保存到 config
     config.plotFramework.arcs = arcs;
@@ -294,50 +332,4 @@ export async function generateFullOutline(pm: ProjectManager): Promise<FullOutli
   console.log(`  📊 共 ${outline.totalVolumes} 卷，${outline.totalChapters} 章，预计 ${outline.estimatedWords} 字`);
 
   return outline;
-}
-
-function extractJSON(text: string): string {
-  const codeBlockMatch = text.match(/```(?:json)?\s*\n?([\s\S]*?)\n?```/);
-  let raw = codeBlockMatch ? codeBlockMatch[1].trim() : text;
-  const start = raw.indexOf('{');
-  const end = raw.lastIndexOf('}');
-  if (start !== -1 && end !== -1) {
-    raw = raw.slice(start, end + 1);
-  }
-  return repairJSON(raw);
-}
-
-function repairJSON(text: string): string {
-  text = text.replace(/\/\/.*$/gm, '');
-  text = text.replace(/\/\*[\s\S]*?\*\//g, '');
-  text = text.replace(/,\s*([\]}])/g, '$1');
-  text = text.replace(/([{,]\s*)([a-zA-Z_]\w*)\s*:/g, '$1"$2":');
-  text = text.replace(/^[﻿​]+/, '');
-  text = closeBrackets(text);
-  return text.trim();
-}
-
-function closeBrackets(text: string): string {
-  text = text.replace(/,\s*$/, '');
-  // 处理被截断的字符串值："somekey": "某个未完结的字符
-  text = text.replace(/:\s*"((?:[^"\\]|\\.)*)$/s, ': "$1"');
-  // 处理没有引号的值
-  text = text.replace(/:\s*([^"\s{}\[\]][^"\n]*)$/, '');
-  text = text.replace(/,\s*$/, '');
-
-  const stack: string[] = [];
-  let inString = false;
-  let escape = false;
-
-  for (const ch of text) {
-    if (escape) { escape = false; continue; }
-    if (ch === '\\') { escape = true; continue; }
-    if (ch === '"') { inString = !inString; continue; }
-    if (inString) continue;
-    if (ch === '{' || ch === '[') { stack.push(ch === '{' ? '}' : ']'); }
-    else if (ch === '}' || ch === ']') { if (stack.length > 0 && stack[stack.length - 1] === ch) stack.pop(); }
-  }
-
-  while (stack.length > 0) { text += stack.pop(); }
-  return text;
 }

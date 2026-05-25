@@ -4,6 +4,7 @@ import { existsSync, readFileSync, writeFileSync } from 'fs';
 import { join } from 'path';
 import type { ProjectManager, VolumeSummary } from '../config';
 import { generateWithRetry } from '../llm';
+import { extractJSON } from '../utils';
 
 export function loadVolumeSummaries(pm: ProjectManager): Record<number, VolumeSummary> {
   const path = join(pm.volumeSummariesDir, 'volume_summaries.json');
@@ -91,15 +92,4 @@ ${chapterSummaries.join('\n')}
       toneAndPacing: '',
     };
   }
-}
-
-function extractJSON(text: string): string {
-  const codeBlockMatch = text.match(/```(?:json)?\s*\n?([\s\S]*?)\n?```/);
-  let raw = codeBlockMatch ? codeBlockMatch[1].trim() : text;
-  const start = raw.indexOf('{');
-  const end = raw.lastIndexOf('}');
-  if (start !== -1 && end !== -1 && end > start) {
-    raw = raw.slice(start, end + 1);
-  }
-  return raw.replace(/,\s*([\]}])/g, '$1').trim();
 }

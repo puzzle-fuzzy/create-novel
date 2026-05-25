@@ -4,6 +4,7 @@ import { existsSync, readFileSync, writeFileSync } from 'fs';
 import { join } from 'path';
 import type { ProjectManager, ArcSummary, ArcDefinition } from '../config';
 import { generateWithRetry } from '../llm';
+import { extractJSON } from '../utils';
 import { loadVolumeSummaries } from './volume_summary';
 
 export function loadArcSummaries(pm: ProjectManager): Record<number, ArcSummary> {
@@ -95,15 +96,4 @@ ${parts.join('\n\n')}
       plotAdvancement: '',
     };
   }
-}
-
-function extractJSON(text: string): string {
-  const codeBlockMatch = text.match(/```(?:json)?\s*\n?([\s\S]*?)\n?```/);
-  let raw = codeBlockMatch ? codeBlockMatch[1].trim() : text;
-  const start = raw.indexOf('{');
-  const end = raw.lastIndexOf('}');
-  if (start !== -1 && end !== -1 && end > start) {
-    raw = raw.slice(start, end + 1);
-  }
-  return raw.replace(/,\s*([\]}])/g, '$1').trim();
 }

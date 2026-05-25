@@ -2,6 +2,9 @@
 
 import type { NovelConfig, ChapterOutline, VolumeOutline, AgentDecision } from '../config';
 
+// 总 Prompt 最大字符数（约 80K token，适配 128K 窗口）
+const MAX_TOTAL_PROMPT_CHARS = 80000;
+
 /**
  * 构建章节写作的系统提示词
  */
@@ -149,7 +152,61 @@ ${reviewAdvice}`);
 
 直接输出小说正文（不要输出任何前言、说明、标题标记）：`);
 
-  return parts.join('\n\n');
+  let result = parts.join('\n\n');
+
+  // 总 Prompt 大小守卫：如果超出预算，按优先级截断
+  if (result.length > MAX_TOTAL_PROMPT_CHARS) {
+    result = trimPromptToBudget(parts, MAX_TOTAL_PROMPT_CHARS);
+  }
+
+  return result;
+}
+
+/**
+ * 按优先级裁剪 prompt 组件，确保总大小在预算内
+ * 裁剪顺序：世界设定 → 篇摘要 → 卷摘要 → 质量反馈 → 审查意见
+ * 始终保留：大纲、状态上下文、写作指令
+ */
+function trimPromptToBudget(parts: string[], budget: number): string {
+  const mandatoryParts = parts.filter(p =>
+    p.includes('## 本章大纲') ||
+    p.includes('## 当前卷') ||
+    p.includes('## 写作指令') ||
+    p.includes('## 当前角色状态') ||
+    p.includes('## 未回收的伏笔')
+  );
+  const mandatorySize = mandatoryParts.join('\n\n').length;
+
+  const trimmable = [
+    { pattern: '## 世界设定', maxRatio: 0.35 },
+    { pattern: '## 已完成篇摘要', maxRatio: 0.15 },
+    { pattern: '## 当前篇已完成卷摘要', maxRatio: 0.15 },
+    { pattern: '## ⚠️ 上一次生成的问题', maxRatio: 0.05 },
+    { pattern: '## 📝 编辑审查意见', maxRatio: 0.08 },
+  ];
+
+  let remaining = budget - mandatorySize;
+  const adjustedParts: string[] = [];
+
+  for (const part of parts) {
+    const trimRule = trimmable.find(t => part.includes(t.pattern));
+    if (trimRule) {
+      const partBudget = Math.min(Math.floor(budget * trimRule.maxRatio), remaining);
+      if (partBudget > 200 && part.length > partBudget) {
+        adjustedParts.push(part.slice(0, partBudget) + '\n\n……（已截断）');
+        remaining -= partBudget;
+      } else if (partBudget > 200) {
+        adjustedParts.push(part);
+        remaining -= part.length;
+      }
+      // 如果空间不足，跳过此部分
+    } else {
+      adjustedParts.push(part);
+      remaining -= part.length;
+    }
+  }
+
+  return adjustedParts.join('\n\n');
 }
 
 /**
