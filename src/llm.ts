@@ -19,7 +19,7 @@ export function getLLMClient(): OpenAI {
   client = new OpenAI({
     apiKey,
     baseURL: baseURL || 'https://open.bigmodel.cn/api/coding/paas/v4',
-    timeout: 120000,
+    timeout: 180000,
   });
 
   return client;

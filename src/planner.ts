@@ -220,11 +220,11 @@ export async function generateFullOutline(pm: ProjectManager): Promise<FullOutli
     }
 
     let volumeResult = await generateWithRetry({
-      systemPrompt: '你是一位专业的小说大纲策划师。请严格按照 JSON 格式输出。注意控制篇幅，确保 JSON 完整闭合，不要被截断。',
+      systemPrompt: '你是一位专业的小说大纲策划师。请严格按照 JSON 格式输出。控制篇幅，summary不超过50字，JSON必须完整闭合。',
       userPrompt: buildVolumeOutlinePrompt(config, worldBible, v, config.generation.volumeCount, previousSummary, arcContext),
       model: process.env.LLM_PLANNER_MODEL || undefined,
-      temperature: 0.75,
-      maxTokens: 16384,
+      temperature: 0.7,
+      maxTokens: 8192,
     });
 
     let volumeData: any;
@@ -245,12 +245,12 @@ export async function generateFullOutline(pm: ProjectManager): Promise<FullOutli
           const isRetry = parseAttempt === 1;
           volumeResult = await generateWithRetry({
             systemPrompt: isRetry
-              ? '输出精简版大纲。每章 summary 不超过50字，keyScenes 只写1条。确保 JSON 完整闭合。'
-              : '你是一位专业的小说大纲策划师。请严格按照 JSON 格式输出。注意控制篇幅，确保 JSON 完整闭合。',
+              ? '输出极简大纲。每章 summary 不超过30字，keyScenes 只写1条，去掉cliffhanger和mood。确保 JSON 完整闭合。'
+              : '控制篇幅，summary不超过50字，keyScenes只写1条。JSON必须完整闭合。',
             userPrompt: buildVolumeOutlinePrompt(config, worldBible, v, config.generation.volumeCount, previousSummary, arcContext),
             model: process.env.LLM_PLANNER_MODEL || undefined,
-            temperature: 0.75,
-            maxTokens: 16384,
+            temperature: 0.7,
+            maxTokens: 8192,
           });
         }
       }

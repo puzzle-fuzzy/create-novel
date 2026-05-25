@@ -1,12 +1,16 @@
 {
   "status": "writing",
-  "currentPhase": "未开始",
-  "totalChapters": 60,
-  "completedChapters": 0,
-  "totalWords": 0,
-  "lastWrittenChapter": null,
-  "totalTokensUsed": 0,
+  "currentPhase": "第1卷 - 第1章「第一章：断线之秋」",
+  "totalChapters": 540,
+  "completedChapters": 1,
+  "totalWords": 4771,
+  "lastWrittenChapter": 0,
+  "totalTokensUsed": 34666,
   "errors": [],
   "startedAt": "2026-05-24T16:29:43.316Z",
-  "updatedAt": "2026-05-24T16:29:43.317Z"
+  "updatedAt": "2026-05-25T13:29:21.716Z",
+  "currentVolumeIndex": 0,
+  "volumeWordCounts": {
+    "0": 4771
+  }
 }

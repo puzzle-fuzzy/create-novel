@@ -1,0 +1,96 @@
+{
+  "characters": {
+    "李豪杰": {
+      "currentLocation": "灵溪村大槐树下",
+      "cultivationLevel": "凡人（特殊目力）",
+      "emotionalState": "恐惧、震惊、惊骇",
+      "knownInformation": [
+        "发现世界存在连接万物的银色丝线（因果/岁月线）",
+        "丝线断裂会导致生命瞬间消亡或加速老化",
+        "凡俗之物（麻绳）可以暂时干涉和接续断裂的丝线",
+        "遭遇青云宗修仙者，并被对方关注"
+      ],
+      "lastAppearance": 0,
+      "status": "active"
+    },
+    "青云宗长老": {
+      "currentLocation": "灵溪村大槐树下",
+      "cultivationLevel": "修仙者（御剑飞行，施法封锁）",
+      "emotionalState": "冷漠、惊骇、凝重",
+      "knownInformation": [
+        "发现灵溪村存在异象（灰雾、时间错乱）",
+        "发现凡人李豪杰能够看见并干涉看不见的丝线"
+      ],
+      "lastAppearance": 0,
+      "status": "active"
+    },
+    "母亲": {
+      "currentLocation": "灵溪村",
+      "cultivationLevel": "凡人",
+      "emotionalState": "疲惫、疑惑",
+      "knownInformation": [],
+      "lastAppearance": 0,
+      "status": "active"
+    }
+  },
+  "timeline": [
+    {
+      "chapterIndex": 0,
+      "event": "李豪杰目睹松鼠因银色丝线断裂而瞬间化为白骨",
+      "impact": "揭示了世界异常的真相，预示着某种规则的崩塌"
+    },
+    {
+      "chapterIndex": 0,
+      "event": "神秘灰雾笼罩灵溪村，导致房屋和村民迅速老化腐烂",
+      "impact": "制造了紧迫的生存危机，证实了李豪杰的预感"
+    },
+    {
+      "chapterIndex": 0,
+      "event": "李豪杰用麻绳成功接住了即将断裂的银色丝线",
+      "impact": "展示了主角的特殊能力，暂时保住了大槐树，引来了修仙者"
+    },
+    {
+      "chapterIndex": 0,
+      "event": "青云宗长老降临封锁村庄，发现了李豪杰的行为",
+      "impact": "剧情引入修仙势力，主角被高阶修仙者盯上"
+    }
+  ],
+  "foreshadows": [
+    {
+      "id": "f_0_0",
+      "description": "李豪杰能看见“因果/岁月”丝线的特殊目力及其来源",
+      "plantedInChapter": 0,
+      "resolved": false,
+      "priority": "medium"
+    },
+    {
+      "id": "f_0_1",
+      "description": "母亲提到的“变天”和父亲进山未获野物的异常",
+      "plantedInChapter": 0,
+      "resolved": false,
+      "priority": "medium"
+    },
+    {
+      "id": "f_0_2",
+      "description": "青云宗长老对李豪杰能力的惊骇反应，暗示该能力可能涉及禁忌或极其罕见",
+      "plantedInChapter": 0,
+      "resolved": false,
+      "priority": "medium"
+    },
+    {
+      "id": "f_0_3",
+      "description": "导致世界崩塌的灰雾和黑色腐蚀气体的本质",
+      "plantedInChapter": 0,
+      "resolved": false,
+      "priority": "medium"
+    }
+  ],
+  "recentOpenings": [
+    {
+      "chapterIndex": 0,
+      "firstSentence": "这根麻绳很粗糙，在少年布满老茧的掌心里摩擦着，带着一股陈旧的稻草味和尘土气。",
+      "openingType": "description"
+    }
+  ],
+  "lastUpdatedChapter": 0
+}
