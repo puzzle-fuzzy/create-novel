@@ -1,16 +1,32 @@
 {
   "characters": {
     "李豪杰": {
-      "currentLocation": "灵溪村大槐树下",
-      "cultivationLevel": "凡人（特殊目力）",
-      "emotionalState": "恐惧、震惊、惊骇",
+      "currentLocation": "问道峰杂役弟子房舍",
+      "cultivationLevel": "成功引气入体，丹田开辟一寸方圆（真正的筑基）",
+      "emotionalState": "痛苦后转为极度清醒与亢奋，感知敏锐",
       "knownInformation": [
-        "发现世界存在连接万物的银色丝线（因果/岁月线）",
-        "丝线断裂会导致生命瞬间消亡或加速老化",
-        "凡俗之物（麻绳）可以暂时干涉和接续断裂的丝线",
-        "遭遇青云宗修仙者，并被对方关注"
+        "自己拥有五行杂灵根的废柴资质",
+        "被莫风破例收为青云宗杂役弟子",
+        "在登仙梯上视觉异变，看到万物由丝线构成",
+        "父亲留下的木雕与青云主峰深处的黑色丝线有感应",
+        "通过数据分析推导出天地灵气随时间推移变得稀薄且性质改变（由狂暴洪流变温和细流）",
+        "通过特殊视觉发现现代灵气中充斥着阻碍流动的灰白色絮状物",
+        "发现无名黑书，获知书中记载“今之气，乃昨日之毒”且灵气本源已被污染",
+        "意识到父亲留下的木雕连接的漆黑丝线与灵气中的“絮状物”在性质上有相似之处（对秩序的破坏）",
+        "观察到殷棠身上的时序丝线静止且呈几何状，像铠甲",
+        "观察到殷棠步幅精确为七十五厘米",
+        "指出阵图杂质淤积问题后，殷棠出现了约三秒的卡顿",
+        "收到殷棠留下的极品灵石和写有'谢'字的字条",
+        "怀疑殷棠是披着人皮的怪物",
+        "当今天地灵气混杂着类似生锈铁器味的絮状物（浊气），直接吸入会损伤经脉",
+        "《青云引气诀》等基础功法在浊气时代存在缺陷",
+        "重浊者动，轻灵者静，静止可微量过滤灵气",
+        "雷电的高频振动能粉碎空气中的絮状物杂质",
+        "通过模仿雷音频率进行体内共振（雷音法），可以剥离体内杂质并吸入纯净灵气",
+        "引气成功后，感官（时序之眼）大幅增强，能看到清晰的银色时序丝线",
+        "怀中木雕通过一根漆黑丝线连接青云主峰深处，并发出红光回应召唤"
       ],
-      "lastAppearance": 0,
+      "lastAppearance": 4,
       "status": "active"
     },
     "青云宗长老": {
@@ -30,6 +46,56 @@
       "emotionalState": "疲惫、疑惑",
       "knownInformation": [],
       "lastAppearance": 0,
+      "status": "active"
+    },
+    "莫风": {
+      "currentLocation": "青云宗（已离开灵溪村）",
+      "cultivationLevel": "筑基期",
+      "emotionalState": "惊讶、赞赏、无奈",
+      "knownInformation": [
+        "李豪杰能看见常人不可见的“时序丝线”或“因果之线”",
+        "李豪杰用凡物麻绳干涉了因果",
+        "李豪杰虽然资质极差，但拥有极其罕见的求道心性"
+      ],
+      "lastAppearance": 1,
+      "status": "active"
+    },
+    "李母": {
+      "currentLocation": "灵溪村村口",
+      "cultivationLevel": "凡人",
+      "emotionalState": "悲伤、担忧、不舍",
+      "knownInformation": [],
+      "lastAppearance": 1,
+      "status": "active"
+    },
+    "赵守": {
+      "currentLocation": "藏书阁分院",
+      "cultivationLevel": "未提及",
+      "emotionalState": "粗暴、不耐烦、对殷棠谄媚",
+      "knownInformation": [
+        "得知大师兄殷棠要来藏书阁分院"
+      ],
+      "lastAppearance": 3,
+      "status": "active"
+    },
+    "穆老头": {
+      "currentLocation": "问道峰藏书阁分院院子",
+      "cultivationLevel": "未知（峰主级别）",
+      "emotionalState": "慵懒、玩味",
+      "knownInformation": [],
+      "lastAppearance": 2,
+      "status": "active"
+    },
+    "殷棠": {
+      "currentLocation": "藏书阁分院库房/院子",
+      "cultivationLevel": "修为高深（大师兄）",
+      "emotionalState": "表面温和谦逊、完美无瑕，实则死寂、如机械般",
+      "knownInformation": [
+        "对《千机阵图补遗》感兴趣",
+        "被指出阵图缺陷时身体出现短暂卡顿（死寂）",
+        "认可李豪杰关于杂质淤积的观点"
+      ],
+      "lastAppearance": 3,
       "status": "active"
     }
   },
@@ -53,6 +119,61 @@
       "chapterIndex": 0,
       "event": "青云宗长老降临封锁村庄，发现了李豪杰的行为",
       "impact": "剧情引入修仙势力，主角被高阶修仙者盯上"
+    },
+    {
+      "chapterIndex": 1,
+      "event": "莫风用测灵球测试李豪杰，测出其为五行杂灵根。",
+      "impact": "莫风原本想收徒的念头被打消，判定李豪杰终生难以有所成就。"
+    },
+    {
+      "chapterIndex": 1,
+      "event": "李豪杰不顾资质差和母亲阻拦，执着向莫风请求求道。",
+      "impact": "打动了莫风，莫风最终给予其杂役弟子身份，令其攀登登仙梯。"
+    },
+    {
+      "chapterIndex": 1,
+      "event": "李豪杰在攀登登仙梯至半山腰时，视觉发生异变，看到丝线构成的世界以及木雕与黑线的连接。",
+      "impact": "揭示了父亲遗物木雕与青云宗有着不为人知的神秘联系，同时主角的特殊能力再次觉醒升级。"
+    },
+    {
+      "chapterIndex": 2,
+      "event": "李豪杰在整理旧书卷时，通过对比不同年代的修炼记录，发现感应灵气的时间随年代推移大幅增加，从而推导出灵气正在枯竭和变质。",
+      "impact": "颠覆了主角对修仙难度的传统认知，确认了世界正在衰老的本质。"
+    },
+    {
+      "chapterIndex": 2,
+      "event": "李豪杰在库房发现一本诡异的无名黑皮书，阅读后得知前人曾尝试剥离灵气中的杂质，并留下警告“今之气，乃昨日之毒”。",
+      "impact": "揭示了世界的核心秘密（灵气中毒），为主角后续的探索和修炼方向奠定了基础。"
+    },
+    {
+      "chapterIndex": 3,
+      "event": "李豪杰在库房阅读黑皮书被赵守打断，随后大师兄殷棠到来视察。",
+      "impact": "引出主要人物殷棠，展示其在宗门中的地位和完美形象。"
+    },
+    {
+      "chapterIndex": 3,
+      "event": "殷棠在库房查看阵图，李豪杰指出其中因灵气杂质导致的缺陷。",
+      "impact": "引发了殷棠的异常反应（卡顿），暴露了其非人一面的端倪。"
+    },
+    {
+      "chapterIndex": 3,
+      "event": "殷棠在卡顿后恢复正常，留下极品灵石和字条离开。",
+      "impact": "李豪杰确信殷棠是伪装的怪物，双方建立了基于秘密的诡异联系。"
+    },
+    {
+      "chapterIndex": 4,
+      "event": "李豪杰尝试修炼《青云引气诀》失败，引发剧烈排异反应",
+      "impact": "验证了“今之气，乃昨日之毒”的说法，确认必须寻找新的修炼途径"
+    },
+    {
+      "chapterIndex": 4,
+      "event": "李豪杰观察雷雨天悟道，模仿雷电频率进行体内共振",
+      "impact": "成功剥离体内浊气，引一丝纯净灵气入体，开辟丹田气海，踏入真正的仙途"
+    },
+    {
+      "chapterIndex": 4,
+      "event": "突破后李豪杰视力大幅进化，观察到连接木雕与主峰的红线",
+      "impact": "开启了关于木雕秘密及青云宗主峰的新线索，能力大幅提升"
     }
   ],
   "foreshadows": [
@@ -83,6 +204,83 @@
       "plantedInChapter": 0,
       "resolved": false,
       "priority": "medium"
+    },
+    {
+      "id": "f_1_0",
+      "description": "李豪杰在登仙梯上看到的连绵山川、云雾皆由丝线构成的虚幻景象。",
+      "plantedInChapter": 1,
+      "resolved": false,
+      "priority": "medium"
+    },
+    {
+      "id": "f_1_1",
+      "description": "父亲留下的桃木木雕发烫，并有一根漆黑如墨的丝线连接着青云主峰深处。",
+      "plantedInChapter": 1,
+      "resolved": false,
+      "priority": "medium"
+    },
+    {
+      "id": "f_2_0",
+      "description": "无名黑书的来源及其记载的“驳杂来源非来自天地”的具体含义",
+      "plantedInChapter": 2,
+      "resolved": false,
+      "priority": "medium"
+    },
+    {
+      "id": "f_2_1",
+      "description": "李豪杰父亲木雕连接的漆黑丝线与书中灵气污染现象的潜在深层联系",
+      "plantedInChapter": 2,
+      "resolved": false,
+      "priority": "medium"
+    },
+    {
+      "id": "f_2_2",
+      "description": "穆老头对李豪杰“笨又不笨”的评价及其暗中观察的意图",
+      "plantedInChapter": 2,
+      "resolved": false,
+      "priority": "medium"
+    },
+    {
+      "id": "f_3_0",
+      "description": "殷棠身上如铠甲般死寂的时序丝线暗示其非人本质",
+      "plantedInChapter": 3,
+      "resolved": false,
+      "priority": "medium"
+    },
+    {
+      "id": "f_3_1",
+      "description": "殷棠在受到质疑时的三秒卡顿暗示其可能是某种精密的人造物或傀儡",
+      "plantedInChapter": 3,
+      "resolved": false,
+      "priority": "medium"
+    },
+    {
+      "id": "f_3_2",
+      "description": "李豪杰收到的极品灵石和字条可能是一种封口费或某种标记",
+      "plantedInChapter": 3,
+      "resolved": false,
+      "priority": "medium"
+    },
+    {
+      "id": "f_3_3",
+      "description": "黑皮书中'今之气，乃昨日之毒'的观点在阵图上得到验证",
+      "plantedInChapter": 3,
+      "resolved": false,
+      "priority": "medium"
+    },
+    {
+      "id": "f_4_0",
+      "description": "连接李豪杰怀中木雕与青云主峰深处的漆黑丝线发出红光，似乎回应某种召唤",
+      "plantedInChapter": 4,
+      "resolved": false,
+      "priority": "medium"
+    },
+    {
+      "id": "f_4_1",
+      "description": "黑皮书中提到的时代剧变（浊气来源）及更深层的秘密",
+      "plantedInChapter": 4,
+      "resolved": false,
+      "priority": "medium"
     }
   ],
   "recentOpenings": [
@@ -90,7 +288,27 @@
       "chapterIndex": 0,
       "firstSentence": "这根麻绳很粗糙，在少年布满老茧的掌心里摩擦着，带着一股陈旧的稻草味和尘土气。",
       "openingType": "description"
+    },
+    {
+      "chapterIndex": 1,
+      "firstSentence": "凡人敢盯着神仙的眼睛看，有什么惩罚吗？",
+      "openingType": "thought"
+    },
+    {
+      "chapterIndex": 2,
+      "firstSentence": "问剑峰海拔最高，问道峰海拔最低，但在青云宗的某些传闻里，问道峰才是真正的“顶峰”，因为这里埋葬的秘密比七座山峰加起来的石头还要多。",
+      "openingType": "description"
+    },
+    {
+      "chapterIndex": 3,
+      "firstSentence": "如果呼吸就是一种慢性自杀，那么长生还有意义吗？",
+      "openingType": "thought"
+    },
+    {
+      "chapterIndex": 4,
+      "firstSentence": "修炼就像是试图在充满尘埃的飓风中，试图只捕捉那一粒纯净的雪。",
+      "openingType": "thought"
     }
   ],
-  "lastUpdatedChapter": 0
+  "lastUpdatedChapter": 4
 }

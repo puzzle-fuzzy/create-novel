@@ -1,16 +1,16 @@
 {
   "status": "writing",
-  "currentPhase": "第1卷 - 第1章「第一章：断线之秋」",
+  "currentPhase": "第1卷 - 第4章「第四章：完美师兄」",
   "totalChapters": 540,
-  "completedChapters": 1,
-  "totalWords": 4771,
-  "lastWrittenChapter": 0,
-  "totalTokensUsed": 34666,
+  "completedChapters": 4,
+  "totalWords": 17701,
+  "lastWrittenChapter": 3,
+  "totalTokensUsed": 210531,
   "errors": [],
   "startedAt": "2026-05-24T16:29:43.316Z",
-  "updatedAt": "2026-05-25T13:29:21.716Z",
+  "updatedAt": "2026-05-25T14:06:06.809Z",
   "currentVolumeIndex": 0,
   "volumeWordCounts": {
-    "0": 4771
+    "0": 17701
   }
 }

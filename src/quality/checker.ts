@@ -89,13 +89,13 @@ export function checkQuality(
   const openingType = classifyOpening(firstSentence);
   const recentTypes = recentOpenings.slice(-3).map(o => o.openingType);
   const sameTypeCount = recentTypes.filter(t => t === openingType).length;
-  if (sameTypeCount >= 2) {
+  if (sameTypeCount >= 3) {
     issues.push({
       type: 'opening_pattern',
       severity: 'error',
-      message: `最近3章已${sameTypeCount}次使用"${openingType}"类开头，必须更换`,
+      message: `最近4章已${sameTypeCount}次使用"${openingType}"类开头，必须更换`,
     });
-    score -= 25;
+    score -= 15;
   }
 
   // ── 3. 首字重复检查 ──
@@ -191,7 +191,7 @@ export function checkQuality(
   // ── 9. 对话存在检查（如果大纲有多个角色出场，应该有对话）──
   if (outline.characters.length >= 2) {
     const dialogueCount = (trimmed.match(/[""「」]/g) || []).length / 2;
-    if (dialogueCount < 3) {
+    if (dialogueCount < 1) {
       issues.push({
         type: 'lack_dialogue',
         severity: 'warning',
