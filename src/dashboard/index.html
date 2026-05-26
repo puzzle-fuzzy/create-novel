@@ -179,7 +179,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t);height:100vh;ov
 
 <script>
 const WS_PORT = location.port ? parseInt(location.port)+1 : 3001;
-let ws=null, projectData=null, currentPage='overview', readerOpen=false, currentProject=null;
+let ws=null, projectData=null, currentPage='overview', readerOpen=false, currentProject=localStorage.getItem('currentProject');
 
 // =========== 数据加载 ===========
 async function load(){
@@ -189,16 +189,16 @@ async function load(){
     // 更新项目选择器
     const sel=document.getElementById('projSel');
     if(sel){
-      const prev=sel.value;
       sel.innerHTML=projectData.map(p=>`<option value="${p.name}">${p.config?.title||p.name}</option>`).join('');
       if(currentProject&&projectData.find(p=>p.name===currentProject)){sel.value=currentProject}
       else if(projectData.length){currentProject=projectData[0].name;sel.value=currentProject}
+      localStorage.setItem('currentProject',currentProject);
     }
     render();
   }catch{}
 }
 
-function switchProject(name){currentProject=name;load()}
+function switchProject(name){currentProject=name;localStorage.setItem('currentProject',name);load()}
 
 // =========== WebSocket ===========
 function connectWS(){
@@ -369,7 +369,7 @@ async function openChapter(proj,v,c){
     const d=await r.json();
     if(d.content){
       // 找到对应章节大纲
-      const outline=projectData[0]?.outline;
+      const outline=getProject()?.outline;
       const vol=outline?.volumes?.[v];
       const ch=vol?.chapters?.[c];
       document.getElementById('readerTitle').textContent=`第${ch?.globalIndex!==undefined?ch.globalIndex+1:'?'}章：${ch?.title||''}`;

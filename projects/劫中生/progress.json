@@ -1,16 +1,21 @@
 {
-  "status": "writing",
-  "currentPhase": "第1卷 - 第4章「第四章：完美师兄」",
+  "status": "paused",
+  "currentPhase": "第2卷 - 第2章「第2章 北灵矿的哭声」",
   "totalChapters": 540,
-  "completedChapters": 4,
-  "totalWords": 17701,
-  "lastWrittenChapter": 3,
-  "totalTokensUsed": 210531,
-  "errors": [],
+  "completedChapters": 22,
+  "totalWords": 90043,
+  "lastWrittenChapter": 21,
+  "totalTokensUsed": 1537588,
+  "errors": [
+    "第23章「第3章 污染的灵脉」: 429 已达到 5 小时的使用上限。您的限额将在 2026-05-26 17:34:48 重置。"
+  ],
   "startedAt": "2026-05-24T16:29:43.316Z",
-  "updatedAt": "2026-05-25T14:06:06.809Z",
-  "currentVolumeIndex": 0,
+  "updatedAt": "2026-05-26T09:16:40.209Z",
+  "currentVolumeIndex": 1,
+  "currentArcIndex": 0,
   "volumeWordCounts": {
-    "0": 17701
-  }
+    "0": 82015,
+    "1": 8028
+  },
+  "completedVolumes": 1
 }

@@ -1,10 +1,20 @@
 {
   "characters": {
     "李豪杰": {
-      "currentLocation": "杂役房 -> 夜色中前往北灵矿",
-      "cultivationLevel": "炼气三层",
-      "emotionalState": "冷静、坚定、无奈",
+      "currentLocation": "后山断崖边",
+      "cultivationLevel": "炼气期",
+      "emotionalState": "冷静、坚定、执着",
       "knownInformation": [
+        "殷棠接触时序之血后身体能瞬间重组修复，疑似非人类",
+        "得知殷棠身体无痛觉，依靠阵法修复维持",
+        "发现殷棠三年前凭空出现，无过往记录",
+        "发现名为‘人造仙骨’的绝密档案，得知殷棠是人造容器",
+        "档案神秘被黑影抢走",
+        "夺走卷宗的黑影是傀儡宗的傀儡",
+        "青云宗内部（甚至高层）可能已被傀儡宗渗透",
+        "殷棠作为兵器被傀儡宗觊觎",
+        "玉扣粉末是由活人魂魄炼制而成",
+        "殷棠是傀儡宗觊觎的“容器”和“钥匙”",
         "殷棠体内有自我修复和逻辑重置机制",
         "外门大比极有可能是傀儡宗动手的时机",
         "殷棠似乎是受程序控制的“人偶”或“机器”",
@@ -14,13 +24,9 @@
         "通过观测北斗偏移三寸，证实了时序流速异常",
         "推断灵气驳杂是因为不同时代的灵气混杂",
         "得出世界正在枯萎的结论",
-        "目睹东方天际出现巨大的天裂口",
-        "天地灵气已变得驳杂、陈旧且带有腐朽味道",
-        "殷棠的行为逻辑像机器或程序",
-        "东方天际有道淌血的裂痕，世界正在枯萎",
-        "接到执法堂命令前往北灵矿调查时空紊乱"
+        "目睹东方天际出现巨大的天裂口"
       ],
-      "lastAppearance": 20,
+      "lastAppearance": 19,
       "status": "active"
     },
     "青云宗长老": {
@@ -84,10 +90,20 @@
       "status": "active"
     },
     "殷棠": {
-      "currentLocation": "执法堂 -> 回廊",
-      "cultivationLevel": "未提及（宗门大师兄/道子）",
-      "emotionalState": "冷漠、机械、困惑",
+      "currentLocation": "演武场（后离开）",
+      "cultivationLevel": "筑基期",
+      "emotionalState": "死寂、寒意、孤寂",
       "knownInformation": [
+        "对《千机阵图补遗》感兴趣",
+        "被指出阵图缺陷时身体出现短暂卡顿（死寂）",
+        "认可李豪杰关于杂质淤积的观点",
+        "察觉李豪杰身上的血迹",
+        "闻到了铁锈味",
+        "指出李豪杰有杀气",
+        "闻到了李豪杰身上微弱的铁锈味和陈旧的铜器氧化味",
+        "因李豪杰提出的伦理悖论（牺牲同伴）导致逻辑死机一分钟",
+        "认为“变强是终极目标”，并持有“若无同伴，便无牺牲”的极端理性价值观",
+        "出现在洗剑池",
         "接触时序之血导致肢体溶解后瞬间修复",
         "暗示未来世界的荒凉景象会增加",
         "向李豪杰展示身体依靠‘备用灵脉’和‘修复程式’重组",
@@ -97,11 +113,9 @@
         "自身存在“逻辑模块”与“人性”的冲突",
         "被李豪杰的话语触动了“本心”",
         "主动弃权，声称剑已停心已乱",
-        "认为强行再战非求道而是杀戮",
-        "经过推演认为李豪杰的战斗方法是资源置换的最优解",
-        "承认有'第一优先级的指令'"
+        "认为强行再战非求道而是杀戮"
       ],
-      "lastAppearance": 20,
+      "lastAppearance": 19,
       "status": "active"
     },
     "断剑/剑灵": {
@@ -249,9 +263,10 @@
     },
     "姜念": {
       "currentLocation": "李豪杰识海",
-      "cultivationLevel": "剑灵",
-      "emotionalState": "撒娇、愤怒、不安",
+      "cultivationLevel": "未知",
+      "emotionalState": "饥饿、不满、恐惧",
       "knownInformation": [
+        "感知到水中有看不见的'针'（时序毒素）",
         "称时序之血为'大地的眼泪'，闻起来很香",
         "因饥饿对时序之血表现出极度贪婪",
         "感知到殷棠身上没有‘根’（活着的感觉）",
@@ -261,10 +276,9 @@
         "尝出了玉扣中烧焦的人魂味道",
         "感知到殷棠像个没有活人味道的空壳",
         "闻到殷棠身上有烧焦魂魄的味道",
-        "感知到天裂口散发出极其恐怖的气息",
-        "东方天际有红色的东西在'漏气'，味道像死蛇"
+        "感知到天裂口散发出极其恐怖的气息"
       ],
-      "lastAppearance": 20,
+      "lastAppearance": 19,
       "status": "active"
     },
     "黑影（夺卷宗者）": {
@@ -283,16 +297,6 @@
         "宣布李豪杰获胜并晋升内门弟子"
       ],
       "lastAppearance": 19,
-      "status": "active"
-    },
-    "苍松长老": {
-      "currentLocation": "执法堂",
-      "cultivationLevel": "未提及（长老级）",
-      "emotionalState": "愤怒、怀疑、忧虑",
-      "knownInformation": [
-        "李豪杰解释其战斗方式是为了过滤变质的灵气"
-      ],
-      "lastAppearance": 20,
       "status": "active"
     }
   },
@@ -631,26 +635,6 @@
       "chapterIndex": 19,
       "event": "东方天际出现巨大的天裂口，时空崩坏",
       "impact": "世界危机具象化，剧情危机感骤增"
-    },
-    {
-      "chapterIndex": 20,
-      "event": "李豪杰在执法堂受审，面对长老关于修炼邪术的指控",
-      "impact": "李豪杰指出天地灵气变质，被长老以'狂妄'为由打发去藏书阁反省"
-    },
-    {
-      "chapterIndex": 20,
-      "event": "殷棠进入大殿，用数据理论为李豪杰辩护",
-      "impact": "暴露了殷棠缺乏人性、视生命为数据的非人特质，激怒长老"
-    },
-    {
-      "chapterIndex": 20,
-      "event": "李豪杰与殷棠在回廊对峙，赠予桂花糕",
-      "impact": "暗示殷棠可能是某种被制造的'程序'或人造人，两人关系微妙"
-    },
-    {
-      "chapterIndex": 20,
-      "event": "执法堂传音纸鹤下达命令，命李豪杰前往北灵矿",
-      "impact": "推动剧情开启新地图，李豪杰决定前往调查危机根源"
     }
   ],
   "foreshadows": [
@@ -1031,44 +1015,19 @@
       "plantedInChapter": 19,
       "resolved": false,
       "priority": "medium"
-    },
-    {
-      "id": "f_20_0",
-      "description": "殷棠体内有银色光流修补漏洞，且遵循'指令'，暗示其非人类身份",
-      "plantedInChapter": 20,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_20_1",
-      "description": "东方天际出现红色裂痕，伴随时序崩溃的金属腥味，暗示世界层面的危机",
-      "plantedInChapter": 20,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_20_2",
-      "description": "天地灵气变质腐朽，导致传统修仙方法失效",
-      "plantedInChapter": 20,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_20_3",
-      "description": "北灵矿发生'时空紊乱'，可能与世界枯萎有关",
-      "plantedInChapter": 20,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_20_4",
-      "description": "有人不想让李豪杰去北灵矿调查",
-      "plantedInChapter": 20,
-      "resolved": false,
-      "priority": "medium"
     }
   ],
   "recentOpenings": [
+    {
+      "chapterIndex": 10,
+      "firstSentence": "完美这种东西，有时候比丑陋更令人感到窒息。",
+      "openingType": "description"
+    },
+    {
+      "chapterIndex": 11,
+      "firstSentence": "灵测石表面那道第三道裂纹，像极了老树皮上被虫蛀出的枯槽，既丑陋，又触目惊心。",
+      "openingType": "description"
+    },
     {
       "chapterIndex": 12,
       "firstSentence": "凡人常说鬼神不可见，但在修仙者的世界里，比鬼神更可怕的是人心底那只破笼而出的野兽。",
@@ -1108,17 +1067,7 @@
       "chapterIndex": 19,
       "firstSentence": "有些种子只能在乱石破败的土壤中生根，长成弯曲却顽强的形状，向着那若隐若现的一丝光亮挣扎。",
       "openingType": "description"
-    },
-    {
-      "chapterIndex": 20,
-      "firstSentence": "青云宗的史官在记录这一日的大比结果时，手中的狼毫笔悬停了许久，最终落下的墨迹，带着一种难以言喻的犹豫与沉重。",
-      "openingType": "description"
-    },
-    {
-      "chapterIndex": 21,
-      "firstSentence": "死人的地图和活人的地图看起来并没有什么不同，除非你懂得如何阅读那些隐藏在等高线之间的陈旧血迹",
-      "openingType": "description"
     }
   ],
-  "lastUpdatedChapter": 20
+  "lastUpdatedChapter": 19
 }

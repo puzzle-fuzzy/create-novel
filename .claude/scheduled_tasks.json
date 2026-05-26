@@ -1,0 +1,14 @@
+{
+  "tasks": [
+    {
+      "id": "90e55010",
+      "cron": "*/10 * * * *",
+      "prompt": "Check the write task progress for the 劫中生 novel project. Read the last 5 lines of /private/tmp/claude-501/-Users-yxswy-Documents-PI---/799fba8e-d499-4534-9053-d0a250f55346/tasks/brkczozsb.output to see current chapter. Also count files in /Users/yxswy/Documents/PI 小说/projects/劫中生/chapters/ to see completed chapters. Then stage and push all changes: cd \"/Users/yxswy/Documents/PI 小说\" && git add -A && git diff --cached --stat && git commit -m \"auto: push new chapters\" --allow-empty && git push origin main. If the write task has completed (task brkczozsb no longer running), proceed to run compile and push the final result.",
+      "createdAt": 1779718859164,
+      "recurring": true,
+      "createdBySessionId": "799fba8e-d499-4534-9053-d0a250f55346",
+      "createdByPid": 10064,
+      "createdByProcStart": "Sun May 24 13:12:47 2026"
+    }
+  ]
+}
