@@ -1,10 +1,20 @@
 {
   "tasks": [
     {
-      "id": "90e55010",
-      "cron": "*/10 * * * *",
-      "prompt": "Check the write task progress for the 劫中生 novel project. Read the last 5 lines of /private/tmp/claude-501/-Users-yxswy-Documents-PI---/799fba8e-d499-4534-9053-d0a250f55346/tasks/brkczozsb.output to see current chapter. Also count files in /Users/yxswy/Documents/PI 小说/projects/劫中生/chapters/ to see completed chapters. Then stage and push all changes: cd \"/Users/yxswy/Documents/PI 小说\" && git add -A && git diff --cached --stat && git commit -m \"auto: push new chapters\" --allow-empty && git push origin main. If the write task has completed (task brkczozsb no longer running), proceed to run compile and push the final result.",
-      "createdAt": 1779718859164,
+      "id": "914176c3",
+      "cron": "40 17 26 5 *",
+      "prompt": "智谱编码套餐5小时限额已重置。请继续运行写作命令：cd \"/Users/yxswy/Documents/PI 小说\" && bun run src/index.ts write 劫中生。等待它完成后再运行 compile：bun run src/index.ts compile 劫中生。完成后把所有新内容 git add -A && git commit -m \"auto: 继续写作+编译\" && git push origin main。",
+      "createdAt": 1779788717700,
+      "createdBySessionId": "799fba8e-d499-4534-9053-d0a250f55346",
+      "createdByPid": 10064,
+      "createdByProcStart": "Sun May 24 13:12:47 2026"
+    },
+    {
+      "id": "78ed9764",
+      "cron": "*/15 * * * *",
+      "prompt": "Check the write task progress for 劫中生 novel. Run: cd \"/Users/yxswy/Documents/PI 小说\" && git add -A && git diff --cached --stat && git commit -m \"auto: push new chapters\" --allow-empty && git push origin main. If the write task has stopped (task bjwgwa1f1 completed or errored), check if all 540 chapters are done. If yes, run compile: bun run src/index.ts compile 劫中生, then push. If not and it errored, restart: bun run src/index.ts write 劫中生.",
+      "createdAt": 1779830339114,
+      "lastFiredAt": 1779884313163,
       "recurring": true,
       "createdBySessionId": "799fba8e-d499-4534-9053-d0a250f55346",
       "createdByPid": 10064,

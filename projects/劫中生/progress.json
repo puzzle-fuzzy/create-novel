@@ -1,21 +1,24 @@
 {
   "status": "paused",
-  "currentPhase": "第2卷 - 第2章「第2章 北灵矿的哭声」",
+  "currentPhase": "第2卷 - 第11章「第11章 频率的共鸣」",
   "totalChapters": 540,
-  "completedChapters": 22,
-  "totalWords": 90043,
-  "lastWrittenChapter": 21,
-  "totalTokensUsed": 1537588,
+  "completedChapters": 31,
+  "totalWords": 126237,
+  "lastWrittenChapter": 30,
+  "totalTokensUsed": 1914352,
   "errors": [
-    "第23章「第3章 污染的灵脉」: 429 已达到 5 小时的使用上限。您的限额将在 2026-05-26 17:34:48 重置。"
+    "第23章「第3章 污染的灵脉」: 429 已达到 5 小时的使用上限。您的限额将在 2026-05-26 17:34:48 重置。",
+    "第29章「第9章 暗流交易」: Connection error.",
+    "第32章「第12章 断线」: Request timed out.",
+    "第32章「第12章 断线」: 429 已达到 5 小时的使用上限。您的限额将在 2026-05-27 20:20:57 重置。"
   ],
   "startedAt": "2026-05-24T16:29:43.316Z",
-  "updatedAt": "2026-05-26T09:16:40.209Z",
+  "updatedAt": "2026-05-27T11:51:51.314Z",
   "currentVolumeIndex": 1,
   "currentArcIndex": 0,
   "volumeWordCounts": {
     "0": 82015,
-    "1": 8028
+    "1": 44222
   },
   "completedVolumes": 1
 }
