@@ -19,6 +19,15 @@
       "createdBySessionId": "799fba8e-d499-4534-9053-d0a250f55346",
       "createdByPid": 10064,
       "createdByProcStart": "Sun May 24 13:12:47 2026"
+    },
+    {
+      "id": "579f6371",
+      "cron": "25 20 27 5 *",
+      "prompt": "智谱编码套餐5小时限额已重置。请继续运行写作命令：cd \"/Users/yxswy/Documents/PI 小说\" && bun run src/index.ts write 劫中生。写作会在后台运行。完成后运行 compile：bun run src/index.ts compile 劫中生。完成后推送：git add -A && git commit -m \"auto: 继续写作+编译\" && git push origin main。",
+      "createdAt": 1779884508776,
+      "createdBySessionId": "799fba8e-d499-4534-9053-d0a250f55346",
+      "createdByPid": 10064,
+      "createdByProcStart": "Sun May 24 13:12:47 2026"
     }
   ]
 }
