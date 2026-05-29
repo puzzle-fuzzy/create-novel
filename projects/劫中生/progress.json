@@ -1,11 +1,11 @@
 {
-  "status": "writing",
-  "currentPhase": "第4卷 - 第7章「第7章 纸人迷踪」",
+  "status": "paused",
+  "currentPhase": "第5卷 - 第8章「论道初交锋」",
   "totalChapters": 540,
-  "completedChapters": 67,
-  "totalWords": 270956,
-  "lastWrittenChapter": 66,
-  "totalTokensUsed": 3276646,
+  "completedChapters": 88,
+  "totalWords": 359439,
+  "lastWrittenChapter": 87,
+  "totalTokensUsed": 4161966,
   "errors": [
     "第23章「第3章 污染的灵脉」: 429 已达到 5 小时的使用上限。您的限额将在 2026-05-26 17:34:48 重置。",
     "第29章「第9章 暗流交易」: Connection error.",
@@ -13,17 +13,19 @@
     "第32章「第12章 断线」: 429 已达到 5 小时的使用上限。您的限额将在 2026-05-27 20:20:57 重置。",
     "第68章「第8章 变异之秘」: Request timed out.",
     "第68章「第8章 变异之秘」: 429 已达到 5 小时的使用上限。您的限额将在 2026-05-28 16:29:06 重置。",
-    "第68章「第8章 变异之秘」: Connection error."
+    "第68章「第8章 变异之秘」: Connection error.",
+    "第89章「实战胜雄辩」: Request timed out."
   ],
   "startedAt": "2026-05-24T16:29:43.316Z",
-  "updatedAt": "2026-05-28T16:05:51.797Z",
-  "currentVolumeIndex": 3,
+  "updatedAt": "2026-05-29T14:23:26.252Z",
+  "currentVolumeIndex": 4,
   "currentArcIndex": 0,
   "volumeWordCounts": {
     "0": 82015,
     "1": 78880,
     "2": 80600,
-    "3": 29461
+    "3": 82427,
+    "4": 35517
   },
-  "completedVolumes": 3
+  "completedVolumes": 4
 }

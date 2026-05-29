@@ -1,32 +1,32 @@
 {
   "characters": {
     "李豪杰": {
-      "currentLocation": "听雨别院",
-      "cultivationLevel": "气血两亏（伪装成枯槁老者）",
-      "emotionalState": "警惕、狠厉、压抑",
+      "currentLocation": "落日镇外荒原",
+      "cultivationLevel": "无（寿元枯竭的凡人）",
+      "emotionalState": "愤怒、决绝",
       "knownInformation": [
-        "身体状况恶化，肺泡纤维化，心脏负荷过大",
-        "通过震动法术感应到地下微弱生机",
-        "怀中玉佩发热且震动，指引前方有答案",
-        "感知到地下深处有远古巨物苏醒",
-        "落日城的因果线混乱",
-        "黑市商人贩卖时序碎片",
-        "姜念引起了时序碎片的剧烈反应",
-        "神秘人在暗处出手相助",
-        "追踪者是经过非人改造的修仙者，透支生命力换取力量",
-        "发现了一块刻有'哭泣眼睛'图案的神秘令牌，该令牌带有侵蚀性且与自己有某种感应",
-        "发现左手的令牌侵蚀痕迹像有生命般游走",
-        "感知到神像周围不存在因果线，是一片死寂的时间虚无",
-        "目睹神像影子捂脸的诡异景象",
-        "决心弄清世界‘病了’的根源及前往‘塔’",
-        "中洲繁华景象掩盖了底层的腐朽与因果纠葛",
-        "天机阁安排的别院内部布满了“锁灵阵”和窃听阵法（如窥视珠、回音壁）",
-        "赵清是天机阁外事堂执事，身上有灰白色因果线",
-        "万法论道大会还有七日召开",
-        "赵清送来的茶水被下了高阶“迷魂散”，旨在控制神魂",
-        "赵清送来的“回春丹”内含“锁魂”符文"
+        "时序网会通过银紫色丝线回收死亡数据与能量",
+        "兽王不死是因为连接着腐烂天空与巨眼的'脐带'",
+        "自己的道在于'斩断'",
+        "体验了濒死的感觉",
+        "感觉到类似纸张的冰冷触感",
+        "晶体是‘时序结晶’，由吞噬的时间、因果和轨迹凝结而成",
+        "晶体是一枚信标，能引来暗处存在的注视",
+        "感受到来自虚空的高等级神念（渡劫期）的搜索与锁定",
+        "父亲留下的桃木木雕似乎有特殊作用",
+        "晶体是引起天道注视的信标，蕴含时序法则",
+        "桃木木雕能发出黑线抵御神念，保护自己",
+        "宗门在真正的强者面前无法保护自己",
+        "云萝索要的报酬不是灵石，而是自己‘活着的心/意志’",
+        "从废墟门板触感中获得了关于母亲的记忆",
+        "得知殷棠核心受损是因为产生情感溢出和违背程序",
+        "察觉到被神秘修士使用特殊丝线追踪",
+        "神秘追踪者来自‘太上仙宫’",
+        "自己和殷棠被视作‘测试品’并通过第一阶段筛选",
+        "殷棠代号001且逻辑核心受损",
+        "东海可能有关于这世界真相的答案"
       ],
-      "lastAppearance": 86,
+      "lastAppearance": 79,
       "status": "active"
     },
     "青云宗长老": {
@@ -92,10 +92,22 @@
       "status": "active"
     },
     "殷棠": {
-      "currentLocation": "听雨别院",
-      "cultivationLevel": "兵器之躯（看似完美但内在有裂痕）",
-      "emotionalState": "冷静、机械感减弱",
+      "currentLocation": "落日镇外荒原",
+      "cultivationLevel": "未知（人造兵器）",
+      "emotionalState": "动荡、故障",
       "knownInformation": [
+        "幽冥谷通过地下管网向青云宗输送能量",
+        "能量属性偏阴寒，可中和时空暴热",
+        "理解了人性中为了保护某物而燃烧的感觉",
+        "被李豪杰的血液修复了受损回路",
+        "逻辑库在面对李豪杰死亡风险时停止运行",
+        "意识到自己的行为并非基于最优解计算，而是基于本能",
+        "（通过长老视角得知）体内有错综复杂的灵力回路和古则之力",
+        "本源被域外法则侵蚀",
+        "吐露自己有‘程序’构造，内心没有跳动",
+        "表达了对宗门腐朽和自身使命的迷茫",
+        "意识到自己可能长出了‘心’",
+        "自己是精密制造的‘容器’",
         "身体构造与变异线团同源",
         "被线团入侵后程序被重写",
         "重启后自称为‘实验体编号001’",
@@ -103,21 +115,9 @@
         "视李豪杰为无法推演的'未知变量'和'逻辑漏洞'",
         "被太上仙宫称为‘编号001’",
         "接收到‘回收重置’指令",
-        "自身底层逻辑被触动，引发自检",
-        "检测到玉佩激活的高能反应和高维坐标信号",
-        "计算出李豪杰抵达目的地概率不足15%",
-        "监测到地下极低频震动，判定非普通地震",
-        "检测到陌生心跳且心率极低",
-        "面具商人躯壳由三种生物基因拼凑",
-        "敌人生命结构崩坏，体内含高能侵蚀性粒子",
-        "李豪杰手中的令牌正在吞噬其生命力",
-        "尝试模仿人类进食礼仪导致‘数据错误’和‘指令冲突’",
-        "试图解析‘优雅’定义失败，捏碎水杯受伤",
-        "结尾陷入异变，瞳孔呈菱形，念诵古语‘Erit... dies... illa...’",
-        "协助李豪杰发现屋内有37个窃听阵法",
-        "被告知李豪杰的反制计划，计算成功率为八成"
+        "自身底层逻辑被触动，引发自检"
       ],
-      "lastAppearance": 86,
+      "lastAppearance": 79,
       "status": "active"
     },
     "断剑/剑灵": {
@@ -227,20 +227,18 @@
       "status": "active"
     },
     "穆峰主": {
-      "currentLocation": "青云宗后山竹林木屋",
-      "cultivationLevel": "未知（青云宗峰主）",
-      "emotionalState": "外表平静内心波澜，不舍与骄傲",
+      "currentLocation": "演武场人群外围",
+      "cultivationLevel": "未知",
+      "emotionalState": "意味深长、欣赏",
       "knownInformation": [
         "出面保下李豪杰，表面上是为了有人整理藏书阁书籍",
         "知晓‘时序’相关的秘密",
         "持有并理解《时序杂谈》的内容",
         "暗示知晓殷棠及时序的秘密",
         "警告探究真相需要付出代价",
-        "认可李豪杰选择藏书阁的行为，认为其懂得藏锋",
-        "得知李豪杰必须去中州并做好了赴死准备",
-        "赠予李豪杰青玉佩作为寻找‘答案’的指引"
+        "认可李豪杰选择藏书阁的行为，认为其懂得藏锋"
       ],
-      "lastAppearance": 81,
+      "lastAppearance": 19,
       "status": "active"
     },
     "赵猛": {
@@ -266,10 +264,11 @@
       "status": "active"
     },
     "姜念": {
-      "currentLocation": "听雨别院",
+      "currentLocation": "洞府内墙角",
       "cultivationLevel": "未知",
-      "emotionalState": "兴奋、好奇、后怕",
+      "emotionalState": "极度惊恐、颤抖",
       "knownInformation": [
+        "石台上的符文与北灵矿所见相同",
         "发现地图上西南方有一个亮光点",
         "虽然变小但剑灵力量依然存在",
         "感知到地下有未知存在",
@@ -278,20 +277,9 @@
         "天空裂开（“天坏了”）",
         "听到苍梧长老对李豪杰的警告（但不明所以）",
         "拥有一颗珍藏的糖果",
-        "感知到天空中有恐怖存在（“它在哭”）",
-        "李豪杰现在变老变丑了",
-        "听到大地哭泣和饥饿的声音",
-        "看到枯树林中的时序丝线打结（空间错乱）",
-        "感知到地下的“大东西”醒了",
-        "被面具商人视为带有时间法则和剑意的猎物",
-        "目睹了李豪杰和殷棠反杀敌人的过程",
-        "得知令牌对李豪杰有害",
-        "闻出庙里曾住着‘坏人’",
-        "指出神像‘不想看这个世界’",
-        "知道了糖人叫如意仙君",
-        "得知别院里的茶水有毒/有害"
+        "感知到天空中有恐怖存在（“它在哭”）"
       ],
-      "lastAppearance": 86,
+      "lastAppearance": 59,
       "status": "active"
     },
     "黑影（夺卷宗者）": {
@@ -303,10 +291,19 @@
       "status": "inactive"
     },
     "执法长老": {
-      "currentLocation": "青云宗主峰议事堂",
-      "cultivationLevel": "长老（重伤）",
-      "emotionalState": "严肃、强硬、愤怒",
+      "currentLocation": "废墟老槐树下",
+      "cultivationLevel": "未知",
+      "emotionalState": "沉重、感慨",
       "knownInformation": [
+        "宣布李豪杰获胜并晋升内门弟子",
+        "李豪杰能肉身硬抗雷法",
+        "纸人能构建极其坚韧的融合屏障",
+        "存在能腐蚀护体灵力的未知感染怪物",
+        "常规雷法对变异野猪无效",
+        "李豪杰掌握着能够斩断死气的神秘力量",
+        "看见了连接宗门的红线",
+        "天机阁介入此事",
+        "无法对抗天机阁的权威",
         "敌方出现堪比五阶的妖兽（变异金属巨犀）",
         "李豪杰带来的域外油脂具有极强的腐蚀性和穿透力",
         "李豪杰接触的东西极其危险（邪祟）",
@@ -316,10 +313,9 @@
         "认为李豪杰身上的气息与域外天魔相似",
         "意识到逆转生死和操控时序的力量不属于凡界",
         "确认斩断这种力量的人是李豪杰",
-        "云萝似乎在保护李豪杰",
-        "天机阁使者到来"
+        "云萝似乎在保护李豪杰"
       ],
-      "lastAppearance": 80,
+      "lastAppearance": 75,
       "status": "active"
     },
     "苍松长老": {
@@ -465,6 +461,8 @@
       "cultivationLevel": "纸人",
       "emotionalState": "诡异、虚弱、渴望",
       "knownInformation": [
+        "李豪杰的剑能够净化吞噬她无法承受的毒素",
+        "青云宗修仙者将纸人视为必须清除的邪祟",
         "能指挥其他纸人进行自我融合",
         "产生了类似人类的情感与自我牺牲的执念",
         "以红线和骨刺为药引",
@@ -589,19 +587,16 @@
       "status": "active"
     },
     "青云宗主": {
-      "currentLocation": "青云宗主峰议事堂",
-      "cultivationLevel": "宗主",
-      "emotionalState": "疲惫、沉重、警惕",
+      "currentLocation": "执法堂侧殿密室",
+      "cultivationLevel": "未明（远超金丹）",
+      "emotionalState": "冷静、深沉、忧虑、算计",
       "knownInformation": [
         "兽潮变异本质是规则层面的污染（时序紊乱）",
         "宗门灵粮储备仅够全宗开启大阵支撑三个月",
         "李豪杰拥有金血，或许有克制毒素的特殊用途",
-        "天机阁在找碎星海古卷，谢谷主在找李豪杰的血",
-        "世界寰宙枯萎，旧修炼体系跟不上崩坏速度",
-        "万法论道大会提前召开且地点在天机阁",
-        "此次大会实为对异常修行者的审判"
+        "天机阁在找碎星海古卷，谢谷主在找李豪杰的血"
       ],
-      "lastAppearance": 80,
+      "lastAppearance": 60,
       "status": "active"
     },
     "云阵子": {
@@ -776,61 +771,119 @@
       "knownInformation": [],
       "lastAppearance": 79,
       "status": "inactive"
-    },
-    "白须长老": {
-      "currentLocation": "青云宗主峰议事堂",
-      "cultivationLevel": "长老（丹阁）",
-      "emotionalState": "愤怒、激动、反对",
-      "knownInformation": [
-        "李豪杰的功法会导致寿元枯竭",
-        "天机阁使者闯入宗门"
-      ],
-      "lastAppearance": 80,
-      "status": "active"
-    },
-    "星河": {
-      "currentLocation": "青云宗主峰议事堂（后离开）",
-      "cultivationLevel": "天机阁客卿",
-      "emotionalState": "冷漠、傲慢、戏谑",
-      "knownInformation": [
-        "发现了李豪杰拥有逆转时序的绝学",
-        "锁定了李豪杰和殷棠的位置"
-      ],
-      "lastAppearance": 80,
-      "status": "active"
-    },
-    "面具商人": {
-      "currentLocation": "落日城地下密室",
-      "cultivationLevel": "强于筑基后期（掌握时间法则）",
-      "emotionalState": "阴狠、贪婪",
-      "knownInformation": [
-        "发现了带有时间法则和上古剑意的姜念",
-        "身体流出银白色液体，非人类",
-        "决定全城搜捕姜念"
-      ],
-      "lastAppearance": 83,
-      "status": "active"
-    },
-    "神秘人": {
-      "currentLocation": "未知（曾出现在屋顶）",
-      "cultivationLevel": "未知",
-      "emotionalState": "冷漠",
-      "knownInformation": [
-        "使用连弩射伤商人解救主角团"
-      ],
-      "lastAppearance": 83,
-      "status": "active"
-    },
-    "赵清": {
-      "currentLocation": "听雨别院（随后离开）",
-      "cultivationLevel": "未知（天机阁外事堂执事）",
-      "emotionalState": "伪装的谦恭、阴沉、算计",
-      "knownInformation": [],
-      "lastAppearance": 86,
-      "status": "active"
     }
   },
   "timeline": [
+    {
+      "chapterIndex": 49,
+      "event": "李豪杰教导殷棠用物理方法剥开野果，并借此探讨了凡人与修仙者在'疼痛'和'完美'上的区别。",
+      "impact": "殷棠开始理解凡人的生理反应，其作为'完美容器'的认知出现裂痕。"
+    },
+    {
+      "chapterIndex": 49,
+      "event": "殷棠夜间出现逻辑混乱和心魔征兆，自述身体'生锈'，李豪杰将其比喻为'裂纹'并予以安抚。",
+      "impact": "加深了两人之间的羁绊，暗示殷棠可能正在觉醒自我意识。"
+    },
+    {
+      "chapterIndex": 49,
+      "event": "三人抵达幽冥谷，发现谷内阳光明媚且彼岸花盛开，殷棠指出该区域时序流速被强行拨快。",
+      "impact": "揭示了幽冥谷环境的极度异常和危险性，为后续剧情铺垫悬念。"
+    },
+    {
+      "chapterIndex": 50,
+      "event": "殷棠分析出彼岸花通过掠夺时间来维持违背规律的盛开状态",
+      "impact": "揭示了环境的诡异与高危性"
+    },
+    {
+      "chapterIndex": 50,
+      "event": "姜念受彼岸花香气影响觉醒战斗本能，现出剑灵形态并攻击李豪杰",
+      "impact": "团队内部产生致命威胁，李豪杰陷入绝境"
+    },
+    {
+      "chapterIndex": 50,
+      "event": "殷棠用身体硬接姜念一剑，血液呈现蓝色并腐蚀花朵",
+      "impact": "殷棠重伤暂时挡下攻击，揭示了殷棠非人的特殊体质"
+    },
+    {
+      "chapterIndex": 51,
+      "event": "殷棠为救李豪杰挡剑受伤，流出幽蓝血液腐蚀彼岸花并露出地下石台",
+      "impact": "揭示了殷棠非人特征，导致姜念解除变身，并直接引出地下秘密设施"
+    },
+    {
+      "chapterIndex": 51,
+      "event": "李豪杰利用灵力、姜念利用剑意合力封住殷棠的蓝血伤口",
+      "impact": "暂时稳住了殷棠的伤势，三人关系进一步紧密，李豪杰点醒了殷棠的人性"
+    },
+    {
+      "chapterIndex": 51,
+      "event": "李豪杰激活地下石台，展示出一幅以幽冥谷为中心的能量输送地图",
+      "impact": "揭露了幽冥谷向青云宗输送能量的阴谋，并指出了下一个目标地点在无尽沙海"
+    },
+    {
+      "chapterIndex": 52,
+      "event": "石台节点即将崩塌成微型黑洞，危及青云宗",
+      "impact": "迫使李豪杰和殷棠必须立即进行修复，制造了紧迫感"
+    },
+    {
+      "chapterIndex": 52,
+      "event": "李豪杰与殷棠合力修复节点（编织与冻结）",
+      "impact": "成功稳定了时序乱流，恢复了幽冥谷的生态，阻止了青云宗的灾难"
+    },
+    {
+      "chapterIndex": 52,
+      "event": "殷棠因过载手臂结晶化，李豪杰用金血救治",
+      "impact": "深化了两人羁绊，揭示了李豪杰血液的特殊修复能力"
+    },
+    {
+      "chapterIndex": 52,
+      "event": "修复引发的共鸣唤醒了石台下锁链缠绕的神秘存在",
+      "impact": "带来了新的危机，剧情进入新的转折点"
+    },
+    {
+      "chapterIndex": 53,
+      "event": "地底古老存在苏醒，巨手与巨眼现身，释放恐怖威压与幻象",
+      "impact": "众人生死一线，揭示了地底囚徒的存在及其恐怖实力"
+    },
+    {
+      "chapterIndex": 53,
+      "event": "夜溟挺身而出利用龙的气息震慑古老存在",
+      "impact": "短暂争取了时间，但也激怒了对方"
+    },
+    {
+      "chapterIndex": 53,
+      "event": "天道规则之力降临，将古老存在强行镇压回地下",
+      "impact": "解除了当前的灭顶之灾，古老存在留下诅咒"
+    },
+    {
+      "chapterIndex": 53,
+      "event": "李豪杰用金血治愈了因过载而产生异变的殷棠",
+      "impact": "修复了殷棠的身体，进一步验证了李豪杰血液的特殊性及两人的羁绊"
+    },
+    {
+      "chapterIndex": 53,
+      "event": "众人离开幽冥谷，发现安溪县方向爆发高阶兽潮",
+      "impact": "引出了下一个危机，剧情转向安溪县的战斗"
+    },
+    {
+      "chapterIndex": 55,
+      "event": "青云宗修士在安溪县城墙抵御变异兽潮，青云剑阵濒临崩溃。",
+      "impact": "城防形势危急，大量弟子死伤。"
+    },
+    {
+      "chapterIndex": 55,
+      "event": "李豪杰在城头布置“逆流阵”，利用时间石和红线逆转被污染的灵流。",
+      "impact": "导致部分怪物爆裂，巨犀肉瘤炸开，但未能完全阻止巨犀撞击。"
+    },
+    {
+      "chapterIndex": 55,
+      "event": "变异金属巨犀撞毁城门，城楼崩塌，安溪县城防告破。",
+      "impact": "兽潮涌入城内，主角一行陷入险境。"
+    },
+    {
+      "chapterIndex": 55,
+      "event": "殷棠在城楼崩塌时救下李豪杰。",
+      "impact": "李豪杰幸存，两人继续在城中行动。"
+    },
     {
       "chapterIndex": 56,
       "event": "李豪杰发动“逆流阵”引发兽潮体内灵气倒流自爆",
@@ -1215,141 +1268,6 @@
       "chapterIndex": 79,
       "event": "太上仙宫的白袍男子现身，记录数据后离开。",
       "impact": "世界观升级，揭示了修仙界背后存在更高维度的观测势力（太上仙宫），确立了主角前往东海寻找答案的新目标。"
-    },
-    {
-      "chapterIndex": 80,
-      "event": "青云宗长老们就是否将李豪杰的功法列为镇宗绝学发生激烈争论",
-      "impact": "揭示了宗门内部对于生存之道与传统正道的观念冲突"
-    },
-    {
-      "chapterIndex": 80,
-      "event": "天机阁使者星河闯入青云宗，递交万法论道大会请帖，点名李豪杰需接受审判",
-      "impact": "剧情矛盾升级，从兽潮危机转为来自中州势力的清算危机"
-    },
-    {
-      "chapterIndex": 80,
-      "event": "星河施展水镜术，展示了李豪杰与殷棠在荒原上的惨状",
-      "impact": "主角位置暴露，且李豪杰身体极度衰老的状态被公开，危机感加剧"
-    },
-    {
-      "chapterIndex": 80,
-      "event": "李豪杰感应到窥视，决定前往中州对抗",
-      "impact": "确立了主角下一阶段的主要行动目标和剧情走向"
-    },
-    {
-      "chapterIndex": 81,
-      "event": "李豪杰身体濒临崩溃，决定回青云宗告别并获取补给",
-      "impact": "确立了前往中州前的最后准备行动，获取了关键物资"
-    },
-    {
-      "chapterIndex": 81,
-      "event": "穆峰主赠予李豪杰聚灵丹、道袍及师祖传下的青玉佩",
-      "impact": "为李豪杰提供了生存保障和寻找世界真相的关键线索"
-    },
-    {
-      "chapterIndex": 81,
-      "event": "青玉佩被激活，发出高热并指引方向",
-      "impact": "明确了去往‘答案’之处的指引，但也因此暴露了行踪"
-    },
-    {
-      "chapterIndex": 82,
-      "event": "李豪杰在荒野遭遇饥荒的凡人，强行施展自创法术引出地下水",
-      "impact": "短暂救活了凡人，但导致自身身体机能加速崩溃，皮肤龟裂"
-    },
-    {
-      "chapterIndex": 82,
-      "event": "众人穿过时序混乱的枯树林，目睹扭曲的树木",
-      "impact": "揭示了“暮岁纪元”不仅是灵气枯竭，更是时间与空间的错乱与变异"
-    },
-    {
-      "chapterIndex": 82,
-      "event": "姜念给李豪杰半颗红糖，众人夜宿岩石后",
-      "impact": "展现了绝望中的温情，强化了人物羁绊"
-    },
-    {
-      "chapterIndex": 82,
-      "event": "大地深处传来震动和轰鸣，李豪杰玉佩反应剧烈，姜念感知到巨物苏醒",
-      "impact": "预示前方目的地有重大发现，剧情进入高潮前夕"
-    },
-    {
-      "chapterIndex": 83,
-      "event": "姜念被烤肉香味吸引至黑市，李豪杰和殷棠追踪而至，发现商人贩卖时序碎片。",
-      "impact": "主角团暴露在危险势力面前，引出时序碎片这一关键道具。"
-    },
-    {
-      "chapterIndex": 83,
-      "event": "独眼大汉与主角团爆发冲突，商人使用时序碎片释放时间迟缓，李豪杰燃烧寿元发动符箓护盾。",
-      "impact": "展示主角团当前的困境与实力差距，李豪杰透支寿元。"
-    },
-    {
-      "chapterIndex": 83,
-      "event": "神秘人射出袖箭打断商人，城卫军介入驱散众人。",
-      "impact": "主角团暂时脱险，避免了直接团灭的结局。"
-    },
-    {
-      "chapterIndex": 83,
-      "event": "李豪杰决定按照玉佩指引，前往东方寻找梦中见过的一座塔。",
-      "impact": "确立了主角团接下来的行动目标。"
-    },
-    {
-      "chapterIndex": 84,
-      "event": "李豪杰利用穆峰主杂记中的地图，带领众人进入'鬼哭巷'利用地形摆脱追踪",
-      "impact": "成功拉开与追踪者的距离，并将战局引入有利于己方的环境"
-    },
-    {
-      "chapterIndex": 84,
-      "event": "李豪杰与殷棠配合反杀三名改造怪人",
-      "impact": "消除了直接的生命威胁，展示了殷棠作为杀戮机器的冷酷一面"
-    },
-    {
-      "chapterIndex": 84,
-      "event": "李豪杰在敌人尸体上发现神秘令牌并决定保留",
-      "impact": "获得了关键线索，但也带来了生命被侵蚀的风险，确立了前往东方'塔'的新目标"
-    },
-    {
-      "chapterIndex": 85,
-      "event": "三人进入破败古庙避雨，发现供奉诡异无头神像",
-      "impact": "为剧情提供阴森背景，引出神像的秘密"
-    },
-    {
-      "chapterIndex": 85,
-      "event": "殷棠尝试模仿人类进食，因程序冲突捏碎水杯",
-      "impact": "揭示了殷棠内部逻辑的崩溃与人性的挣扎"
-    },
-    {
-      "chapterIndex": 85,
-      "event": "李豪杰通过时序感知发现神像周围是时间虚无",
-      "impact": "暗示此地与青云宗晶体有关联，世界观进一步展开"
-    },
-    {
-      "chapterIndex": 85,
-      "event": "雷电照神像，影子呈现捂脸姿态",
-      "impact": "隐喻神佛对世道的绝望，深化悲剧色彩"
-    },
-    {
-      "chapterIndex": 85,
-      "event": "殷棠在结尾发生严重异变，念诵不明咒语",
-      "impact": "制造悬念，殷棠的处境变得极其危险"
-    },
-    {
-      "chapterIndex": 86,
-      "event": "李豪杰一行人抵达中洲天机阁安排的别院听雨别院。",
-      "impact": "正式进入天机阁势力范围，开启了后续的被监视与反监视的剧情。"
-    },
-    {
-      "chapterIndex": 86,
-      "event": "李豪杰识破别院内的阵法机关（锁灵阵、窃听阵）并巧妙避开。",
-      "impact": "展示了李豪杰的高超感知力，确立了主角团在敌营中的生存优势。"
-    },
-    {
-      "chapterIndex": 86,
-      "event": "赵清送来含有“迷魂散”的茶水和含有“锁魂”符文的“回春丹”，企图控制李豪杰。",
-      "impact": "激化了主角团与天机阁的潜在冲突，将暗处的试探转为明面的下毒/控制手段。"
-    },
-    {
-      "chapterIndex": 86,
-      "event": "李豪杰识破茶水和丹药的真面目，并未服下，并开始书写反制计划。",
-      "impact": "主角团由被动转为主动，准备在接下来的“万法论道大会”前进行周旋与反击。"
     }
   ],
   "foreshadows": [
@@ -2913,177 +2831,49 @@
       "plantedInChapter": 79,
       "resolved": false,
       "priority": "medium"
-    },
-    {
-      "id": "f_80_0",
-      "description": "世界寰宙枯萎，灵气稀薄，暗示旧有修炼体系即将彻底崩溃",
-      "plantedInChapter": 80,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_80_1",
-      "description": "殷棠周身不稳定的蓝光及呆滞神情，暗示其可能发生异变或即将崩坏",
-      "plantedInChapter": 80,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_80_2",
-      "description": "万法论道大会名为论道实为审判，预示中州之行将充满凶险",
-      "plantedInChapter": 80,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_81_0",
-      "description": "青玉佩内部似乎有沉睡的眼睛，指引去寻找‘答案’",
-      "plantedInChapter": 81,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_81_1",
-      "description": "姜念保留力量不变成剑，暗示在最后关头需要她出手",
-      "plantedInChapter": 81,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_81_2",
-      "description": "玉佩激活的高维坐标信号会让李豪杰一行成为‘真正的靶子’",
-      "plantedInChapter": 81,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_82_0",
-      "description": "地下深处苏醒的“远古巨物”或神秘存在",
-      "plantedInChapter": 82,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_82_1",
-      "description": "玉佩指引的“答案”与地下的震动有关",
-      "plantedInChapter": 82,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_82_2",
-      "description": "殷棠身上带有违和感的温暖，暗示其并非纯粹冷血机械",
-      "plantedInChapter": 82,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_82_3",
-      "description": "“暮岁纪元”的真相涉及时间与空间的错乱和变异",
-      "plantedInChapter": 82,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_83_0",
-      "description": "姜念身上带有纯粹的时间法则味道和上古剑意，被商人视为炼制傀儡的极品材料，因此面临被全城搜捕的危险。",
-      "plantedInChapter": 83,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_83_1",
-      "description": "面具商人身体流出的银白色液体暗示其非人身份（半血肉半机械），以及其背后可能存在的生物基因改造背景。",
-      "plantedInChapter": 83,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_83_2",
-      "description": "神秘人一直跟踪并在关键时刻出手相助，其身份和目的成谜。",
-      "plantedInChapter": 83,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_83_3",
-      "description": "李豪杰的玉佩指引方向为城东的一座塔，预示着塔中藏有关于现状的重要答案。",
-      "plantedInChapter": 83,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_84_0",
-      "description": "令牌上的'哭泣眼睛'图案与李豪杰在登仙梯和无名黑书中看到的幻象相似",
-      "plantedInChapter": 84,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_84_1",
-      "description": "东方的'塔'中可能藏有关于令牌和世界真相的答案",
-      "plantedInChapter": 84,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_84_2",
-      "description": "幕后势力（'老板'和'大阵'）的存在",
-      "plantedInChapter": 84,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_85_0",
-      "description": "神像周围的时间虚无可能意味着它不受时间法则约束或与某种禁术有关",
-      "plantedInChapter": 85,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_85_1",
-      "description": "殷棠的‘指令冲突’和‘无法解析优雅’暗示其正在突破底层限制",
-      "plantedInChapter": 85,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_85_2",
-      "description": "殷棠念诵的拉丁文‘Erit... dies... illa...’（那日将临）可能指向某种古老的末日预言或幕后势力",
-      "plantedInChapter": 85,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_85_3",
-      "description": "姜念提到的‘坏人’暗示古庙曾有其他势力活动的痕迹",
-      "plantedInChapter": 85,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_86_0",
-      "description": "李豪杰写下的关于“被侵蚀修士灵气运行轨迹”和“世界病症”的字符，预示着他可能在大会上揭示世界的真相或利用这一点。",
-      "plantedInChapter": 86,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_86_1",
-      "description": "李豪杰提到的“只有空架子的兵器”和“贪吃的累赘”是他们最大的机会，暗示后续将利用这种低价值判断进行伪装或反击。",
-      "plantedInChapter": 86,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_86_2",
-      "description": "赵清对殷棠表现出的浓厚兴趣（评估像稀世珍宝），预示着殷棠的身份或体质可能会引起天机阁内部的觊觎或争夺。",
-      "plantedInChapter": 86,
-      "resolved": false,
-      "priority": "medium"
     }
   ],
   "recentOpenings": [
+    {
+      "chapterIndex": 70,
+      "firstSentence": "有些饥饿感是永远无法满足的，尤其是当饥饿的对象是存在本身。",
+      "openingType": "thought"
+    },
+    {
+      "chapterIndex": 71,
+      "firstSentence": "剑尖触碰那颗灰黑色晶体的瞬间，没有金石交鸣的脆响，只有一种极其细微的、类似于蛋壳碎裂的“咔嚓”声。",
+      "openingType": "action"
+    },
+    {
+      "chapterIndex": 72,
+      "firstSentence": "终结最残忍的地方在于，它往往不是一瞬间的灰飞烟灭，而是一点一点地剥离掉你所有的希望，让你眼睁睁看着那些刚刚燃起的火苗，在寒风中无助地挣扎，直到最后一点火星也被掐灭。",
+      "openingType": "description"
+    },
+    {
+      "chapterIndex": 73,
+      "firstSentence": "在灵溪村的时候，每逢渔网破损，母亲总会说，只有死结才会越扯越乱，要想网住大鱼，每一根丝线都得是活的。",
+      "openingType": "thought"
+    },
+    {
+      "chapterIndex": 74,
+      "firstSentence": "骨骼崩解的声音并不总是那种清脆的断裂声，有时候，它听起来像是大雪落在瓦片上，绵密、厚重，却带着无法挽回的死寂。",
+      "openingType": "sound"
+    },
+    {
+      "chapterIndex": 75,
+      "firstSentence": "那是一张剪得很粗糙的红纸，边缘甚至带着细微的毛刺，像是匆忙之下被剪刀咬了一口。",
+      "openingType": "description"
+    },
+    {
+      "chapterIndex": 76,
+      "firstSentence": "痛觉会撒谎吗？",
+      "openingType": "thought"
+    },
+    {
+      "chapterIndex": 77,
+      "firstSentence": "静室空气中漂浮的尘埃停在了半空，仿佛被冻结在了一块巨大的、看不见的琥珀里。",
+      "openingType": "description"
+    },
     {
       "chapterIndex": 78,
       "firstSentence": "死亡并非瞬间降临，而是一种漫长而残忍的侵蚀，就像一只看不见的手在反复打磨一块顽石，直到你分不清哪些是原本的棱角，哪些是后来留下的伤痕。",
@@ -3093,47 +2883,7 @@
       "chapterIndex": 79,
       "firstSentence": "有人说，当你凝视深渊时，深渊也在凝视你。",
       "openingType": "thought"
-    },
-    {
-      "chapterIndex": 80,
-      "firstSentence": "胜利的庆功酒，往往比失败的苦胆更难咽下。",
-      "openingType": "description"
-    },
-    {
-      "chapterIndex": 81,
-      "firstSentence": "衰老是一场极其精准的掠夺，它不讲道理，不问缘由，只是在你的每一次呼吸间，悄无声息地抽走骨髓里的温热，用一种名为“枯竭”的凉意填满所有的缝隙。",
-      "openingType": "description"
-    },
-    {
-      "chapterIndex": 82,
-      "firstSentence": "七天的路程，五座村庄，不见一口活井。",
-      "openingType": "description"
-    },
-    {
-      "chapterIndex": 83,
-      "firstSentence": "落日城就像一只食腐的秃鹫，紧紧趴伏在荒原与沙海的交界线上，贪婪地啄食着过路人身上最后一点血肉。",
-      "openingType": "description"
-    },
-    {
-      "chapterIndex": 84,
-      "firstSentence": "恐惧尝起来像生锈的铜币，带着一股令人作呕的腥涩，死死地压在舌根之上。",
-      "openingType": "description"
-    },
-    {
-      "chapterIndex": 85,
-      "firstSentence": "雨水顺着枯树的表皮流淌，汇聚在李豪杰手背那道深陷的皱纹里。",
-      "openingType": "weather"
-    },
-    {
-      "chapterIndex": 86,
-      "firstSentence": "那尊无头神像在雷电下捂住脸的影子，成了李豪杰挥之不去的梦魇。",
-      "openingType": "description"
-    },
-    {
-      "chapterIndex": 87,
-      "firstSentence": "一个垂死的人，如何在向一群满怀恶意的围观者证明世界有救的同时，不让自己先死在讲坛上",
-      "openingType": "description"
     }
   ],
-  "lastUpdatedChapter": 86
+  "lastUpdatedChapter": 79
 }
