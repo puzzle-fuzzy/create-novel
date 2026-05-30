@@ -33,7 +33,7 @@ export function buildReviewPrompt(
 ## 本章大纲要求
 标题：${outline.title}
 概要：${outline.summary}
-关键场景：${outline.keyScenes.join('；')}
+关键场景：${(Array.isArray(outline.keyScenes) ? outline.keyScenes : [outline.keyScenes]).join('；')}
 情绪基调：${outline.mood}
 ${outline.cliffhanger ? `章末悬念要求：${outline.cliffhanger}` : ''}
 

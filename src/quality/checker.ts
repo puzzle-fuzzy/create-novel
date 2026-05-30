@@ -189,13 +189,14 @@ export function checkQuality(
   }
 
   // ── 9. 对话存在检查（如果大纲有多个角色出场，应该有对话）──
-  if (outline.characters.length >= 2) {
+  const outlineCharacters = Array.isArray(outline.characters) ? outline.characters : [outline.characters];
+  if (outlineCharacters.length >= 2) {
     const dialogueCount = (trimmed.match(/[""「」]/g) || []).length / 2;
     if (dialogueCount < 1) {
       issues.push({
         type: 'lack_dialogue',
         severity: 'warning',
-        message: `对话过少（${Math.round(dialogueCount)}处），${outline.characters.length}个角色出场应有更多互动`,
+        message: `对话过少（${Math.round(dialogueCount)}处），${outlineCharacters.length}个角色出场应有更多互动`,
       });
       score -= 8;
     }

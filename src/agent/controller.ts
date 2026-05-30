@@ -114,7 +114,7 @@ function defaultDecision(chapterGlobalIndex: number, chapter: ChapterOutline): A
   return {
     chapterGlobalIndex,
     timestamp: new Date().toISOString(),
-    featuredCharacters: chapter.characters.slice(0, 3),
+    featuredCharacters: (Array.isArray(chapter.characters) ? chapter.characters : [chapter.characters]).slice(0, 3),
     pacing: 'medium',
     plotFocus: 'main',
     foreshadowsToPlant: [],

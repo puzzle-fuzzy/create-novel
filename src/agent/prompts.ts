@@ -38,9 +38,9 @@ export function buildAgentDecisionPrompt(
 ${arc ? `- 当前篇：${arc.title}（卷 ${arc.volumeRange.start + 1}-${arc.volumeRange.end + 1}）` : ''}
 
 ## 章节大纲要求
-- 出场角色：${chapter.characters.join('、')}
+- 出场角色：${(Array.isArray(chapter.characters) ? chapter.characters : [chapter.characters]).join('、')}
 - 情绪基调：${chapter.mood}
-- 关键场景：${chapter.keyScenes.join('；')}
+- 关键场景：${(Array.isArray(chapter.keyScenes) ? chapter.keyScenes : [chapter.keyScenes]).join('；')}
 ${chapter.cliffhanger ? `- 章末悬念：${chapter.cliffhanger}` : ''}
 
 ## 角色状态

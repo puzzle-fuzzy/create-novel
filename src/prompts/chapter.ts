@@ -105,9 +105,9 @@ export function buildChapterUserPrompt(
 ${chapter.summary}
 
 关键场景（必须全部写到，缺一不可）：
-${chapter.keyScenes.map((s, i) => `${i + 1}. ${s}`).join('\n')}
+${(Array.isArray(chapter.keyScenes) ? chapter.keyScenes : [chapter.keyScenes]).map((s, i) => `${i + 1}. ${s}`).join('\n')}
 
-出场角色：${chapter.characters.join('、')}
+出场角色：${(Array.isArray(chapter.characters) ? chapter.characters : [chapter.characters]).join('、')}
 情绪基调：${chapter.mood}
 ${chapter.cliffhanger ? `章末悬念：${chapter.cliffhanger}` : ''}`);
 
