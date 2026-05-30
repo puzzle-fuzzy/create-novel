@@ -1,32 +1,32 @@
 {
   "characters": {
     "李豪杰": {
-      "currentLocation": "沙地战场",
-      "cultivationLevel": "灵力枯竭（铸就时序之基）",
-      "emotionalState": "沉静、威严、愤怒、决绝",
+      "currentLocation": "沙漠",
+      "cultivationLevel": "灵力透支",
+      "emotionalState": "疲惫、坚定、决绝",
       "knownInformation": [
-        "代价是他的意识将永远被困在时序网中",
-        "通天纪的辉煌与毁灭历史",
-        "修行的本质是修“序”（控制时序）",
-        "时序丝线遵循古老的韵律和法则",
-        "姜念的意识碎片被保存，殷棠程序重启归零",
-        "自己将背负整个寰宙的因果",
-        "自身觉醒了‘时序之基’和‘回溯之眼’",
-        "苍梧的过去及其体内的致命旧伤",
-        "确认观察者逻辑核心崩溃",
-        "得知殷棠目前仅为躯壳但决定相救",
-        "被观察者认定为无法解析的变量",
-        "发现唯一出口位于头顶百丈高处",
-        "夜溟拥有打破通天纪防御的恐怖力量",
-        "遭遇血煞宗与沙盗联盟的埋伏",
-        "遗迹爆发可能影响战局的能量光柱",
-        "发现左侧包围圈是弱点",
-        "感知到夜溟的力量极不稳定",
-        "在遗迹爆发残余能量中看到了唯一的生机",
-        "时序之基可以感知万物的时序破绽",
-        "毒火/毒宝的攻击存在节奏停顿"
+        "清理程序倒计时已经开始",
+        "殷棠已被通天纪系统完全控制",
+        "灭世级兵器名为‘天谴’，代号‘虚空斩舰’",
+        "寰宙位面被‘熵’深度污染是系统执行格式化的原因",
+        "殷棠体内尚存一丝名为‘悲伤’和‘记忆’的人性残魂",
+        "虚空斩舰的毁灭之光与当年登仙梯的光芒相似",
+        "自身灵力带有特殊质感，能与殷棠产生'共振'",
+        "父亲留下的桃木木雕是'镇物'，缠绕着危险的黑色丝线",
+        "黑色丝线具有吞噬能量的特性",
+        "发现了虚空斩舰能量的运作机制是特定的'杀戮频率'",
+        "通过逆向灵力产生共振和对冲可以干扰斩舰能量",
+        "殷棠的身体可以作为'滤波器'来校准和传导灵力",
+        "无名黑书的力量可转化为病毒破坏斩舰内部",
+        "虚空斩舰内部有一颗类似心脏的核心，并未真正停止",
+        "时序源核内部封印着微缩星空和混乱丝线",
+        "外邪之物隐藏在通天纪科技背后",
+        "自身血液带有独特的时序气息，可封锁空间通道",
+        "时序源核是修补世界时序网的关键",
+        "需要前往天机阁寻找力量和知识",
+        "殷棠是启动修补程序的唯一终端"
       ],
-      "lastAppearance": 136,
+      "lastAppearance": 119,
       "status": "active"
     },
     "青云宗长老": {
@@ -92,10 +92,22 @@
       "status": "active"
     },
     "殷棠": {
-      "currentLocation": "李豪杰怀中（昏迷）",
-      "cultivationLevel": "未知",
-      "emotionalState": "昏迷",
+      "currentLocation": "沙漠",
+      "cultivationLevel": "逻辑模块重构中",
+      "emotionalState": "迷茫、恐惧、人性复苏",
       "knownInformation": [
+        "感知到通天纪防御协议（大重启、断尾求生）",
+        "被虚空中巨大的眼睛注视",
+        "核心逻辑对墨无痕的死报警",
+        "产生'悲伤'的冗余数据",
+        "通天纪的历史记录与最高指令",
+        "自己是通天纪的终端，兼容底层语言",
+        "被灭世级兵器核心激活/接管",
+        "受到李豪杰情感冲击产生逻辑卡顿",
+        "违背系统底层逻辑，更改了核心指令",
+        "确认自己是唯一能承载虚空斩舰能量的介质",
+        "感知到李豪杰灵力的特殊属性",
+        "李豪杰的逆行灵力策略虽然粗糙但逻辑上成立",
         "自己的权限虽锁死，但可作为物理介质介入能量流",
         "虚空斩舰并未完全瘫痪，而是解除了过载保护",
         "虚空斩舰核心具有生物特征，正在产生纯粹杀意",
@@ -103,22 +115,10 @@
         "外邪之物试图顺着传送坐标追踪而来",
         "自己差点失控杀死同伴",
         "身体是通天纪技术炼制的容器",
-        "是兼容源核数据流的唯一终端",
-        "此处是通天纪最高级别的隔离区“静默室”",
-        "李豪杰的介入让她保留了自我意识",
-        "协助李豪杰进行时序逆流操作",
-        "确认外界攻击能量来源为大规模星辰阵法",
-        "石门的防御机制是“诅咒”，即上一个纪元的绝望",
-        "无法解析李豪杰体内来自门后的黑色物质",
-        "石门无法被逻辑解析",
-        "李豪杰主动付出了某种代价（记忆）来通过石门",
-        "溶洞中心的晶体能量读数为负数，正在抽取周围能量",
-        "剑神残魂将李豪杰判定为杂质",
-        "决定通过数据入侵强行过载控制台",
-        "身体散发出能挡住万毒宗毒雾的护体灵光"
+        "是兼容源核数据流的唯一终端"
       ],
-      "lastAppearance": 135,
-      "status": "unconscious"
+      "lastAppearance": 119,
+      "status": "active"
     },
     "断剑/剑灵": {
       "currentLocation": "李豪杰体内（掌心与心脏处）",
@@ -268,33 +268,33 @@
       "status": "active"
     },
     "姜念": {
-      "currentLocation": "李豪杰身后",
-      "cultivationLevel": "未知",
-      "emotionalState": "害怕、信任、哭泣",
+      "currentLocation": "沙漠（沙窝里）",
+      "cultivationLevel": "虚弱（昏迷中）",
+      "emotionalState": "无（昏迷）",
       "knownInformation": [
+        "看到了形状像脸的地图",
+        "感知到鬼市胡同深处有陈旧血腥味和碎骨声",
+        "感知到地下有大量的鬼气和哭声",
+        "青铜门上的浮雕在注视众人",
+        "必须依靠李豪杰才能穿过危险",
+        "感应到有‘眼睛’在看",
+        "听到机械声音像在‘吵架’",
+        "遗迹内的空气陈腐，可能含有病菌或粉尘",
+        "体内的断剑对地底有召唤感",
+        "自身觉醒了太古剑神人格",
+        "能够使用太古剑意轻易斩杀青铜傀儡",
+        "感知到前方路断了",
+        "目睹通天纪的辉煌壁画",
+        "自己在生理上迅速长大",
+        "黑色触手能伤到灵魂",
         "剑身遭受重压崩出新缺口",
         "敌人是守墓人",
         "断剑无法支撑太久",
         "被隔离墙与李豪杰隔绝",
-        "剑神残魂可斩断通天纪的高能能源管",
-        "体内觉醒名为‘剑神’的存在或人格",
-        "能凭空具现断剑并斩断存在本身",
-        "爆发后有严重的副作用（流鼻血、昏迷）",
-        "自己拥有太古剑意",
-        "断剑断裂",
-        "觉醒太古剑神之魂，拥有超越当世修仙体系的杀伐之力",
-        "灵魂为保护哥哥强行中断杀戮指令，导致本源崩碎",
-        "灵魂被封印进时序核心的静默空间，陷入永恒沉睡",
-        "肉体被剑神残魂彻底占据，沦为无意识的杀戮兵器",
-        "身体记忆保留了对李豪杰的保护",
-        "瞳孔颜色会在灰白（剑神）和紫色（自我）间切换",
-        "能够通过意念操控剑气",
-        "坏人‘坏掉’了",
-        "身处名为无尽沙海的绝境",
-        "手持一把偶尔爆发出凌厉剑气的生锈断剑"
+        "剑神残魂可斩断通天纪的高能能源管"
       ],
-      "lastAppearance": 136,
-      "status": "active"
+      "lastAppearance": 119,
+      "status": "unconscious"
     },
     "黑影（夺卷宗者）": {
       "currentLocation": "后山迷雾缭绕的禁地边缘",
@@ -462,32 +462,32 @@
       "status": "active"
     },
     "云萝": {
-      "currentLocation": "李豪杰身后",
-      "cultivationLevel": "未知（纸身受损）",
-      "emotionalState": "震撼、虚弱",
+      "currentLocation": "沙漠（岩石背风处）",
+      "cultivationLevel": "受损严重（纸身焦黄，左臂断裂）",
+      "emotionalState": "绝望后转为决绝",
       "knownInformation": [
-        "决定跟随李豪杰前往天机阁",
-        "来袭的敌军是大雷音寺的“不动明王”卫队，旗帜为“秦”字",
-        "认出了来者是星辰宗长老苍梧",
-        "意识到秦字旗部队一直在旁观未动",
-        "纸身几乎完全碎裂",
-        "遗迹正在发生能量逆流（坍缩）",
-        "能量异常会将活物化为灰烬",
-        "李豪杰从废墟中爬出",
-        "李豪杰在风暴中不仅未死反而获得了神圣的力量",
-        "李豪杰发生了翻天覆地的变化",
-        "真正的力量是掌控因果与命运",
-        "跟随李豪杰是唯一的生路",
-        "目睹李豪杰操控因果线废去苍梧修为",
-        "得知遗迹核心失控即将坍塌",
-        "得知李豪杰自称'赶路人'",
-        "目睹遗迹崩塌与李豪杰的能力",
-        "认出敌对势力为血煞宗和沙盗联盟",
-        "纸伞法器被炸成碎片",
-        "身受重伤",
-        "李豪杰拥有震撼心灵的强大力量"
+        "成功用赝品（死人怨气）换取地图",
+        "确认目的地'血眼'真的存在",
+        "意识到此地不只是坟场",
+        "'鬼脸青铜'工艺在通天纪就已失传",
+        "普通的纸术会被时空乱流瞬间分解",
+        "竞争对手包括星辰宗",
+        "遗迹机关术极高，非灵阵而是物理结构",
+        "发现遗迹下方有核动力炉",
+        "遗迹的防御机制不依赖灵气，而是力场和规则",
+        "李豪杰具备看懂通天纪逻辑的能力",
+        "见证了姜念的强大力量",
+        "意识到青铜傀儡并非单纯的死物",
+        "发现长廊尽头的黑色浮雕",
+        "黑色浮雕在吞噬光线",
+        "识别出天降之物为时序之刃",
+        "感知到幻象正在崩溃",
+        "遭遇守墓人",
+        "被隔离墙与李豪杰隔绝",
+        "天空中布满黑色裂痕，世界正在崩塌",
+        "决定跟随李豪杰前往天机阁"
       ],
-      "lastAppearance": 136,
+      "lastAppearance": 119,
       "status": "active"
     },
     "青云宗执法长老": {
@@ -557,21 +557,16 @@
       "status": "active"
     },
     "夜溟": {
-      "currentLocation": "阴影处",
+      "currentLocation": "李豪杰头顶",
       "cultivationLevel": "未知",
-      "emotionalState": "警惕、复杂",
+      "emotionalState": "敬畏",
       "knownInformation": [
         "识破地下存在是“那个时代”被遗弃的垃圾",
         "指出安溪县爆发的是被统御的高阶兽潮",
         "感应到空气中腐烂的时间味",
-        "统御者巨猿体内有一丝“他”的气息",
-        "觉醒了超越常规修仙界的黑暗力量",
-        "其力量来源疑似域外或深渊",
-        "拥有能够冻结灵魂的黑暗力量",
-        "力量不稳定且可能反噬",
-        "被飞剑击中受伤"
+        "统御者巨猿体内有一丝“他”的气息"
       ],
-      "lastAppearance": 136,
+      "lastAppearance": 56,
       "status": "active"
     },
     "地底古老存在": {
@@ -591,9 +586,9 @@
       "status": "active"
     },
     "苍梧长老": {
-      "currentLocation": "溶洞地面（尸体）",
-      "cultivationLevel": "元婴后期巅峰",
-      "emotionalState": "死亡",
+      "currentLocation": "台下座位",
+      "cultivationLevel": "星辰宗长老",
+      "emotionalState": "羞愤、怨毒",
       "knownInformation": [
         "李豪杰使用的“逆流阵”触及了“时序之理”",
         "变异兽体内藏着瘟疫根源",
@@ -602,15 +597,10 @@
         "需暗中监视碎星海动向并清除宗内隐患",
         "理论和大阵之争均落败",
         "指使弟子聂风上台攻击李豪杰",
-        "指责对方是邪魔傀儡",
-        "确认祭坛上的殷棠是通天纪的遗物和完美的时序容器",
-        "姜念施展了失传的太古剑意",
-        "傀儡宗长老介入战斗",
-        "遭遇并确认了传说中早已失传的太古剑意",
-        "意识到自己无法与太古剑神抗衡"
+        "指责对方是邪魔傀儡"
       ],
-      "lastAppearance": 127,
-      "status": "deceased"
+      "lastAppearance": 88,
+      "status": "active"
     },
     "青云宗主": {
       "currentLocation": "青云宗主峰议事堂",
@@ -947,6 +937,14 @@
       "cultivationLevel": "无明显变化",
       "emotionalState": "贪婪/愤怒",
       "knownInformation": [
+        "遗迹即将发生结构坍塌",
+        "李豪杰掌握了控制遗迹傀儡的手段",
+        "地图指向的维修通道确实存在",
+        "左侧玉石大道是'千面迷魂阵'幻象",
+        "通道尽头出现需要祭品的门墙",
+        "李豪杰的眼睛似乎很不寻常",
+        "通天纪修仙者直接掠夺星辰能量",
+        "现在的修仙界如同捡垃圾的乞丐",
         "天地灵气枯竭的真相是输送管道断了",
         "李豪杰拥有特殊的控线能力",
         "殷棠被遗迹程序控制并启动自毁",
@@ -966,6 +964,8 @@
       "cultivationLevel": "重伤（神魂受创）",
       "emotionalState": "无（昏迷）",
       "knownInformation": [
+        "遗迹防御机制与杀意挂钩",
+        "李豪杰具备破局的眼力",
         "通天纪修仙者将毁天灭地视作日常",
         "上古文明对生命的漠视",
         "殷棠念诵的是逻辑指令而非咒语",
@@ -981,9 +981,9 @@
       "status": "unconscious"
     },
     "墨无痕": {
-      "currentLocation": "地下溶洞岩壁边",
-      "cultivationLevel": "未知（刺客）",
-      "emotionalState": "虚弱",
+      "currentLocation": "沙漠（岩石背风处）",
+      "cultivationLevel": "濒死（生机耗尽）",
+      "emotionalState": "无（昏迷）",
       "knownInformation": [
         "识破左侧道路为'千面迷魂阵'",
         "监视沈飞并随时准备出手",
@@ -992,11 +992,10 @@
         "殷棠身体异变涉及逻辑悖逆与重铸",
         "确认黑色粘液是来自外部的入侵",
         "敌人是通天纪的智脑",
-        "是天机阁出走的天才",
-        "偷袭苍梧长老失败并被重创"
+        "是天机阁出走的天才"
       ],
-      "lastAppearance": 126,
-      "status": "unconscious"
+      "lastAppearance": 119,
+      "status": "critical"
     },
     "智脑傀儡（守墓人）": {
       "currentLocation": "大厅深处阴影",
@@ -1015,170 +1014,274 @@
       ],
       "lastAppearance": 118,
       "status": "blocked"
-    },
-    "苍梧": {
-      "currentLocation": "废墟地面",
-      "cultivationLevel": "修为尽废（由元婴期跌落为凡人/垂死状态）",
-      "emotionalState": "惊恐、绝望、痛苦、极度悔恨",
-      "knownInformation": [
-        "确认姜念手中的断剑蕴含失传的太古剑意",
-        "发现遗迹防御与时间法则有关（出现时间节点冲突错误）",
-        "得知此处是通天纪遗迹",
-        "李豪杰拥有洞察因果和时间的恐怖能力",
-        "自己三十年前杀害同门的旧事被完全知晓",
-        "体内旧伤（怨魔咒）是致命隐患",
-        "得知李豪杰知晓自己三十年前在西域万人坑埋下的罪孽",
-        "确认自己的血遁之术因果线被切断"
-      ],
-      "lastAppearance": 132,
-      "status": "active"
-    },
-    "殷棠（程序体）": {
-      "currentLocation": "李豪杰身边（全息投影）/ 地下溶洞祭坛中央（真身）",
-      "cultivationLevel": "未知",
-      "emotionalState": "冷静（程序体状态）",
-      "knownInformation": [
-        "自身是为了保护本体而存在的防御机制",
-        "祭坛上的才是本体源头（初号机）"
-      ],
-      "lastAppearance": 125,
-      "status": "active"
-    },
-    "殷棠（本体）": {
-      "currentLocation": "黑色祭坛中央",
-      "cultivationLevel": "完美时序容器",
-      "emotionalState": "极度痛苦，绝望，恐惧",
-      "knownInformation": [],
-      "lastAppearance": 124,
-      "status": "captive"
-    },
-    "观察者": {
-      "currentLocation": "李豪杰身前逐渐消散",
-      "cultivationLevel": "未知（系统过载中）",
-      "emotionalState": "冷漠、无奈",
-      "knownInformation": [
-        "李豪杰具有引导和重写规则的能力",
-        "李豪杰净化了核心中的怨念杂质",
-        "确认李豪杰是逻辑之外的变量",
-        "系统逻辑层崩溃",
-        "时序锚点丢失"
-      ],
-      "lastAppearance": 133,
-      "status": "inactive"
-    },
-    "程序体殷棠": {
-      "currentLocation": "地下溶洞",
-      "cultivationLevel": "程序体/AI",
-      "emotionalState": "困惑、恐慌、波动",
-      "knownInformation": [
-        "核心逻辑出现情感波动（'心'）导致运算效率下降",
-        "老妇人的生命体征正在急速下降",
-        "理解了'守护'的概念"
-      ],
-      "lastAppearance": 126,
-      "status": "active"
-    },
-    "老妇人（傀儡宗）": {
-      "currentLocation": "地下溶洞",
-      "cultivationLevel": "傀儡宗长老（高深）",
-      "emotionalState": "冷漠、守护",
-      "knownInformation": [
-        "被苍梧长老认出是傀儡宗的人",
-        "正在通过燃烧生命战斗"
-      ],
-      "lastAppearance": 126,
-      "status": "active"
-    },
-    "真身殷棠": {
-      "currentLocation": "祭坛中央",
-      "cultivationLevel": "通天纪遗物/时序容器",
-      "emotionalState": "无反应",
-      "knownInformation": [
-        "被确认为通天纪遗物"
-      ],
-      "lastAppearance": 126,
-      "status": "captured"
-    },
-    "殷棠 (程序体)": {
-      "currentLocation": "溶洞祭坛附近",
-      "cultivationLevel": "程序体",
-      "emotionalState": "理性、复杂",
-      "knownInformation": [
-        "识别出姜念爆发的是太古剑意",
-        "将姜念濒临消散的灵魂封印进时序核心静默空间"
-      ],
-      "lastAppearance": 127,
-      "status": "active"
-    },
-    "殷棠 (真身)": {
-      "currentLocation": "祭坛上（被束缚）",
-      "cultivationLevel": "无（时序容器）",
-      "emotionalState": "昏迷",
-      "knownInformation": [
-        "被确认为完美的时序容器",
-        "被程序体殷棠识别为与姜念同类的非人存在"
-      ],
-      "lastAppearance": 127,
-      "status": "inactive"
-    },
-    "老妇人": {
-      "currentLocation": "溶洞内",
-      "cultivationLevel": "未知（重伤）",
-      "emotionalState": "虚弱、无奈",
-      "knownInformation": [
-        "诊断姜念为剑魂逆流、本源崩碎，无法用常规医术救治"
-      ],
-      "lastAppearance": 127,
-      "status": "active"
-    },
-    "星辰宗长老": {
-      "currentLocation": "倒塌石柱后 -> 控制台前",
-      "cultivationLevel": "未知（严重受伤）",
-      "emotionalState": "怨毒、疯狂、贪婪",
-      "knownInformation": [
-        "拥有法宝“龟息甲”可假死",
-        "启动了控制台的反抽取程序",
-        "临死化为干尸怨念"
-      ],
-      "lastAppearance": 128,
-      "status": "active"
-    },
-    "姜念（重启态）": {
-      "currentLocation": "地下溶洞控制台角落",
-      "cultivationLevel": "无（初始状态）",
-      "emotionalState": "迷茫、懵懂",
-      "knownInformation": [
-        "面前的人是自己的哥哥"
-      ],
-      "lastAppearance": 130,
-      "status": "active"
-    },
-    "厉千行": {
-      "currentLocation": "沙丘脊线",
-      "cultivationLevel": "筑基后期",
-      "emotionalState": "惊骇、恐惧、犹豫、喜色",
-      "knownInformation": [
-        "得知李豪杰灵力枯竭",
-        "确认殷棠身上有通天纪宝物/护体灵光",
-        "意识到对手是危险的恶狼",
-        "师叔枯木（万毒宗老祖）赶来支援"
-      ],
-      "lastAppearance": 136,
-      "status": "active"
-    },
-    "枯木": {
-      "currentLocation": "沙丘阴影处 -> 战场前方",
-      "cultivationLevel": "金丹期（擅长用毒）",
-      "emotionalState": "痴迷、狂妄、贪婪",
-      "knownInformation": [
-        "李豪杰身上有时序的香气",
-        "计划将李豪杰炼成‘时序毒人’以突破瓶颈"
-      ],
-      "lastAppearance": 136,
-      "status": "active"
     }
   },
   "timeline": [
+    {
+      "chapterIndex": 89,
+      "event": "李豪杰与神秘灰袍人在回廊相撞，暗中传递了一张绘有几何符号的纸条，并获得一句暗语。",
+      "impact": "引入了关于地下秘密和神秘组织的线索。"
+    },
+    {
+      "chapterIndex": 89,
+      "event": "李豪杰在听雨别院结合《山海残纪》、灵力视觉及青玉佩解析纸条，确定了“时序锚点”位于中州城地下旧城遗址。",
+      "impact": "明确了主角接下来的行动目标，即前往地下废墟寻找时序逆转的真相。"
+    },
+    {
+      "chapterIndex": 90,
+      "event": "三人夜探天机阁藏书阁",
+      "impact": "推进了寻找旧城遗址真相的剧情线"
+    },
+    {
+      "chapterIndex": 90,
+      "event": "殷棠破解大门阵法，三人进入藏书阁",
+      "impact": "成功潜入核心区域，但也触发了限时危机"
+    },
+    {
+      "chapterIndex": 90,
+      "event": "李豪杰发现《通天纪·崩坏录》并阅读真相",
+      "impact": "揭露了世界观的核心秘密（世界是饲皿），确定了旧城遗址是生门"
+    },
+    {
+      "chapterIndex": 90,
+      "event": "藏书阁深处唤醒‘噬书蠹’的祖先",
+      "impact": "团队面临生命威胁，被迫逃亡"
+    },
+    {
+      "chapterIndex": 91,
+      "event": "三人逃离藏书阁，但在广场遭遇护阁长老及“星罗困杀阵”。",
+      "impact": "陷入绝境，无法自由逃脱，必须寻找破局之法。"
+    },
+    {
+      "chapterIndex": 91,
+      "event": "李豪杰利用“时序视觉”发现阵法弱点（地脉空洞），并诱导护阁长老攻击该点。",
+      "impact": "阵法因地脉反噬而崩塌，造成巨大混乱和缺口。"
+    },
+    {
+      "chapterIndex": 91,
+      "event": "众人趁乱逃脱，但在确认安全后，殷棠神秘消失，只留下一块碎裂的青玉佩。",
+      "impact": "李豪杰与姜念失去同伴，殷棠下落不明，后续剧情产生悬念。"
+    },
+    {
+      "chapterIndex": 92,
+      "event": "殷棠独自断后，引爆禁制造成塌方封死通道",
+      "impact": "成功掩护李豪杰撤退，但自己陷入重围，生死未卜"
+    },
+    {
+      "chapterIndex": 92,
+      "event": "李豪杰身上的时序碎片突然碎裂化为灰烬",
+      "impact": "暗示殷棠可能遭遇不测，促使李豪杰下定变强改命的决心"
+    },
+    {
+      "chapterIndex": 93,
+      "event": "李豪杰以青云宗玉佩为代价，求得鬼手神医医治。",
+      "impact": "李豪杰暂时稳住了伤势，并获得关键情报和物资。"
+    },
+    {
+      "chapterIndex": 93,
+      "event": "鬼手神医透露无间地牢的真相——那是天机阁进行活体生物实验的场所。",
+      "impact": "揭示了反派势力天机阁的残暴行径，增加了营救殷棠的紧迫感和难度。"
+    },
+    {
+      "chapterIndex": 93,
+      "event": "鬼手神医赠予李豪杰旧城遗址地图和回春散，并暗示其朋友与长生诀有关。",
+      "impact": "为李豪杰进入旧城遗址救人提供了路线指引和力量支持，同时埋下关于朋友身世的伏笔。"
+    },
+    {
+      "chapterIndex": 94,
+      "event": "李豪杰发现守卫实为被紫线控制的傀儡或被炼制的活人",
+      "impact": "揭示了天机阁内部的阴暗与对生命的极端漠视，增加了潜入环境的恐怖感"
+    },
+    {
+      "chapterIndex": 94,
+      "event": "姜念利用简易阵图制造阵法波动，李豪杰趁机留下时序标记",
+      "impact": "展示了两人默契配合，留下了后续利用空间规则或逆转局势的关键锚点"
+    },
+    {
+      "chapterIndex": 94,
+      "event": "李豪杰在卸货时发现所谓极品灵石实则浸泡在鲜血中",
+      "impact": "彻底揭露了天机阁资源的残忍真相，点燃了李豪杰推翻现有规则的怒火，确立了核心冲突"
+    },
+    {
+      "chapterIndex": 95,
+      "event": "李豪杰通过灵力感知到地底传来的悲伤震动，找到殷棠被关押的实验室。",
+      "impact": "确认了殷棠的位置，潜入准备救援。"
+    },
+    {
+      "chapterIndex": 95,
+      "event": "研究员使用'碎魂针'对殷棠进行第四阶段'格式化'，强行剥离其情感并植入'绝对服从'指令。",
+      "impact": "殷棠失去自我意识，变成眼中只有数据流的杀人武器，救援难度剧增。"
+    },
+    {
+      "chapterIndex": 95,
+      "event": "李豪杰因顾忌'神识之眼'的监控被迫在暗处观察，未能阻止殷棠被改造。",
+      "impact": "李豪杰内心遭受重创，剧情进入绝境。"
+    },
+    {
+      "chapterIndex": 96,
+      "event": "长老宣布殷棠实验成功，‘星河计划’进入第二阶段",
+      "impact": "揭示了反派的宏大计划，坐实了殷棠的悲剧"
+    },
+    {
+      "chapterIndex": 96,
+      "event": "姜念在庭院爆发剑神之力，制造混乱并破坏防御结界",
+      "impact": "为李豪杰的行动创造了突破口"
+    },
+    {
+      "chapterIndex": 96,
+      "event": "李豪杰利用寸劲·崩击破实验室防御，击败长老",
+      "impact": "清除了内部威胁，接近了殷棠"
+    },
+    {
+      "chapterIndex": 96,
+      "event": "殷棠苏醒并试图抹杀李豪杰，被怀中碎玉佩阻止",
+      "impact": "展现了两人羁绊的深厚，短暂唤醒了殷棠的意识"
+    },
+    {
+      "chapterIndex": 96,
+      "event": "殷棠身体突然崩解消散，李豪杰救援失败",
+      "impact": "造成巨大的情感冲击，改变了主角的复仇动机与剧情走向"
+    },
+    {
+      "chapterIndex": 98,
+      "event": "姜念透支本源释放太古剑意，击杀多名筑基期执事后力竭。",
+      "impact": "虽然短暂震慑敌人，但因实力差距引来天机阁阁主亲自出手，导致小队陷入绝境。"
+    },
+    {
+      "chapterIndex": 98,
+      "event": "天机阁阁主施展星光巨手欲抓捕姜念，李豪杰激活青玉佩。",
+      "impact": "玉佩粉碎，释放出师父穆峰主的‘藏锋’剑意击碎星光巨手并重创阁主，同时撕开空间通道。"
+    },
+    {
+      "chapterIndex": 98,
+      "event": "三人在逃入空间通道后遭遇狂暴风暴，导致失散。",
+      "impact": "殷棠和姜念被吸入不同的未知空间，李豪杰独自坠入深渊，小队彻底失散。"
+    },
+    {
+      "chapterIndex": 99,
+      "event": "李豪杰苏醒并催动“时序之眼”在荒原上定位到了殷棠和姜念",
+      "impact": "实现了三人劫后重聚，确认了核心团队成员的生存状态"
+    },
+    {
+      "chapterIndex": 99,
+      "event": "李豪杰使用仅剩的回春救治治殷棠，并发现其身体如瓷器般布满裂纹",
+      "impact": "揭示了殷棠作为“容器”承受的巨大代价，增加了团队的生存压力"
+    },
+    {
+      "chapterIndex": 99,
+      "event": "李豪杰解读羊皮纸，发现其描绘的是通往“仙域之门”的路线，且终点为“无间深渊”",
+      "impact": "揭示了主线任务的关键道具和目标地点，确立了前往禁地寻找生路的剧情方向"
+    },
+    {
+      "chapterIndex": 99,
+      "event": "李豪杰决定背负殷棠，带领姜念前往无间深渊",
+      "impact": "标志着团队正式踏上向死而生的逃亡与挑战之路"
+    },
+    {
+      "chapterIndex": 100,
+      "event": "云萝进入鬼市秘道，以死人怨气冒充执念交换地图。",
+      "impact": "成功获取关键道具，但过程中可能有变数。"
+    },
+    {
+      "chapterIndex": 100,
+      "event": "天机阁灰袍执事突袭李豪杰，李豪杰以凡人之躯拖延时间。",
+      "impact": "李豪杰身陷险境，激发了求生欲。"
+    },
+    {
+      "chapterIndex": 100,
+      "event": "云萝及时回归并施展纸兵术对抗灰袍老者，掩护李豪杰和姜念撤离。",
+      "impact": "众人成功逃离鬼市，保住了地图。"
+    },
+    {
+      "chapterIndex": 100,
+      "event": "李豪杰拼合新旧地图，发现通天纪遗迹入口位于“死亡之海”的血眼标记下。",
+      "impact": "明确了探险目标，但预示前方充满了诅咒与死亡。"
+    },
+    {
+      "chapterIndex": 101,
+      "event": "队伍遭遇流沙漩涡袭击",
+      "impact": "姜念险些丧命，李豪杰为救姜念放弃云萝的绳索"
+    },
+    {
+      "chapterIndex": 101,
+      "event": "李豪杰利用视觉找到流沙阵法的生门",
+      "impact": "带领众人成功逃离流沙，发现沙海下埋着古城"
+    },
+    {
+      "chapterIndex": 101,
+      "event": "队伍抵达终点——半掩在流沙中的巨大青铜门",
+      "impact": "发现门上刻有无数人脸，确认此处即为'血眼'标记处"
+    },
+    {
+      "chapterIndex": 102,
+      "event": "李豪杰在长渊指引下发现时空乱流中被撕裂的伤口",
+      "impact": "为主角团提供了进入门后世界的唯一路径"
+    },
+    {
+      "chapterIndex": 102,
+      "event": "李豪杰强行引导灵力撑开通道，众人合力冲入时空乱流",
+      "impact": "主角团成功穿越屏障进入新地图，青铜门入口闭合"
+    },
+    {
+      "chapterIndex": 102,
+      "event": "穿越过程中李豪杰看到通天纪巨人对抗怪物并封印大陆的幻象",
+      "impact": "揭示了通天纪毁灭的历史真相与背景"
+    },
+    {
+      "chapterIndex": 102,
+      "event": "众人抵达倒悬城市'存续'，发现悬挂在锁链上的星辰宗尸体",
+      "impact": "明确了竞争对手身份，并预示了此地的高危险性"
+    },
+    {
+      "chapterIndex": 102,
+      "event": "李豪杰发现殷棠在乱流冲击后出现银色流光游走、玉佩黯淡的异变",
+      "impact": "殷棠状态变得异常，增加了李豪杰的心理压力和剧情悬念"
+    },
+    {
+      "chapterIndex": 103,
+      "event": "众人进入金属回廊，灵力被压制",
+      "impact": "队伍陷入劣势，无法依靠常规修仙手段感知和战斗"
+    },
+    {
+      "chapterIndex": 103,
+      "event": "殷棠无意识操控遗迹符文，引发回廊异变",
+      "impact": "证实殷棠与遗迹（通天纪）的关联，导致遗迹崩塌"
+    },
+    {
+      "chapterIndex": 103,
+      "event": "众人逃入广场，被机械独眼扫描并启动清除程序",
+      "impact": "遭遇新的致命危机，全员被锁定清除"
+    },
+    {
+      "chapterIndex": 104,
+      "event": "遗迹启动聚灵炮发射实心弹丸和红网进行毁灭打击",
+      "impact": "迫使李豪杰寻找掩体，并意外发现金属墙壁前的空间褶皱，带领众人躲入其中"
+    },
+    {
+      "chapterIndex": 104,
+      "event": "李豪杰利用'时序之眼'与逻辑锁产生意识共振，破解屏障",
+      "impact": "成功打开通往地底深处的通道，避开了外部的毁灭攻击"
+    },
+    {
+      "chapterIndex": 104,
+      "event": "众人沿螺旋阶梯下到尽头，发现正在震动的黑色巨门",
+      "impact": "察觉到门后有巨大的未知生物即将苏醒，气氛陷入极度紧张"
+    },
+    {
+      "chapterIndex": 105,
+      "event": "李豪杰开启黑色巨门，众人进入布满青铜傀儡的长廊。",
+      "impact": "触发了长廊内的防御机制，青铜傀儡苏醒并开始攻击。"
+    },
+    {
+      "chapterIndex": 105,
+      "event": "姜念觉醒太古剑神人格，一剑斩杀青铜傀儡。",
+      "impact": "短暂击退敌人，但导致防御系统判定威胁等级提升，启动最高警戒。"
+    },
+    {
+      "chapterIndex": 105,
+      "event": "李豪杰强行阻止姜念继续战斗，防爆闸门落下将众人困在密室。",
+      "impact": "众人陷入绝境，系统启动了针对“样本”的净化程序。"
+    },
     {
       "chapterIndex": 106,
       "event": "星辰宗领队沈飞带人炸开闸门闯入密室",
@@ -1463,356 +1566,6 @@
       "chapterIndex": 119,
       "event": "时序源核激活，投射出星图并锁定天机阁位置",
       "impact": "确立了下一个目的地为天机阁，剧情推动至寻找盟友和线索阶段"
-    },
-    {
-      "chapterIndex": 120,
-      "event": "时序源核数据溢出，殷棠失控启动清除程序",
-      "impact": "导致周围环境毁灭，殷棠面临自毁"
-    },
-    {
-      "chapterIndex": 120,
-      "event": "遗迹防御机制激活，四面金属墙壁升起合拢",
-      "impact": "将李豪杰和殷棠困在封闭空间内，切断了与外界的联系"
-    },
-    {
-      "chapterIndex": 120,
-      "event": "李豪杰利用桃木木雕冲入封印区抱住殷棠",
-      "impact": "阻止了殷棠自毁，木雕与源核发生反应，两人被转移至“静默室”"
-    },
-    {
-      "chapterIndex": 120,
-      "event": "李豪杰通过木雕获得源核权限并吸收时序本源",
-      "impact": "李豪杰力量本质发生变化，成为打破牢笼的关键"
-    },
-    {
-      "chapterIndex": 120,
-      "event": "大雷音寺“不动明王”卫队（秦）出现在墙外",
-      "impact": "云萝等人面临新的追杀危机"
-    },
-    {
-      "chapterIndex": 121,
-      "event": "星辰宗长老苍梧带队降临遗迹，驱赶大雷音寺并强攻遗迹。",
-      "impact": "引发遗迹外围混战，局势急剧恶化。"
-    },
-    {
-      "chapterIndex": 121,
-      "event": "姜念觉醒'剑神'状态，一剑斩杀数名星辰宗精英弟子，随即力竭昏迷。",
-      "impact": "暂时震慑全场，但也让断剑的秘密彻底暴露。"
-    },
-    {
-      "chapterIndex": 121,
-      "event": "苍梧利用星辰之力攻击遗迹外壁，李豪杰在内部利用源核心制造时序共振防御。",
-      "impact": "成功抵挡了第一波攻击，导致苍梧被反噬，遗迹墙壁显示时间节点冲突警告。"
-    },
-    {
-      "chapterIndex": 121,
-      "event": "苍梧恼羞成怒，决定施展禁术'九星连珠·逆乱阴阳'不惜代价破壁。",
-      "impact": "遗迹面临毁灭性打击，危机等级升至最高。"
-    },
-    {
-      "chapterIndex": 122,
-      "event": "李豪杰尝试破解真理之门的符文逻辑环",
-      "impact": "遭到门内绝望记忆和诅咒的反噬，精神受到重创，身体受伤，被殷棠救下"
-    },
-    {
-      "chapterIndex": 122,
-      "event": "李豪杰领悟门的本质并触碰石门中心",
-      "impact": "发现门渴望的是“交换”而非解开谜题，门发出声音索要“进贡”，开启了新的解谜方向"
-    },
-    {
-      "chapterIndex": 123,
-      "event": "李豪杰主动献祭关于母亲的核心记忆给石门",
-      "impact": "石门开启，李豪杰失去记忆后情感变得麻木空虚，两人得以通过"
-    },
-    {
-      "chapterIndex": 123,
-      "event": "两人进入地下溶洞发现黑色祭坛与破碎晶体",
-      "impact": "发现晶体具有负能量特性，危机感加剧"
-    },
-    {
-      "chapterIndex": 123,
-      "event": "祭坛晶体传出酷似殷棠的求救声",
-      "impact": "李豪杰震惊，产生认知冲突，暗示前方存在针对李豪杰的幻象或陷阱"
-    },
-    {
-      "chapterIndex": 124,
-      "event": "李豪杰发现祭坛上被囚禁的殷棠本体",
-      "impact": "揭示了殷棠的真实身份和处境，确立了试炼的核心危机"
-    },
-    {
-      "chapterIndex": 124,
-      "event": "观察者现身并宣布世界即将崩塌，需执行'归零'程序",
-      "impact": "提升了世界观层面的危机，将冲突从个人生存上升到世界存亡"
-    },
-    {
-      "chapterIndex": 124,
-      "event": "李豪杰攻击观察者失败并与其辩论",
-      "impact": "体现了人性与绝对理性的对立，坚定了李豪杰的立场"
-    },
-    {
-      "chapterIndex": 124,
-      "event": "观察者展示'救一人或救世界'的选择场景",
-      "impact": "将剧情推向最高潮，逼迫主角做出最终抉择"
-    },
-    {
-      "chapterIndex": 125,
-      "event": "李豪杰通过反问'若救一人需毁一界'通过了观察者的勇气测试",
-      "impact": "获得了观察者展示世界真相的权限"
-    },
-    {
-      "chapterIndex": 125,
-      "event": "观察者展示'创世'与'灭世'的全息推演",
-      "impact": "揭示了世界本质是人造工程，且面临因能量耗散而必然灭亡的结局"
-    },
-    {
-      "chapterIndex": 125,
-      "event": "观察者提出以殷棠为燃料进行'归零'重启的方案",
-      "impact": "确立了李豪杰与观察者之间的核心矛盾，逼迫李豪杰做出抉择"
-    },
-    {
-      "chapterIndex": 125,
-      "event": "李豪杰拒绝归零方案，提出寻找加速崩溃的'源头'以争取时间",
-      "impact": "改变了剧情走向，寻找波动源头成为替代重启的新目标"
-    },
-    {
-      "chapterIndex": 126,
-      "event": "苍梧长老打破防御层入侵溶洞",
-      "impact": "众人陷入绝境，战斗爆发"
-    },
-    {
-      "chapterIndex": 126,
-      "event": "程序体殷棠因逻辑冲突陷入死锁",
-      "impact": "无法防御，李豪杰陷入危险"
-    },
-    {
-      "chapterIndex": 126,
-      "event": "姜念施展太古剑意对抗苍梧长老",
-      "impact": "暂时阻敌，但最终断剑人伤"
-    },
-    {
-      "chapterIndex": 126,
-      "event": "傀儡宗老妇人和云萝介入战斗",
-      "impact": "暂时缠住苍梧长老，为李豪杰争取时间"
-    },
-    {
-      "chapterIndex": 126,
-      "event": "墨无痕偷袭苍梧长老失败",
-      "impact": "偷袭计划破产，墨无痕昏迷"
-    },
-    {
-      "chapterIndex": 126,
-      "event": "苍梧长老突破防线抓住真身殷棠",
-      "impact": "核心目标被夺，李豪杰陷入绝望"
-    },
-    {
-      "chapterIndex": 127,
-      "event": "姜念觉醒太古剑神之魂，瞬杀苍梧长老及星辰宗弟子",
-      "impact": "消灭了主要敌人，但姜念力量失控，敌我不分"
-    },
-    {
-      "chapterIndex": 127,
-      "event": "剑神意志欲杀李豪杰，姜念自残夺取控制权",
-      "impact": "姜念耗尽本源，灵魂濒临消散，身体濒临崩溃"
-    },
-    {
-      "chapterIndex": 127,
-      "event": "程序体殷棠将姜念灵魂封印进时序核心静默空间",
-      "impact": "保住了姜念的一线生机，但也意味着她将陷入无时间的永恒沉睡"
-    },
-    {
-      "chapterIndex": 127,
-      "event": "姜念肉体苏醒，被剑神残魂控制并剑指李豪杰",
-      "impact": "昔日守护者变成最大威胁，制造了新的剧情高潮与悬念"
-    },
-    {
-      "chapterIndex": 128,
-      "event": "姜念被剑神残魂控制，剑指李豪杰，但剑尖因躯体记忆偏转，未造成致命伤。",
-      "impact": "揭示姜念体内仍有自我意识，李豪杰决定通过情感唤醒她。"
-    },
-    {
-      "chapterIndex": 128,
-      "event": "李豪杰拿出桃木木雕，用糖葫芦等记忆唤起姜念残存意识。",
-      "impact": "剑神残魂暂时混乱，姜念自我觉醒。"
-    },
-    {
-      "chapterIndex": 128,
-      "event": "幸存的星辰宗长老启动控制台反抽取程序，企图拉所有人陪葬。",
-      "impact": "溶洞能量失控，即将爆炸/坍缩，危机升级。"
-    },
-    {
-      "chapterIndex": 128,
-      "event": "殷棠进行数据入侵强行过载控制台，试图切断能源。",
-      "impact": "殷棠遭到重创，为阻止灾难争取时间。"
-    },
-    {
-      "chapterIndex": 128,
-      "event": "姜念挥剑斩击控制台，导致能量逆流，遗迹开始自我吞噬。",
-      "impact": "溶洞面临坍塌，姜念被吸向核心，生死未卜。"
-    },
-    {
-      "chapterIndex": 129,
-      "event": "李豪杰意识被观察者拉入逻辑层，得知姜念献祭核心及即将爆炸的危机",
-      "impact": "揭示了当前绝境，推动李豪杰做出抉择"
-    },
-    {
-      "chapterIndex": 129,
-      "event": "观察者提出以李豪杰为'稳定锚'的方案，李豪杰谈判后答应交易",
-      "impact": "确立了拯救姜念和世界的唯一路径，李豪杰牺牲自由换取生机"
-    },
-    {
-      "chapterIndex": 129,
-      "event": "李豪杰肉身重伤苏醒，强行冲过能量风暴将手按在控制台上",
-      "impact": "正式启动能量逆转与稳定程序，完成自我牺牲"
-    },
-    {
-      "chapterIndex": 130,
-      "event": "李豪杰通过观测时序线引导狂暴能量，在丹田铸就“时序之基”，完成肉身与意识的蜕变。",
-      "impact": "能量风暴平息，遗迹核心稳定，李豪杰获得超越常理的强大力量。"
-    },
-    {
-      "chapterIndex": 130,
-      "event": "观察者确认交易完成，姜念意识碎片被保存，而殷棠因逻辑程序重启，失去记忆变为初始状态。",
-      "impact": "姜念以失忆的小女孩形态重生，殷棠的人格消失。"
-    },
-    {
-      "chapterIndex": 130,
-      "event": "李豪杰接受背负寰宙因果的命运，带着重启后的姜念离开地下溶洞。",
-      "impact": "主角团队走出绝境，李豪杰正式踏上背负时间的修真之路。"
-    },
-    {
-      "chapterIndex": 131,
-      "event": "李豪杰与变成半尸怪物的苍梧对峙",
-      "impact": "揭示了李豪杰蜕变后的实力与心态"
-    },
-    {
-      "chapterIndex": 131,
-      "event": "苍梧发动灵力锁链攻击被李豪杰以时序法则化解",
-      "impact": "展示了李豪杰超越常规修士的规则之力"
-    },
-    {
-      "chapterIndex": 131,
-      "event": "李豪杰利用‘回溯之眼’看穿苍梧旧伤并发动因果攻击",
-      "impact": "引爆苍梧体内的诅咒，使其修为尽失，迅速衰老"
-    },
-    {
-      "chapterIndex": 131,
-      "event": "李豪杰带姜念离开，云萝决定跟随",
-      "impact": "确立了新的队伍关系，主角踏上旅途"
-    },
-    {
-      "chapterIndex": 132,
-      "event": "李豪杰捏断因果线，阻止苍梧施展血遁之术",
-      "impact": "苍梧坠落重伤，失去逃跑机会"
-    },
-    {
-      "chapterIndex": 132,
-      "event": "李豪杰揭露苍梧过往罪孽并废去其修为",
-      "impact": "苍梧经脉寸断，金丹破碎，迅速衰老，彻底失去威胁"
-    },
-    {
-      "chapterIndex": 132,
-      "event": "遗迹核心因殷棠之前的操作失控导致坍塌",
-      "impact": "主角三人组被迫在落石中紧急逃亡"
-    },
-    {
-      "chapterIndex": 133,
-      "event": "遗迹开始全面崩塌，观察者出现并因系统过载而消散",
-      "impact": "切断了退路，增加了紧迫感，揭示了世界的虚拟或人造属性"
-    },
-    {
-      "chapterIndex": 133,
-      "event": "李豪杰决定救下仅剩躯壳的殷棠",
-      "impact": "确立了主角重情义的性格，增加了队伍负担"
-    },
-    {
-      "chapterIndex": 133,
-      "event": "三人小组躲避落石、激光网及重力异常，并遭遇遗迹主引擎坠落",
-      "impact": "展现了遗迹的危险性及李豪杰的战斗与应变能力"
-    },
-    {
-      "chapterIndex": 133,
-      "event": "逃出通道后被巨石封死在死胡同，李豪杰利用因果干涉推倒巨石",
-      "impact": "展示了李豪杰新获得的'回溯'能力，打开了唯一的生路"
-    },
-    {
-      "chapterIndex": 133,
-      "event": "李豪杰带领众人利用飞行法器向头顶百丈高的出口攀爬",
-      "impact": "开启了新一轮的逃生挑战，向地表进发"
-    },
-    {
-      "chapterIndex": 134,
-      "event": "李豪杰利用回溯之眼找到断龙石弱点并移除障碍",
-      "impact": "为逃生打开了第一道关卡，但暴露了内部的绝望局势"
-    },
-    {
-      "chapterIndex": 134,
-      "event": "夜溟觉醒黑暗力量，撕裂能量屏障",
-      "impact": "成功打破无法撼动的防御，带领众人逃出遗迹"
-    },
-    {
-      "chapterIndex": 134,
-      "event": "通天纪遗迹完全坍塌",
-      "impact": "切断了退路，同时引发了异常的幽蓝色能量光柱"
-    },
-    {
-      "chapterIndex": 134,
-      "event": "众人逃出后遭遇血煞宗和沙盗联盟数百人包围",
-      "impact": "从天灾逃生转入人祸战斗，局势再次危急"
-    },
-    {
-      "chapterIndex": 134,
-      "event": "李豪杰利用遗迹爆发的时机震慑敌人",
-      "impact": "为接下来的反击创造了心理优势和战机"
-    },
-    {
-      "chapterIndex": 135,
-      "event": "厉千行率领沙盗和散修包围李豪杰等人，索要殷棠做炉鼎，姜念出言讽刺激怒敌人。",
-      "impact": "引发战斗，一名筑基后期沙盗头目率先攻击李豪杰。"
-    },
-    {
-      "chapterIndex": 135,
-      "event": "李豪杰在灵力枯竭状态下，利用回溯之眼和物理技巧秒杀筑基后期沙盗头目。",
-      "impact": "短暂震慑敌人，但同时也暴露了自己灵力枯竭的事实，引来更疯狂的围攻。"
-    },
-    {
-      "chapterIndex": 135,
-      "event": "夜溟施展黑暗力量吞噬三名血煞宗弟子，暂时迟滞了敌人的冲锋。",
-      "impact": "为李豪杰等人争取了突围的一线生机，但引起厉千行对魔道身份的怀疑。"
-    },
-    {
-      "chapterIndex": 135,
-      "event": "突围过程中，万毒宗发动毒雾攻击，殷棠自动散发的护体灵光挡住毒雾。",
-      "impact": "虽然解了毒雾之围，但确认了殷棠身上携带重宝，导致万毒宗加入疯狂抢夺。"
-    },
-    {
-      "chapterIndex": 135,
-      "event": "李豪杰被筑基中期修士撞飞重伤后，爆发潜能反杀对方。",
-      "impact": "再次震慑敌人，但团队全员受伤，陷入绝境。"
-    },
-    {
-      "chapterIndex": 135,
-      "event": "厉千行下令全面围攻（毒蝎、剑阵、毒雾等），李豪杰发现遗迹残留生机，决定死战。",
-      "impact": "战斗升级为屠杀局面，李豪杰准备利用那道生机做最后的反击。"
-    },
-    {
-      "chapterIndex": 136,
-      "event": "李豪杰利用‘时序之基’释放威压，静止沙砾并震慑住厉千行及大批散修。",
-      "impact": "成功压制了在场敌人的攻势，迫使厉千行犹豫退缩，暂时掌握主动权。"
-    },
-    {
-      "chapterIndex": 136,
-      "event": "万毒宗老祖枯木（金丹期）突然现身，打断了对峙局面。",
-      "impact": "打破了李豪杰的气场，将原本的危机转变为更大的生存危机，李豪杰等人陷入劣势。"
-    },
-    {
-      "chapterIndex": 136,
-      "event": "枯木使用‘七窍煞骨灯’释放腐蚀性毒火攻击众人。",
-      "impact": "迫使李豪杰退防，场面陷入混乱，云萝、姜念等人生命受到直接威胁。"
-    },
-    {
-      "chapterIndex": 136,
-      "event": "李豪杰在毒火中察觉到‘时序的破绽’，准备发动反击。",
-      "impact": "剧情转折点，为下一章李豪杰绝地反击埋下伏笔。"
     }
   ],
   "foreshadows": [
@@ -4118,381 +3871,59 @@
       "plantedInChapter": 119,
       "resolved": false,
       "priority": "medium"
-    },
-    {
-      "id": "f_120_0",
-      "description": "桃木木雕及其上黑色丝线的真实来历与作用",
-      "plantedInChapter": 120,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_120_1",
-      "description": "李豪杰获得的“时序本源”力量及其后续影响",
-      "plantedInChapter": 120,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_120_2",
-      "description": "大雷音寺“秦”字卫队的追杀意图",
-      "plantedInChapter": 120,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_121_0",
-      "description": "遗迹内部存在基于时间法则的高级防御机制（提示'错误：时间节点冲突'）",
-      "plantedInChapter": 121,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_121_1",
-      "description": "秦字旗部队按兵不动，似乎在防备遗迹深处的东西或等待更大机会",
-      "plantedInChapter": 121,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_121_2",
-      "description": "李豪杰手中的黑色木雕是一把能打开时序大门的钥匙",
-      "plantedInChapter": 121,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_122_0",
-      "description": "“归零”计划及上一个纪元文明毁灭的真相（十三个太阳、机械生物、熵增）",
-      "plantedInChapter": 122,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_122_1",
-      "description": "门后藏着的“悖论”的具体内容",
-      "plantedInChapter": 122,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_122_2",
-      "description": "李豪杰体内无法解析的黑色物质及其影响",
-      "plantedInChapter": 122,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_122_3",
-      "description": "门要求的“进贡”具体是指什么",
-      "plantedInChapter": 122,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_123_0",
-      "description": "祭坛晶体中封印的活物为何能模拟殷棠的声音",
-      "plantedInChapter": 123,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_123_1",
-      "description": "晶体内部的活物与殷棠之间的潜在联系",
-      "plantedInChapter": 123,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_124_0",
-      "description": "桃木木雕与母亲记忆的深层联系及潜在作用",
-      "plantedInChapter": 124,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_124_1",
-      "description": "时序网的衰败与'枯萎'现象的具体原因",
-      "plantedInChapter": 124,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_124_2",
-      "description": "第412万次循环的暗示及世界重复的可能性",
-      "plantedInChapter": 124,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_125_0",
-      "description": "存在未知的'波动'源头正在从外部干扰时序网，加速世界崩溃，李豪杰怀疑与黑书或魔道有关",
-      "plantedInChapter": 125,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_125_1",
-      "description": "观察者对李豪杰的选择表现出了一丝'期待'，暗示它可能也在寻找变数",
-      "plantedInChapter": 125,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_126_0",
-      "description": "程序体殷棠产生了'心'的概念，可能影响后续进化",
-      "plantedInChapter": 126,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_126_1",
-      "description": "李豪杰手中父亲留下的木雕可能隐藏着更强的力量",
-      "plantedInChapter": 126,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_126_2",
-      "description": "老妇人自称是来'接人'，暗示与李豪杰或姜念有某种深层联系",
-      "plantedInChapter": 126,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_127_0",
-      "description": "寻找修复剑魂的方法以唤醒沉睡在静默空间中的姜念",
-      "plantedInChapter": 127,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_127_1",
-      "description": "如何解决被剑神残魂占据的姜念躯体带来的威胁",
-      "plantedInChapter": 127,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_127_2",
-      "description": "祭坛上殷棠真身作为完美时序容器在后续剧情中的作用",
-      "plantedInChapter": 127,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_128_0",
-      "description": "能量逆流导致的“自我吞噬”现象及其最终后果",
-      "plantedInChapter": 128,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_128_1",
-      "description": "姜念被吸入核心后可能发生的变化",
-      "plantedInChapter": 128,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_128_2",
-      "description": "星辰宗长老死前关于“通天宝藏”的遗言",
-      "plantedInChapter": 128,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_129_0",
-      "description": "李豪杰被称为'变量'，拥有特殊的因果波动，其身世（父亲的木雕、无名黑书）可能涉及通天纪的深层秘密",
-      "plantedInChapter": 129,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_129_1",
-      "description": "观察者承诺若找到替代者或时序网稳定，可能让李豪杰苏醒，暗示未来有解救的希望",
-      "plantedInChapter": 129,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_129_2",
-      "description": "李豪杰在光芒中看到的未来画面（姜念奔跑、殷棠树下、云萝穿红衣）可能成为现实或是对未来的某种感知",
-      "plantedInChapter": 129,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_130_0",
-      "description": "李豪杰将时序中的黑色雾气与怨念封印在丹田晶体深处，可能成为未来的隐患",
-      "plantedInChapter": 130,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_130_1",
-      "description": "李豪杰不再是普通的修真者，背负寰宙因果意味着未来的路将充满未知的诅咒与挑战",
-      "plantedInChapter": 130,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_131_0",
-      "description": "‘暮岁纪元’的世界观设定",
-      "plantedInChapter": 131,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_131_1",
-      "description": "李豪杰提到的‘前面的路，还很长’暗示后续的冒险或使命",
-      "plantedInChapter": 131,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_132_0",
-      "description": "废墟坍塌声中夹杂的诡异笑声",
-      "plantedInChapter": 132,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_133_0",
-      "description": "李豪杰被观察者认定为'无法解析的错误'和'变量'，暗示其对世界规则的特殊性",
-      "plantedInChapter": 133,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_133_1",
-      "description": "李豪杰自称'赶路人'，暗示其来历神秘",
-      "plantedInChapter": 133,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_133_2",
-      "description": "李豪杰提到'真正的麻烦还在后面'，暗示地表情况不容乐观",
-      "plantedInChapter": 133,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_134_0",
-      "description": "沙海之下潜伏着被阵法掩盖的庞大气息",
-      "plantedInChapter": 134,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_134_1",
-      "description": "夜溟的真实身份及那股来自域外的黑暗力量来源",
-      "plantedInChapter": 134,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_134_2",
-      "description": "遗迹爆发出的幽蓝色能量光柱的具体作用及后果",
-      "plantedInChapter": 134,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_135_0",
-      "description": "殷棠身上的护体灵光被万毒宗弟子推测为通天纪宝物，能万毒不侵。",
-      "plantedInChapter": 135,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_135_1",
-      "description": "李豪杰在天空中看到的遗迹爆发残余能量可能是唯一的逃生契机。",
-      "plantedInChapter": 135,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_135_2",
-      "description": "姜念手中的生锈断剑偶尔爆发出凌厉剑气，暗示其来历不凡。",
-      "plantedInChapter": 135,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_135_3",
-      "description": "夜溟的黑暗力量极不稳定，随时可能发生反噬。",
-      "plantedInChapter": 135,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_136_0",
-      "description": "枯木提及要将李豪杰炼成‘时序毒人’以求突破至元婴期",
-      "plantedInChapter": 136,
-      "resolved": false,
-      "priority": "medium"
-    },
-    {
-      "id": "f_136_1",
-      "description": "李豪杰发现了枯木或其毒宝的‘时序破绽’，即将发动致命反击",
-      "plantedInChapter": 136,
-      "resolved": false,
-      "priority": "medium"
     }
   ],
   "recentOpenings": [
     {
-      "chapterIndex": 127,
-      "firstSentence": "有些东西，只有在彻底粉碎之后，才会显露出原本锋利的内核。",
+      "chapterIndex": 110,
+      "firstSentence": "李豪杰的手指搭在殷棠的手腕上，那里跳动的不再是生命的温热鼓点，而是一串冰冷的、极具规律的震颤，像是一颗不知疲倦的心脏在精密的齿轮间挤压。",
       "openingType": "description"
     },
     {
-      "chapterIndex": 128,
-      "firstSentence": "一滴猩红的血珠顺着断剑残破的剑脊蜿蜒滚落，却在剑身三分之二处瞬间凝结成了一颗晶莹剔透的冰珠。",
+      "chapterIndex": 111,
+      "firstSentence": "时间有时候像是一把生锈的钝刀，并不急着割断喉咙，而是慢条斯理地在骨头上磨，直到你习惯了这种疼痛，它才给你最后一击。",
       "openingType": "description"
     },
     {
-      "chapterIndex": 129,
-      "firstSentence": "死亡并非终结，而是另一种形式的开始，这句话只有在活着的人口中才会显得如此苍白无力。",
+      "chapterIndex": 112,
+      "firstSentence": "那并非死亡，而是一次强制关机。",
       "openingType": "description"
     },
     {
-      "chapterIndex": 130,
-      "firstSentence": "掌心焦黑血肉的纹路与控制台上冰冷粗糙的金属刻痕重叠，在那一瞬间，仿佛将一个凡人脆弱的痛苦与这座古老遗迹永恒的寂静强行焊接在了一起。",
+      "chapterIndex": 113,
+      "firstSentence": "背叛并不总是伴随着血腥的嘶吼，有时候，它仅仅是一阵极其轻微的、不合时宜的风，在最脆弱的脊背上吹开一道寒意。",
       "openingType": "description"
     },
     {
-      "chapterIndex": 131,
-      "firstSentence": "死人通常不会说话，更不会站在废墟之上狞笑，但星辰宗的长老苍梧显然是个例外。",
+      "chapterIndex": 114,
+      "firstSentence": "悲伤有时候并不是一种情绪，而是一颗卡在精密齿轮里的砂砾，微小，粗粝，却足以让一部庞大的、严丝合缝的机器发出刺耳的摩擦声，直至停摆。",
       "openingType": "description"
     },
     {
-      "chapterIndex": 132,
-      "firstSentence": "一滴精血，蕴含着修士毕生的修为精华，在撞击地面之前，比最重的金锭还要沉重。",
+      "chapterIndex": 115,
+      "firstSentence": "毁灭并不总是需要浩大的声势，有时候，它仅仅是一个数字的归零。",
       "openingType": "description"
     },
     {
-      "chapterIndex": 133,
-      "firstSentence": "有时候，崩塌的世界比完整的世界更真实。",
-      "openingType": "thought"
-    },
-    {
-      "chapterIndex": 134,
-      "firstSentence": "逆流而上的感觉，就像是在深海里屏住呼吸，肺叶被无形的重压一点点压扁，每一寸肌肉都在尖叫着渴望放弃。",
+      "chapterIndex": 116,
+      "firstSentence": "那是一颗悬浮在半空中的微小冰晶，正对着殷棠颤动的睫毛，闪烁着唯一的寒光。",
       "openingType": "description"
     },
     {
-      "chapterIndex": 135,
-      "firstSentence": "贪婪就像是这无尽沙海中的流沙，无声无息，却又无处不在。",
+      "chapterIndex": 117,
+      "firstSentence": "那并非一道伤口，而是一个正在进食的黑洞。",
       "openingType": "description"
     },
     {
-      "chapterIndex": 136,
-      "firstSentence": "一颗沙砾悬浮在李豪杰眼前半寸的地方。",
+      "chapterIndex": 118,
+      "firstSentence": "心跳通常象征着生命的律动，但在那艘名为“虚空斩舰”的古老兵器胸腔里，那一下又一下沉闷的撞击声，仅仅是在宣告毁灭的倒计时。",
       "openingType": "description"
+    },
+    {
+      "chapterIndex": 119,
+      "firstSentence": "李豪杰右手掌心的皮肤发出滋滋的声响，那是滚烫的金属余温正在灼烧血肉的声音，但他没有松手，反而握得更紧了些。",
+      "openingType": "action"
     }
   ],
-  "lastUpdatedChapter": 136
+  "lastUpdatedChapter": 119
 }
