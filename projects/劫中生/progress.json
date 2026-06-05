@@ -1,11 +1,11 @@
 {
   "status": "writing",
-  "currentPhase": "第7卷 - 第17章「第17章：立威」",
+  "currentPhase": "第8卷 - 第19章「第19章 踏入虚空」",
   "totalChapters": 540,
-  "completedChapters": 137,
-  "totalWords": 567054,
-  "lastWrittenChapter": 136,
-  "totalTokensUsed": 6369274,
+  "completedChapters": 159,
+  "totalWords": 653476,
+  "lastWrittenChapter": 158,
+  "totalTokensUsed": 7297606,
   "errors": [
     "第23章「第3章 污染的灵脉」: 429 已达到 5 小时的使用上限。您的限额将在 2026-05-26 17:34:48 重置。",
     "第29章「第9章 暗流交易」: Connection error.",
@@ -17,8 +17,8 @@
     "第89章「实战胜雄辩」: Request timed out."
   ],
   "startedAt": "2026-05-24T16:29:43.316Z",
-  "updatedAt": "2026-05-30T20:15:33.291Z",
-  "currentVolumeIndex": 6,
+  "updatedAt": "2026-06-04T23:42:20.682Z",
+  "currentVolumeIndex": 7,
   "currentArcIndex": 1,
   "volumeWordCounts": {
     "0": 82015,
@@ -27,8 +27,9 @@
     "3": 82427,
     "4": 83179,
     "5": 84156,
-    "6": 75797
+    "6": 87234,
+    "7": 74985
   },
-  "completedVolumes": 6,
+  "completedVolumes": 7,
   "completedArcs": 1
 }
